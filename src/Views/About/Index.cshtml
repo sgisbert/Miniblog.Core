@@ -1,0 +1,190 @@
+@*@using Model.Utils;*@
+
+@{
+	ViewData[Constants.Title] = "Sergi Gisbert - " + Miniblog.Core.Texts.Bio.Content.Title;
+	ViewData[Constants.Description] = Miniblog.Core.Texts.Bio.Content.Description;
+}
+
+@section Breadcrumbs {
+	<div class="breadcrumbs margin-bottom-10">
+		<div class="container">
+			<h1 class="pull-left">@Miniblog.Core.Texts.Bio.Content.Title</h1>
+		</div>
+	</div>
+}
+
+<div class="row team">
+	<div class="col-sm-3">
+		<div class="thumbnail-style">
+			<img class="img-responsive" src="~/assets/img/about_reduced.jpg" width="265" height="353" alt="Sergi Gisbert" />
+			<h3><a>Sergi Gisbert</a> <small>@Miniblog.Core.Texts.Bio.Content.Position</small></h3>
+			@*@Html.RenderMarkdown("/Texts/Bio/Briefing")*@
+			@{ await Html.RenderPartialAsync("_SocialLinks"); }
+		</div>
+	</div>
+
+	<div class="col-sm-9">
+
+		<div class="tag-box tag-box-v2">
+			@*@Html.RenderMarkdown("/Texts/Bio/Resume")*@
+		</div>
+		<div class="headline"><h2>@Miniblog.Core.Texts.Bio.Content.Technologies</h2></div>
+		<div class="tag-box tag-box-v4" style="font-size:large;">
+			<span class="label label-success">.net</span>
+			<span class="label label-success">c#</span>
+			<span class="label label-success">asp.net-mvc-3</span>
+			<span class="label label-success">asp.net-mvc-4</span>
+			<span class="label label-success">asp.net-mvc-5</span>
+			<span class="label label-success">sitecore</span>
+			<span class="label label-success">sql</span>
+			<span class="label label-success">sql-server</span>
+			<span class="label label-success">visual studio</span>
+			<span class="label label-success">svn</span>
+			<span class="label label-success">git</span>
+			<span class="label label-success">windows azure</span>
+			<span class="label label-success">varnish</span>
+			<span class="label label-success">cloudflare</span>
+			<span class="label label-success">newrelic</span>
+			<span class="label label-success">teamcity</span>
+			<span class="label label-success">bootstrap</span>
+			<span class="label label-success">responsive web</span>
+			<span class="label label-success">wordpress</span>
+			<span class="label label-success">WPO</span>
+			<span class="label label-success">page speed</span>
+			<span class="label label-success">yslow</span>
+			<span class="label label-success">elearning</span>
+			<span class="label label-success">scorm</span>
+			<span class="label label-success">open badges</span>
+		</div>
+
+		<div class="tab-v2">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#resumen-1" data-toggle="tab"><h4>@Miniblog.Core.Texts.Bio.Content.General</h4></a></li>
+				<li class=""><a href="#experiencia-1" data-toggle="tab"><h4>@Miniblog.Core.Texts.Bio.Content.Experience</h4></a></li>
+				<li class=""><a href="#formacion-1" data-toggle="tab"><h4>@Miniblog.Core.Texts.Bio.Content.Academic</h4></a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="resumen-1">
+					@*@Html.RenderMarkdown("/Texts/Bio/GeneralContent")*@
+				</div>
+				<div class="tab-pane" id="experiencia-1">
+					<div class="panel-group acc-v1" id="accordion-1">
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle" style="text-decoration: none; font-size:x-large;" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-One">
+										<img src="~/assets/img/logos/kabel.png" alt="Kabel" width="48" /> @Miniblog.Core.Texts.Bio.Content.KabelTitle
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-One" class="panel-collapse collapse" style="height: auto;">
+								<div class="panel-body">
+									@*@Html.RenderMarkdown("/Texts/Bio/KabelContent")*@
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle" style="text-decoration: none; font-size:x-large;" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-Two">
+										<img src="~/assets/img/logos/clearpeople.png" alt="ClearPeople Ltd." width="48" /> @Miniblog.Core.Texts.Bio.Content.CPTitle
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-Two" class="panel-collapse collapse" style="height: auto;">
+								<div class="panel-body">
+									@*@Html.RenderMarkdown("/Texts/Bio/CPContent")*@
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle" style="text-decoration: none; font-size:x-large;" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-Three">
+										<img src="~/assets/img/logos/estratomedia.png" alt="Estrato Media S.L." width="50" /> @Miniblog.Core.Texts.Bio.Content.EstratoTitle
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-Three" class="panel-collapse collapse" style="height: auto;">
+								<div class="panel-body">
+									@*@Html.RenderMarkdown("/Texts/Bio/EstratoContent")*@
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle" style="text-decoration: none; font-size:x-large;" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-Four">
+										<img src="~/assets/img/logos/logo.lsi.50x40.png" alt="DLSI" /> @Miniblog.Core.Texts.Bio.Content.Virtua2Title
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-Four" class="panel-collapse collapse">
+								<div class="panel-body">
+									@*@Html.RenderMarkdown("/Texts/Bio/Virtua2Content")*@
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="formacion-1">
+					<div class="panel-group acc-v1" id="accordion-2">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle" style="text-decoration: none; font-size:x-large;" data-toggle="collapse" data-parent="#accordion-2" href="#collapse-Five">
+										<i class="icon-bookmark-empty"></i>@Miniblog.Core.Texts.Bio.Content.Academic1
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-Five" class="panel-collapse in" style="height: auto;">
+								<div class="panel-body">
+									<p><img src="~/assets/img/logos/logotipo-de-la-ua-178-x-28-pixel.png" alt="Universidad de Alicante" /></p>
+									<p><span class="label label-default"><strong>@Miniblog.Core.Texts.Bio.Content.Academic1Dates</strong></span></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle" style="text-decoration: none; font-size:x-large;" data-toggle="collapse" data-parent="#accordion-2" href="#collapse-Six">
+										<i class="icon-bookmark-empty"></i>@Miniblog.Core.Texts.Bio.Content.Academic2
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-Six" class="panel-collapse in">
+								<div class="panel-body">
+									<p><img src="~/assets/img/logos/logotipo-de-la-ua-178-x-28-pixel.png" alt="Universidad de Alicante" /></p>
+									<p><span class="label label-default"><strong>@Miniblog.Core.Texts.Bio.Content.Academic2Dates</strong></span></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle" style="text-decoration: none; font-size:x-large;" data-toggle="collapse" data-parent="#accordion-2" href="#collapse-Seven">
+										<i class="icon-comments-alt"></i>@Miniblog.Core.Texts.Bio.Content.Languages
+									</a>
+								</h4>
+							</div>
+							<div id="collapse-Seven" class="panel-collapse in">
+								<div class="panel-body">
+									<ul class="list-unstyled">
+										@*@Html.RenderMarkdown("/Texts/Bio/LanguagesContent")*@
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
