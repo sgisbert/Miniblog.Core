@@ -145,7 +145,7 @@ namespace Miniblog.Core.Controllers
             return post is null ? this.NotFound() : (IActionResult)this.View(post);
         }
 
-        [Route("/{page:int?}")]
+        [Route("/blog/{page:int?}")]
         [OutputCache(Profile = "default")]
         public async Task<IActionResult> Index([FromRoute]int page = 0)
         {

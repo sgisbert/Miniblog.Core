@@ -89,7 +89,7 @@ namespace Miniblog.Core
             app.UseEndpoints(
                 endpoints =>
                 {
-                    endpoints.MapControllerRoute("default", "{controller=Blog}/{action=Index}/{id?}");
+                    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                 });
 
         }

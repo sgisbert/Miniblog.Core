@@ -1,0 +1,40 @@
+@{
+	ViewData[Constants.Title] = "Sergi Gisbert - " + Miniblog.Core.Texts.Home.Content.Title;
+	ViewData[Constants.Description] = Miniblog.Core.Texts.Home.Content.Description;
+}
+<div class="jumbotron">
+	<img src="~/assets/img/about_reduced.jpg" alt="Sergi Gisbert" width="265" height="353" class="pull-left img-responsive" style="padding-right:15px;" />
+	<h1>@*<img alt="Sergi Gisbert" src="@Links.assets.img.avatar_jpg" class="" height="74" width="74"> *@Sergi Gisbert</h1>
+	<p class="lead">
+		@Miniblog.Core.Texts.Home.Content.Lead1
+		<br />@Miniblog.Core.Texts.Home.Content.Lead2
+	</p>
+	<p class="lead">@Miniblog.Core.Texts.Home.Content.Lead3 <a href="http://www.kabel.es" target="_blank">Kabel</a></p>
+	@{ await Html.RenderPartialAsync("_SocialLinks"); }
+</div>
+
+<div class="row servive-block margin-bottom-10">
+	@*<div class="col-md-2">&nbsp;</div>*@
+	<div class="col-md-4 col-sm-6">
+		<div class="servive-block-in">
+			<div><i class="icon-desktop"></i></div>
+			<h2><a href="/Projects" style="text-decoration: none">@Miniblog.Core.Texts.Home.Content.Projects</a></h2>
+			<p>@Miniblog.Core.Texts.Home.Content.ProjectsDescription</p>
+		</div>
+	</div>
+	@*<div class="col-md-2">&nbsp;</div>*@
+	<div class="col-md-4 col-sm-6">
+		<div class="servive-block-in">
+			<div><i class="icon-book"></i></div>
+			<h2><a href="/About" style="text-decoration: none">@Miniblog.Core.Texts.Home.Content.Biography</a></h2>
+			<p>@Miniblog.Core.Texts.Home.Content.BioDescription</p>
+		</div>
+	</div>
+	<div class="col-md-4 col-sm-6">
+		<div class="servive-block-in">
+			<div><i class="icon-edit"></i></div>
+			<h2><a href="/blog" style="text-decoration:none;">@Miniblog.Core.Texts.Home.Content.Blog</a></h2>
+			<p>@Miniblog.Core.Texts.Home.Content.BlogDescription</p>
+		</div>
+	</div>
+</div>
