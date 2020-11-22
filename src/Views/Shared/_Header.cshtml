@@ -1,0 +1,51 @@
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span class="navbar-brand">Sergi Gisbert</span>
+			@*@Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })*@
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li>@Html.ActionLink("Inicio", "Index")</li>
+				<li><a href="/Projects">Proyectos</a></li>
+				<li><a href="/About">Biografía</a></li>
+				<li><a href="/blog/">Blog</a></li>
+				@*<li class="divider">&nbsp;</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+						<i class="icon-globe"></i>
+						@WebSite.Texts.Home.Content.Language
+						<i class="icon-angle-down"></i>
+					</a>
+					<ul class="dropdown-menu">
+						@{
+							foreach (DTO.Translate.DtoLanguage idioma in ViewBag.Languages)
+							{
+								if (ViewBag.SelectedLanguage == idioma.CodeStandard)
+								{
+									<li class="active">
+										<a href="#"><i class="icon-ok"></i> @idioma.Name</a>
+									</li>
+								}
+								else
+								{
+									<li>
+										<a href="@Url.Action(Resources.Home.ChangeLanguage(idioma.CodeStandard, Request.RawUrl))">
+											@idioma.Name
+										</a>
+									</li>
+								}
+							}
+						}
+					</ul>
+				</li>*@
+			</ul>
+			@*@Html.Partial("_LoginPartial")*@
+		</div>
+	</div>
+</div>

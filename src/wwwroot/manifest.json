@@ -1,7 +1,7 @@
 {
-  "name": "Miniblog.Core",
-  "short_name": "Miniblog.Core",
-  "description": "A short description of the blog.",
+  "name": "Sergi Gisbert",
+  "short_name": "Sergi Gisbert",
+  "description": "Personal website - Sergi Gisbert | Software Architecht & Developer",
   "icons": [
     {
       "src": "/img/icon192x192.png",
