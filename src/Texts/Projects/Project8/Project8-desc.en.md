@@ -1,0 +1,2 @@
+Company corporate Website, to show off the services offered.  
+This website is developed completely with <span class="text-warning">Wordpress</span>, which is modified, configured and optimized to get the best performance with the least resources, through <span class="text-warning">WPO</span> techniques, <span class="text-warning">CloudFlare</span> and <span class="text-warning">Varnish cache</span>.

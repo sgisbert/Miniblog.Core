@@ -1,0 +1,4 @@
+Curso de español en línea para niños y jóvenes, creado para el Instituto Cervantes y el Ministerio de Educación de Alberta (Canadá).  
+*¡Hola, amigos!* está organizado en tres niveles de 9 unidades cada uno y cubre los niveles A1 y A2 del Plan Curricular del Instituto Cervantes y del Marco Común Europeo de referencia para las lenguas.  
+Los materiales pueden emplearse como un curso completo con una secuencia didáctica guiada o como un repositorio de actividades que funcionan como objetos de aprendizaje autónomos y accesibles de forma independiente.    
+Se realizan diferentes empaquetados de los materiales, cumpliendo el estándar <span class="text-warning">SCORM</span> para su inclusión en la plataforma de formación de Alberta.

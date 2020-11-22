@@ -1,0 +1,2 @@
+C# library add programatically access to Cloudflare API([www.cloudflare.com](www.cloudflare.com)), so ther's no need to deal with the the low level HTTP REST requests.  
+This library is distributed with Nuget ([https://www.nuget.org/packages/CloudFlare.API](https://www.nuget.org/packages/CloudFlare.API)) and the source code has a MIT license which allows its free use, distribution and modification.

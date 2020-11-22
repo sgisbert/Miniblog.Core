@@ -1,0 +1,2 @@
+Mi página personal, desarrollada mediante <span class="text-warning">ASP.Net MVC 5</span> y optimizada aplicando técnicas de <span class="text-warning">WPO</span>, <span class="text-warning">CloudFlare</span> y <span class="text-warning">Varnish</span>, donde ilustro mi trayectoria profesional y sirve de recopilación de los proyectos en los que he participado.  
+La parte de contenido de la web la he desarrollado desde cero, utilizando ASP.Net MVC 5 como Framework de desarrollo, mientras que para el blog he utilizado <span class="text-warning">WordPress</span>.

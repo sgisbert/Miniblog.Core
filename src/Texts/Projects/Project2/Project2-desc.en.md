@@ -1,0 +1,4 @@
+ An online Spanish course for children and young people, in collaboration with the Alberta (Canada) Ministry of Education..  
+*¡Hola, amigos!* is divided into three levels of 9 units each and covers levels A1 and A2 of the Cervantes Institute's Curriculum and the Common European Framework of Reference for Languages.  
+The materials may be used as a complete course with a guided instructional sequence or as an activities bank with learning objects for independent study that may be accessed individually. 
+Several different content packages were made, following <span class="text-warning">SCORM</span> standard to be exported to Alberta own Learning management system.

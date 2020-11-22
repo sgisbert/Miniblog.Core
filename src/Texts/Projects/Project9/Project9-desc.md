@@ -1,0 +1,2 @@
+Librería C# para acceder al API de CloudFlare ([www.cloudflare.com](www.cloudflare.com)), de manera que no es necesario preocuparse de la gestión de las peticiones REST a bajo nivel.
+La librería se distribuye a través de Nuget ([https://www.nuget.org/packages/CloudFlare.API](https://www.nuget.org/packages/CloudFlare.API)) y el código fuente se proporciona mediante una licencia MIT que permite su libre uso, distribución y modificación.

@@ -1,0 +1,2 @@
+Página corporativa para el Banco de Inglaterra, desarrollada mediante <span class="text-warning">Sitecore</span>. 
+El propósito de la página web es mostrar toda la información pública que el Banco de Inglaterra debe generar como responsable de supervisar a las entidades económicas del Reino Unido.

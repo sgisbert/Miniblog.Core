@@ -1,0 +1,5 @@
+Fruto de los años de experiencia trabajando en el mundo del eLearning, nace Stage Learning, una plataforma de formación continua en la nube, altamente configurable y adaptable a las necesidades formativas del mundo empresarial.  
+Cloud computing: Stage se ofrece como servicio en la nube (<span class="text-warning">SaaS</span>) por lo que no requiere instalación, ni mantenimiento ni un departamento de sistemas.  
+Escalable. Soporta planes de formación desde un grupo pequeño a uno con miles de usuarios. Además, al ser <span class="text-warning">pay-per-use</span>, solo pagas por lo que utilizas.  
+Desarrollada mediante <span class="text-warning">ASP.NET MVC 4</span>, dispone de una arquitectura robusta y escalable, con múltiples herramientas de comunicación integradas (foros, calendarios, tablón de anuncios, wikis, blogs o encuestas)  
+Optimizada mediante técnicas <span class="text-warning">WPO</span> desde el origen del desarrollo, incluyendo soporte de <span class="text-warning">CloudFlare</span>

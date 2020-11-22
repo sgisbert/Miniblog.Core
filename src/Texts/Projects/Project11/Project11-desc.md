@@ -1,0 +1,3 @@
+Website dedicada a la difusión de los eventos desarrollados en el ámbito del programa "Venture Network" de <span class="text-warning">IE Business School</span>, mediante la cual se anuncian los próximos eventos, participantes e inversores, así como la oportunidad de inscribirse para nuevos eventos.  
+La web se desarrolla por completo en <span class="text-warning">Wordpress</span>, que se modifica, configura y optimiza para obtener el mayor rendimiento con los menores recursos posibles, a través de técnicas <span class="text-warning">WPO</span>, <span class="text-warning">CloudFlare</span> y <span class="text-warning">Varnish caché</span>.  
+Se integra con un formulario de <span class="text-warning">Google Drive</span> para centralizar los registros a los nuevos eventos

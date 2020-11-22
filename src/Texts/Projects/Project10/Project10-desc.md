@@ -1,0 +1,3 @@
+Librería C# que modela los objetos que componen la especificación [OpenBadges](http://openbadges.org/) de Mozilla.  
+Se encarga de realizar las tareas de serialización / deserialización de los objetos JSON especificados a objetos de alto nivel de C#.  
+La librería se distribuye a través de Nuget ([https://www.nuget.org/packages/openbadges.model](https://www.nuget.org/packages/openbadges.model)) y el código fuente se proporciona mediante una licencia MIT que permite su libre uso, distribución y modificación.

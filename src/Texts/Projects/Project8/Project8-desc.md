@@ -1,0 +1,2 @@
+Web corporativa de la empresa, como puerta de entrada a los servicios que ofrecemos.  
+La web se desarrolla por completo en <span class="text-warning">Wordpress</span>, que se modifica, configura y optimiza para obtener el mayor rendimiento con los menores recursos posibles, a través de técnicas <span class="text-warning">WPO</span>, <span class="text-warning">CloudFlare</span> y <span class="text-warning">Varnish caché</span>.

@@ -1,0 +1,3 @@
+Personal website, used as a portfolio and biography, and a blog to write about technology and development.  
+Developed with <span class="text-warning">ASP.Net MVC 5</span> and optimized using <span class="text-warning">WPO</span> techniques, <span class="text-warning">CloudFlare</span> and <span class="text-warning">Varnish</span>.  
+The static content of the website has been developed from the ground, using ASP.Net MVC 5, while <span class="text-warning">WordPress</span> is used for the blog.

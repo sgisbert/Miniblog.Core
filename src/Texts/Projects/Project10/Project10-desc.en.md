@@ -1,0 +1,3 @@
+C# Library which helps with the modeling of the objects from [OpenBadges](http://openbadges.org/), from Mozilla.  
+his library is intended to help dealing with serialization/deserialization of OpenBadges specifications in a C# environment.  
+This library is distributed with Nuget ([https://www.nuget.org/packages/openbadges.model](https://www.nuget.org/packages/openbadges.model)) and the source code has a MIT license which allows its free use, distribution and modification. 

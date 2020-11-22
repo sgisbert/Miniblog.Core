@@ -32,12 +32,216 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Texts\Bio\Content.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Content.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Home\Content.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Content.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Content.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Content.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project10\Project10.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project10.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project11\Project11.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project11.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project12\Project12.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project12.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project13\Project13.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project13.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project14\Project14.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project14.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project1\Project1.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project1.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project2\Project2.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project2.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project3\Project3.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project3.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project4\Project4.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project4.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project5\Project5.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project5.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project6\Project6.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project6.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project7\Project7.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project7.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project8\Project8.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project8.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Texts\Projects\Project9\Project9.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project9.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Bio\Content.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Bio\Content.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Content.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Home\Content.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Home\Content.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Content.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Content.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Content.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Content.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project10\Project10.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project10\Project10.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project10.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project11\Project11.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project11\Project11.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project11.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project12\Project12.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project12\Project12.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project12.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project13\Project13.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project13\Project13.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project13.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project14\Project14.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project14\Project14.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project14.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project1\Project1.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project1\Project1.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project2\Project2.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project2\Project2.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project2.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project3\Project3.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project3\Project3.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project3.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project4\Project4.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project4\Project4.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project4.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project5\Project5.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project5\Project5.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project5.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project6\Project6.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project6\Project6.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project6.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project7\Project7.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project7\Project7.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project7.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project8\Project8.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project8\Project8.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project8.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project9\Project9.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Projects\Project9\Project9.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Project9.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

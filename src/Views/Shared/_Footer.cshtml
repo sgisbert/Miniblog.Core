@@ -1,0 +1,86 @@
+@using System.Globalization
+@using System.Web
+
+<!--=== Footer ===-->
+<div class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 md-margin-bottom-40">
+				<!-- About -->
+				<div class="headline" style="margin-bottom: 0px;"><h2>@Miniblog.Core.Texts.Home.Content.AboutMe</h2></div>
+				<div class="carousel slide testimonials testimonials-v1" id="testimonials-1">
+					<div class="carousel-inner">
+						<div class="item active">
+							<div class="testimonial-info">
+								<img alt="Sergi Gisbert" src="~/assets/img/avatar.jpg" class="avatar avatar-74 photo" height="74" width="74" />
+								<span class="testimonial-author">
+									Sergi Gisbert
+									<em style="color: #DADADA;">
+										@Miniblog.Core.Texts.Home.Content.Lead1
+										@Miniblog.Core.Texts.Home.Content.Lead3 <a href="http://www.kabel.es">Kabel</a>
+									</em>
+								</span>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div><!--/col-md-4-->
+			@*<div class="col-md-4 md-margin-bottom-40">
+			<div class="posts">
+				<div class="headline"><h2>Últimos artículos</h2></div>
+				<dl class="dl-horizontal">
+					<dt><a href="#"><img src="assets/img/sliders/elastislide/6.jpg" alt="" /></a></dt>
+					<dd>
+						<p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
+					</dd>
+				</dl>
+				<dl class="dl-horizontal">
+					<dt><a href="#"><img src="assets/img/sliders/elastislide/10.jpg" alt="" /></a></dt>
+					<dd>
+						<p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
+					</dd>
+				</dl>
+				<dl class="dl-horizontal">
+					<dt><a href="#"><img src="assets/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
+					<dd>
+						<p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
+					</dd>
+				</dl>
+			</div>
+		</div>*@<!--/col-md-4-->
+
+			<div class="col-md-4 md-margin-bottom-40">
+				<div class="headline" style="margin-bottom: 0px;"><h2>@Miniblog.Core.Texts.Home.Content.LastTweets</h2></div>
+
+				<a class="twitter-timeline" data-theme="dark" data-tweet-limit="3" data-chrome="transparent noheader  noborders" href="https://twitter.com/sgisbert?ref_src=twsrc%5Etfw">Tweets by sgisbert</a>
+				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+				@*<a class="twitter-timeline" data-link-color="#72c02c" data-chrome="transparent noheader nofooter noborders" data-tweet-limit="3" href="https://twitter.com/sgisbert" data-widget-id="402757512568385536">Tweets por @@sgisbert</a>
+			<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>*@
+			</div><!--/col-md-4-->
+			<!-- Conecta -->
+			<div class="col-md-4 md-margin-bottom-40">
+				<div class="headline" style="margin-bottom: 10px;"><h2>@Miniblog.Core.Texts.Home.Content.Connect</h2></div>
+				@{ await Html.RenderPartialAsync("_SocialLinks"); }
+			</div><!--/col-md-4-->
+
+		</div><!--/row-->
+	</div><!--/container-->
+</div><!--/footer-->
+<!--=== End Footer ===-->
+<!--=== Copyright ===-->
+<div class="copyright">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<p class="copyright-space">
+					@DateTime.Now.Year.ToString(CultureInfo.InvariantCulture) © Sergi Gisbert. @Miniblog.Core.Texts.Home.Content.Rights<!--<a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>-->
+				</p>
+			</div>
+			<div class="col-md-6">
+			</div>
+		</div><!--/row-->
+	</div><!--/container-->
+</div>
+<!--=== End Copyright ===-->

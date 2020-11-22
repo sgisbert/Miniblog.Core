@@ -1,0 +1,2 @@
+Corporate Website for the Bank of England, developed using <span class="text-warning">Sitecore</span>.  
+The pourpose of this website is to publish all the public content the Bank creates as part of its mission to supervise the economy in the United Kingdom.

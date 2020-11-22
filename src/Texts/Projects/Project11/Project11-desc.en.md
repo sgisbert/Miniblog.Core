@@ -1,0 +1,3 @@
+Website focused on spreading the entrepreneurship events held on "Venture Network" program, for <span class="text-warning">IE Business School</span>, by which next events, participants and investors are announced, as well as the chance to register to new upcoming events.  
+This website is developed completely with <span class="text-warning">Wordpress</span>, which is modified, configured and optimized to get the best performance with the least resources, through <span class="text-warning">WPO</span> techniques, <span class="text-warning">CloudFlare</span> and <span class="text-warning">Varnish cache</span>.  
+A <span class="text-warning">Google Drive</span> form is integrated to hold the registrations for the new events.
