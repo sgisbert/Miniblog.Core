@@ -227,6 +227,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigureModel.cs" />
     <Compile Include="DTO\DtoBase.cs" />
     <Compile Include="DTO\IDto.cs" />
     <Compile Include="DTO\Projects\DtoBusiness.cs" />

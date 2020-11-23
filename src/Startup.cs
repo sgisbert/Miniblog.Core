@@ -14,6 +14,7 @@ namespace Miniblog.Core
 
     using Shared.Constants;
     using Shared.Services;
+    using Model;
 
     using System;
     using System.IO.Compression;
@@ -116,12 +117,7 @@ namespace Miniblog.Core
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMetaWeblog<MetaWeblogService>();
 
-            // Custom content
-            services.AddSingleton<ICategoriesService, CategoriesService>();
-            services.AddSingleton<IProjectsService, ProjectsService>();
-            services.AddSingleton<IImagesService, ImagesService>();
-            services.AddSingleton<IClientsService, ClientsService>();
-            services.AddSingleton<IBusinessService, BusinessService>();
+            services.ConfigureCommonServices(this.Configuration);
 
 
             // Progressive Web Apps https://github.com/madskristensen/WebEssentials.AspNetCore.ServiceWorker
