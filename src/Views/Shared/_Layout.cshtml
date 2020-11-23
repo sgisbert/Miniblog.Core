@@ -28,6 +28,7 @@
 	<link rel="stylesheet" href="~/assets/css/themes/default.css" />
 	<link rel="stylesheet" href="~/assets/plugins/font-awesome/css/font-awesome.css" />
 	<link rel="stylesheet" href="~/assets/css/site.css" />
+	<link rel="stylesheet" href="~/assets/css/highCompat.css" />
 
 	@*<link rel="preload" href="~/assets/js/vendor/jquery-migrate-1.2.1.min.js" as="script" />
 		<link rel="preload" href="~/assets/js/vendor/bootstrap.js" as="script" />
@@ -66,13 +67,6 @@
 </head>
 <body itemscope itemtype="http://schema.org/WebPage">
 
-	@*<header class="siteheader">
-			<div class="container">
-				<p itemprop="name"><a href="~/" itemprop="url">@manifest.Name</a></p>
-				By <span itemprop="author">@settings.Value.Owner</span>
-			</div>
-		</header>*@
-
 	@{ await Html.RenderPartialAsync("_Header"); }
 	@RenderSection("Breadcrumbs", required: false)
 
@@ -88,31 +82,6 @@
 	</main>
 
 	@{ await Html.RenderPartialAsync("_Footer"); }
-
-	@*<footer class="sitefooter">
-			<div class="container">
-				<nav>
-					<ul>
-						@{
-							string path = Context.Request.Path;
-
-							if (User.Identity.IsAuthenticated)
-							{
-								<li><a asp-controller="Blog" asp-action="Edit" asp-route-id="">@Miniblog.Core.Properties.Resources.NewPost</a></li>
-								<li><a href="~/logout/" title="@Miniblog.Core.Properties.Resources.SignOutAsAdministrator">@Miniblog.Core.Properties.Resources.SignOut</a></li>
-							}
-							else
-							{
-								<li><a href="~/login/?returnUrl=@path" rel="nofollow" title="@Miniblog.Core.Properties.Resources.SignInAsAdministrator">@Miniblog.Core.Properties.Resources.SignIn</a></li>
-							}
-						}
-					</ul>
-				</nav>
-				<p>
-					@Miniblog.Core.Properties.Resources.PoweredBy <a href="https://github.com/madskristensen/Miniblog.Core" rel="noopener noreferrer" target="_blank">@Miniblog.Core.Properties.Resources.MiniblogCore</a>
-				</p>
-			</div>
-		</footer>*@
 
 	@* This lazy loads the stylesheet in a non-render blocking way *@
 	<link rel="preload" href="~/css/belowthefold.scss" as="style" />
