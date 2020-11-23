@@ -1,6 +1,6 @@
 @using System.Resources
 @using Model.DTO.Projects
- 
+
 @{
 	ViewData[Constants.Title] = "Sergi Gisbert - " + Miniblog.Core.Texts.Home.Content.Projects;
 	ViewData[Constants.Description] = Miniblog.Core.Texts.Projects.Content.Description;
@@ -46,6 +46,55 @@
 				foreach (var category in (List<DtoCategory>)ViewBag.Categories)
 				{
 					<li class="filter" data-filter="category_@category.Id">@category.Value</li>
+				}
+			}
+		</ul>
+
+
+		<ul class="row sorting-grid">
+			@{
+				var cont = 1;
+				//List<DTO.Projects.DtoImage> images = ViewBag.Images as List<DTO.Projects.DtoImage>;
+				foreach (var project in (List<DtoProject>)ViewBag.Projects)
+				{
+					System.Resources.ResourceManager rm = new ResourceManager(Type.GetType("Miniblog.Core.Texts.Projects.Project" + project.Id + ".Project" + project.Id + ",Miniblog.Core"));
+
+					var categories = "";
+					var data_cat = "";
+					string imgUrl;
+					//if (project.Images != null && project.Images.Count > 0)
+					//{
+					//	imgUrl = ImageModel.GetUrlThumbnail(project.Images[0]);
+					//}
+					//else
+					//{
+					imgUrl = "assets/img/main/11.jpg";
+					//}
+
+					foreach (var cat in project.Categories)
+					{
+						categories += "category_" + cat.Id + " ";
+						if (String.IsNullOrEmpty(data_cat))
+						{
+							data_cat = cat.Id.ToString();
+						}
+					}
+					<li class="col-md-3 col-sm-6 col-xs-12 mix @categories mix_all" data-cat="@data_cat" style="display: inline-block; opacity: 1;">
+						<a href="/@ViewBag.SelectedLanguage/Projects/@project.Slug">
+							<p class="label label-default">@project.Date</p>
+							@*<img class="img-responsive lazy" style="display: none;" data-original="@imgUrl" alt="@project.Images[0].Name.Replace("\"", "'")" width="255" height="161" src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />*@
+							@*<noscript><img src="@imgUrl" width="255" height="161" alt="@project.Images[0].Name.Replace("\"", "'")" /></noscript>*@
+							<span class="sorting-cover">
+								<span style="font-weight: bold;">@rm.GetString("Name")</span>
+								<br />
+								<span style="font-size:13px;">@rm.GetString("Description")</span>
+
+							</span>
+
+						</a>
+
+						@*<p><span class="glyphicon glyphicon-globe"></span></p>*@
+					</li>
 				}
 			}
 		</ul>

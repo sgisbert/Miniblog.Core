@@ -118,6 +118,7 @@ namespace Miniblog.Core
 
             // Custom content
             services.AddSingleton<ICategoriesService, CategoriesService>();
+            services.AddSingleton<IProjectsService, ProjectsService>();
 
 
             // Progressive Web Apps https://github.com/madskristensen/WebEssentials.AspNetCore.ServiceWorker
