@@ -58,7 +58,15 @@ namespace Shared.Services
 
         public DtoProject LoadProject(string slug)
         {
-            throw new NotImplementedException();
+            List<DtoProject> projects = LoadProjects();
+            var categories = this.categories.LoadCategories();
+            var clients = this.clients.LoadClients();
+            var images = this.images.LoadImages();
+            var business = this.business.LoadBusiness();
+            DtoProject project = projects.First(p => p.Slug == slug);
+            var tmpProject = LoadProjectData(project, categories, clients, images, business);
+
+            return tmpProject;
         }
 
         public List<DtoProject> LoadProjects()

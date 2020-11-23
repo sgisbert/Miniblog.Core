@@ -15,7 +15,7 @@ namespace Shared.Services
         #region " Constants "
 
         private static string _XML_FILE = "xml-data\\Images.xml";
-        private static string _URL_BASE = "assets/img/projects/";
+        private static string _URL_BASE = "/assets/img/projects/";
 
         /// <summary>
         /// Clave de cache en la que almacenamos el listado completo.

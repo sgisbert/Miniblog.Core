@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,6 +22,15 @@ namespace Miniblog.Core.Controllers
             ViewBag.Categories = categories.LoadCategories();
             ViewBag.Projects = projects.LoadProjectsFull();
             return View();
+        }
+
+        [OutputCache(Profile = "default")]
+        [Route("/projects/{id}")]
+        public IActionResult Project(string id)
+        {
+            // Ficha de proyecto
+            var project = projects.LoadProject(id);
+            return View(project);
         }
     }
 }
