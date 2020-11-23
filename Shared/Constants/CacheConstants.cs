@@ -10,7 +10,7 @@ namespace Shared.Constants
     /// Definición de constantes relativas al manejo de la cache de datos almacenada en el servidor.
     /// </summary>
     /// 24/11/2011 by corcoles
-    public static class Cache
+    public static class CacheConstants
     {
         #region " Valores por defecto "
 
