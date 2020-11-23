@@ -1,5 +1,8 @@
 @using System.Resources
 @using Model.DTO.Projects
+@using Shared.Services 
+
+@inject IImagesService images
 
 @{
 	ViewData[Constants.Title] = "Sergi Gisbert - " + Miniblog.Core.Texts.Home.Content.Projects;
@@ -53,7 +56,7 @@
 
 		<ul class="row sorting-grid">
 			@{
-				var cont = 1;
+				//var cont = 1;
 				//List<DTO.Projects.DtoImage> images = ViewBag.Images as List<DTO.Projects.DtoImage>;
 				foreach (var project in (List<DtoProject>)ViewBag.Projects)
 				{
@@ -62,14 +65,14 @@
 					var categories = "";
 					var data_cat = "";
 					string imgUrl;
-					//if (project.Images != null && project.Images.Count > 0)
-					//{
-					//	imgUrl = ImageModel.GetUrlThumbnail(project.Images[0]);
-					//}
-					//else
-					//{
-					imgUrl = "assets/img/main/11.jpg";
-					//}
+					if (project.Images != null && project.Images.Count > 0)
+					{
+						imgUrl = images.GetUrlThumbnail(project.Images[0]);
+					}
+					else
+					{
+						imgUrl = "assets/img/main/11.jpg";
+					}
 
 					foreach (var cat in project.Categories)
 					{
@@ -80,20 +83,16 @@
 						}
 					}
 					<li class="col-md-3 col-sm-6 col-xs-12 mix @categories mix_all" data-cat="@data_cat" style="display: inline-block; opacity: 1;">
-						<a href="/@ViewBag.SelectedLanguage/Projects/@project.Slug">
+						<a href="/Projects/@project.Slug">
 							<p class="label label-default">@project.Date</p>
-							@*<img class="img-responsive lazy" style="display: none;" data-original="@imgUrl" alt="@project.Images[0].Name.Replace("\"", "'")" width="255" height="161" src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />*@
+							<img class="img-responsive" style="display: inline-block;" src="@imgUrl" alt="@project.Images[0].Name.Replace("\"", "'")" width="255" height="161" src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
 							@*<noscript><img src="@imgUrl" width="255" height="161" alt="@project.Images[0].Name.Replace("\"", "'")" /></noscript>*@
 							<span class="sorting-cover">
 								<span style="font-weight: bold;">@rm.GetString("Name")</span>
 								<br />
 								<span style="font-size:13px;">@rm.GetString("Description")</span>
-
 							</span>
-
 						</a>
-
-						@*<p><span class="glyphicon glyphicon-globe"></span></p>*@
 					</li>
 				}
 			}

@@ -61,17 +61,17 @@ namespace Model.DTO.Projects
 		/// <summary>
 		/// TODO: documentación pendiente
 		/// </summary>
-		//private DtoClient client;
+		private DtoClient client;
 
 		/// <summary>
 		/// TODO: documentación pendiente
 		/// </summary>
-		//private List<DtoImage> images;
+		private List<DtoImage> images;
 
 		/// <summary>
 		/// TODO: documentación pendiente
 		/// </summary>
-		//private DtoBusiness business;
+		private DtoBusiness business;
 
 		/// <summary>
 		/// Para prevenir disposiciones sucesivas
@@ -171,41 +171,41 @@ namespace Model.DTO.Projects
 			set { categories = value; }
 		}
 
-		/// <summary>
-		/// TODO: documentación pendiente
-		/// </summary>
-		//public DtoClient Client
-		//{
-		//	get { return client; }
-		//	set { client = value; }
-		//}
+        /// <summary>
+        /// TODO: documentación pendiente
+        /// </summary>
+        public DtoClient Client
+        {
+            get { return client; }
+            set { client = value; }
+        }
 
-		/// <summary>
-		/// TODO: documentación pendiente
-		/// </summary>
-		//public List<DtoImage> Images
-		//{
-		//	get { return images; }
-		//	set { images = value; }
-		//}
+        /// <summary>
+        /// TODO: documentación pendiente
+        /// </summary>
+        public List<DtoImage> Images
+        {
+            get { return images; }
+            set { images = value; }
+        }
 
-		/// <summary>
-		/// TODO: documentación pendiente
-		/// </summary>
-		//public DtoBusiness Business
-		//{
-		//	get { return business; }
-		//	set { business = value; }
-		//}
+        /// <summary>
+        /// TODO: documentación pendiente
+        /// </summary>
+        public DtoBusiness Business
+        {
+            get { return business; }
+            set { business = value; }
+        }
 
-		#endregion
-	
-		#region " Constructores "
-		
-		/// <summary>
-	    /// Inicializa una nueva instancia de la class <see cref="DtoProject"/>.
-	    /// </summary>
-		public DtoProject() { }
+        #endregion
+
+        #region " Constructores "
+
+        /// <summary>
+        /// Inicializa una nueva instancia de la class <see cref="DtoProject"/>.
+        /// </summary>
+        public DtoProject() { }
 	
 	    /// <summary>
 	    /// Inicializa una nueva instancia de la class <see cref="DtoProject"/>.
@@ -214,11 +214,11 @@ namespace Model.DTO.Projects
 		public DtoProject(Boolean instantiatedObject=false)
 		{
 			if (!instantiatedObject) return;
-			//Client = new DtoClient();
-			//Business = new DtoBusiness();
-			categories = new List<DtoCategory>();
-			//images = new List<DtoImage>();
-		}
+            Client = new DtoClient();
+            Business = new DtoBusiness();
+            categories = new List<DtoCategory>();
+            images = new List<DtoImage>();
+        }
 	
 		/// <summary>
 	    /// Finaliza una instancia de la class <see cref="DtoProject"/> y libera sus recursos.
@@ -237,19 +237,19 @@ namespace Model.DTO.Projects
 			{
 				if (disposing)
 				{
-					//if(Client != null)
-					//{
-					//	Client.Dispose();
-					//	Client = null;
-					//}	
-					//if(Business != null)
-					//{
-					//	Business.Dispose();
-					//	Business = null;
-					//}	
-					categories = null;
+                    if (Client != null)
+                    {
+                        Client.Dispose();
+                        Client = null;
+                    }
+                    if (Business != null)
+                    {
+                        Business.Dispose();
+                        Business = null;
+                    }
+                    categories = null;
 	
-					//images = null;
+					images = null;
 	
 				}
 				disposed = true;

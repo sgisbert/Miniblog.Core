@@ -229,12 +229,24 @@
   <ItemGroup>
     <Compile Include="DTO\DtoBase.cs" />
     <Compile Include="DTO\IDto.cs" />
+    <Compile Include="DTO\Projects\DtoBusiness.cs" />
     <Compile Include="DTO\Projects\DtoCategory.cs" />
+    <Compile Include="DTO\Projects\DtoClient.cs" />
+    <Compile Include="DTO\Projects\DtoImage.cs" />
     <Compile Include="DTO\Projects\DtoProject.cs" />
+    <Compile Include="DTO\Projects\IDtoBusiness.cs" />
     <Compile Include="DTO\Projects\IDtoCategory.cs" />
+    <Compile Include="DTO\Projects\IDtoClient.cs" />
+    <Compile Include="DTO\Projects\IDtoImage.cs" />
     <Compile Include="DTO\Projects\IDtoProject.cs" />
     <Compile Include="Extensions\MarkdownExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BusinessService.cs" />
+    <Compile Include="Services\ClientsService.cs" />
+    <Compile Include="Services\IClientsService.cs" />
+    <Compile Include="Services\IBusinessService.cs" />
+    <Compile Include="Services\ImagesService.cs" />
+    <Compile Include="Services\IImagesService.cs" />
     <Compile Include="Services\ProjectsService.cs" />
     <Compile Include="Services\CategoriesService.cs" />
     <Compile Include="Services\IProjectsService.cs" />

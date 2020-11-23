@@ -10,7 +10,7 @@ namespace Shared.Services
 
         DtoProject LoadProject(string slug);
 
-        //DtoProject LoadProjectData(DtoProject project, List<DtoCategory> categories, List<DtoClient> clients, List<DtoImage> images, List<DtoBusiness> business);
+        DtoProject LoadProjectData(DtoProject project, List<DtoCategory> categories, List<DtoClient> clients, List<DtoImage> images, List<DtoBusiness> business);
 
         List<DtoProject> LoadProjects();
     }

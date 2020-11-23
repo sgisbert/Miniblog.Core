@@ -24,7 +24,7 @@ namespace Miniblog.Core.Controllers
         public IActionResult Index()
         {
             ViewBag.Categories = categories.LoadCategories();
-            ViewBag.Projects = projects.LoadProjects();
+            ViewBag.Projects = projects.LoadProjectsFull();
             return View();
         }
     }
