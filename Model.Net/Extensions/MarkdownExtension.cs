@@ -1,6 +1,7 @@
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
+
+using Shared;
 
 using System;
 using System.IO;
@@ -31,13 +32,13 @@ namespace Model.Extensions
             string cacheKey = pathDefault;
 
             // Load source text
-            //var text = Cache.Get<String>(cacheKey, makeCopy: false);
-            //if (text == null || HttpContext.Current.IsDebuggingEnabled)
-            //{
+            var text = Cache.Get<String>(cacheKey, makeCopy: false);
+            if (text == null) // || HttpContext.Current.IsDebuggingEnabled)
+            {
                 //text = File.ReadAllText(pathSelected);
-                var text = File.ReadAllText(pathDefault);
-            //    Cache.Insert(cacheKey, text, null, CacheConstants.DefaultExpirationTime, makeCopy: false);
-            //}
+                text = File.ReadAllText(pathDefault);
+                Cache.Insert(cacheKey, text, Cache.DefaultExpirationTime, makeCopy: false);
+            }
 
             // Setup processor
             var md = new MarkdownDeep.Markdown

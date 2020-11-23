@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model.Net\Model.csproj", "{34B47D80-43BF-4E4F-950B-2287F5AF00DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{EBAF12AD-4039-484E-B037-963C9E9CE1C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{34B47D80-43BF-4E4F-950B-2287F5AF00DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34B47D80-43BF-4E4F-950B-2287F5AF00DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34B47D80-43BF-4E4F-950B-2287F5AF00DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBAF12AD-4039-484E-B037-963C9E9CE1C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBAF12AD-4039-484E-B037-963C9E9CE1C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBAF12AD-4039-484E-B037-963C9E9CE1C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBAF12AD-4039-484E-B037-963C9E9CE1C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
