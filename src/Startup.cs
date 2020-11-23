@@ -12,6 +12,7 @@ namespace Miniblog.Core
 
     using Miniblog.Core.Services;
 
+    using System;
     using System.IO.Compression;
     using System.Linq;
 
@@ -92,6 +93,9 @@ namespace Miniblog.Core
                     endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                 });
 
+            // setup app's root folders
+            AppDomain.CurrentDomain.SetData("ContentRootPath", env.ContentRootPath);
+            AppDomain.CurrentDomain.SetData("WebRootPath", env.WebRootPath);
         }
 
         /// <remarks>This method gets called by the runtime. Use this method to add services to the container.</remarks>
