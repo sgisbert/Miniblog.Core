@@ -1,0 +1,1113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfDtoProject>
+  <DtoProject>
+    <Id>14</Id>
+    <Name>
+      <![CDATA[Bank of England]]>
+    </Name>
+    <Description>
+      <![CDATA[Web corporativa del Banco de Inglaterra. Implementada sobre Sitecore.]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>12</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>13</Id>
+      </DtoCategory>
+    </Categories>
+    <Url><![CDATA[http://www.bankofengland.co.uk]]></Url>
+    <Date>2018 - 2020</Date>
+    <Images>
+      <DtoImage>
+        <Id>35</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>36</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>37</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>38</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>39</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>40</Id>
+      </DtoImage>
+    </Images>
+    <Slug>bankofengland</Slug>
+    <Business>
+      <Id>4</Id>
+    </Business>
+    <Technologies>
+      <string>Sitecore</string>
+      <string>SQL Azure</string>
+      <string>MVC</string>
+      <string>C#</string>
+      <string>CSS</string>
+      <string>Javascript</string>
+      <string>Responsive design</string>
+      <string>Windows Azure</string>
+      <string>Git</string>
+    </Technologies>
+    <FullDescription>
+      <![CDATA[
+        <p>Web pública del Banco de Inglaterra, desarrollada mediante <span class="text-warning">Sitecore</span></p>
+        ]]>
+    </FullDescription>
+    <Tasks>
+      <![CDATA[
+        <p><strong>Technical Lead</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Technical Lead del proyecto: gestión y asignación de las tareas técnicas</li>
+                    <li><i class="icon-caret-right"></i>Lead sitecore developer</li>
+                    <li><i class="icon-caret-right"></i>Definición de requisitos y arquitectura técnica</li>
+                    <li><i class="icon-caret-right"></i>Devops engineer</li>
+                </ul>
+        ]]>
+    </Tasks>
+  </DtoProject>
+
+  <DtoProject>
+    <Id>13</Id>
+    <Name>
+      <![CDATA[UFVADEN International Business School]]>
+    </Name>
+    <Description>
+      <![CDATA[Web corporativa de la Escuela de Negocios UFV ADEN. Se utiliza Umbraco como gestor de contenidos sobre un tema de bootstrap.]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>11</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>5</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>7</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>8</Id>
+      </DtoCategory>
+    </Categories>
+    <Url><![CDATA[http://www.ufvaden.es]]></Url>
+    <Date>2016</Date>
+    <Images>
+      <DtoImage>
+        <Id>32</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>33</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>34</Id>
+      </DtoImage>
+    </Images>
+    <Slug>ufvaden</Slug>
+    <Business>
+      <Id>2</Id>
+    </Business>
+    <Technologies>
+      <string>Umbraco</string>
+      <string>SQL Azure</string>
+      <string>MVC</string>
+      <string>MVC</string>
+      <string>C#</string>
+      <string>CSS</string>
+      <string>Javascript</string>
+      <string>JQuery</string>
+      <string>Bootstrap</string>
+      <string>Responsive design</string>
+      <string>Windows Azure</string>
+      <string>Cloudflare</string>
+      <string>Git</string>
+    </Technologies>
+    <FullDescription>
+      <![CDATA[
+        <p>Mi página personal, desarrollada mediante <span class="text-warning">ASP.Net MVC 5</span> y optimizada aplicando técnicas de <span class="text-warning">WPO</span>, <span class="text-warning">CloudFlare</span> y <span class="text-warning">Varnish</span>, 
+        donde ilustro mi trayectoria profesional y sirve de recopilación de los proyectos
+        en los que he participado</p>
+        <p>La parte de contenido de la web la he desarrollado desde cero, utilizando ASP.Net MVC 5 como Framework de desarrollo, mientras que para el blog he utilizado <span class="text-warning">WordPress</span></p>
+        ]]>
+    </FullDescription>
+    <Tasks>
+      <![CDATA[
+        <p><strong>Developer - Owner</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Diseño de la arquitectura funcional de la página y redacción de los contenidos.</li>
+                    <li><i class="icon-caret-right"></i>Optimización del rendimiento de la aplicación mediante <span class="text-warning">WPO</span>.</li>
+                    <li><i class="icon-caret-right"></i>Responsable de la arquitectura de sistemas: <span class="text-warning">Azure Web Sites</span>, <span class="text-warning">MySql</span>, <span class="text-warning">WordPress</span>, 
+                    <span class="text-warning">CloudFlare DNS proxy</span> y <span class="text-warning">Varnish Proxy Caché</span>.</li>
+                    <li><i class="icon-caret-right"></i>Instalación, configuración y optimización de WordPress</li>
+                    <li><i class="icon-caret-right"></i>Adaptación y modificación del tema de WordPress.</li>
+                </ul>
+        ]]>
+    </Tasks>
+  </DtoProject>
+  <DtoProject>
+    <Id>12</Id>
+    <Name>
+      <![CDATA[Personal Website]]>
+    </Name>
+    <Description>
+      <![CDATA[Esta página web, desarrollada sobre ASP.Net MVC 5 y Wordpress, donde recopilo mis proyectos y biografía y que pretende ser mi lugar en la red.]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>2</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>3</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>5</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>7</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>10</Id>
+      </DtoCategory>
+    </Categories>
+    <Url><![CDATA[http://www.sergigisbert.com]]></Url>
+    <Date>2013 – en curso</Date>
+    <Images>
+      <DtoImage>
+        <Id>11</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>23</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>24</Id>
+      </DtoImage>
+    </Images>
+    <Slug>web-personal</Slug>
+    <Business>
+      <Id>3</Id>
+    </Business>
+    <Technologies>
+      <string>Wordpress</string>
+      <string>ASP.Net MVC 5</string>
+      <string>MySql</string>
+      <string>HTML</string>
+      <string>XML</string>
+      <string>CSS</string>
+      <string>Javascript</string>
+      <string>JQuery</string>
+      <string>Bootstrap</string>
+      <string>Responsive design</string>
+      <string>Windows Azure</string>
+      <string>Cloudflare</string>
+      <string>Varnish</string>
+      <string>WPO</string>
+      <string>Git</string>
+    </Technologies>
+    <FullDescription>
+      <![CDATA[
+        <p>Mi página personal, desarrollada mediante <span class="text-warning">ASP.Net MVC 5</span> y optimizada aplicando técnicas de <span class="text-warning">WPO</span>, <span class="text-warning">CloudFlare</span> y <span class="text-warning">Varnish</span>, 
+        donde ilustro mi trayectoria profesional y sirve de recopilación de los proyectos
+        en los que he participado</p>
+        <p>La parte de contenido de la web la he desarrollado desde cero, utilizando ASP.Net MVC 5 como Framework de desarrollo, mientras que para el blog he utilizado <span class="text-warning">WordPress</span></p>
+        ]]>
+    </FullDescription>
+    <Tasks>
+      <![CDATA[
+        <p><strong>Developer - Owner</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Diseño de la arquitectura funcional de la página y redacción de los contenidos.</li>
+                    <li><i class="icon-caret-right"></i>Optimización del rendimiento de la aplicación mediante <span class="text-warning">WPO</span>.</li>
+                    <li><i class="icon-caret-right"></i>Responsable de la arquitectura de sistemas: <span class="text-warning">Azure Web Sites</span>, <span class="text-warning">MySql</span>, <span class="text-warning">WordPress</span>, 
+                    <span class="text-warning">CloudFlare DNS proxy</span> y <span class="text-warning">Varnish Proxy Caché</span>.</li>
+                    <li><i class="icon-caret-right"></i>Instalación, configuración y optimización de WordPress</li>
+                    <li><i class="icon-caret-right"></i>Adaptación y modificación del tema de WordPress.</li>
+                </ul>
+        ]]>
+    </Tasks>
+  </DtoProject>
+  <DtoProject>
+    <Id>11</Id>
+    <Name>
+      <![CDATA[IE Venture Network website]]>
+    </Name>
+    <Description>
+      <![CDATA[Web promocional de los eventos del Venture Network del IE Business School. Utilizando Wordpress como plataforma, se optimiza mediante técnicas WPO, 
+            Varnish Caché y Cloudflare para maximizar la velocidad de carga.]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>2</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>3</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>7</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>8</Id>
+      </DtoCategory>
+    </Categories>
+    <Client>
+      <Id>5</Id>
+    </Client>
+    <Url>
+      <![CDATA[http://www.ieventurenetwork.co]]>
+    </Url>
+    <Date>2013</Date>
+    <Images>
+      <DtoImage>
+        <Id>8</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>25</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>26</Id>
+      </DtoImage>
+    </Images>
+    <Slug>ie-venture-network</Slug>
+    <Business>
+      <Id>2</Id>
+    </Business>
+    <Technologies>
+      <string>Wordpress</string>
+      <string>HTML</string>
+      <string>CSS</string>
+      <string>Javascript</string>
+      <string>JQuery</string>
+      <string>Bootstrap</string>
+      <string>Responsive design</string>
+      <string>Windows Azure</string>
+      <string>Cloudflare</string>
+      <string>Varnish</string>
+      <string>WPO</string>
+      <string>Git</string>
+      <string>Google Drive - Forms</string>
+    </Technologies>
+    <FullDescription>
+      <![CDATA[
+        <p>Website dedicada a la difusión de los eventos desarrollados en el ámbito del programa "Venture Network" de <span class="text-warning">IE Business School</span>, mediante la cual se anuncian los próximos eventos, 
+        participantes e inversores, así como la oportunidad de inscribirse para nuevos eventos</p>
+        <p>La web se desarrolla por completo en <span class="text-warning">Wordpress</span>, que se modifica, configura y optimiza para obtener el mayor rendimiento con los menores recursos posibles, a través de técnicas 
+        <span class="text-warning">WPO</span>, <span class="text-warning">CloudFlare</span> y <span class="text-warning">Varnish caché</span>.
+        <p>Se integra con un formulario de <span class="text-warning">Google Drive</span> para centralizar los registros a los nuevos eventos</p>
+        ]]>
+    </FullDescription>
+    <Tasks>
+      <![CDATA[
+        <p><strong>Lead Developer</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Diseño de la arquitectura funcional de la página y redacción de los contenidos.</li>
+                    <li><i class="icon-caret-right"></i>Optimización del rendimiento de la aplicación mediante <span class="text-warning">WPO</span>.</li>
+                    <li><i class="icon-caret-right"></i>Responsable de la arquitectura de sistemas: <span class="text-warning">Azure Web Sites</span>, <span class="text-warning">MySql</span>, <span class="text-warning">WordPress</span>, 
+                    <span class="text-warning">CloudFlare DNS proxy</span> y <span class="text-warning">Varnish Proxy Caché</span>.</li>
+                    <li><i class="icon-caret-right"></i>Instalación, configuración y optimización de WordPress</li>
+                    <li><i class="icon-caret-right"></i>Adaptación y modificación del tema de WordPress.</li>
+                </ul>
+        ]]>
+    </Tasks>
+  </DtoProject>
+  <DtoProject>
+    <Id>10</Id>
+    <Name>
+      <![CDATA[OpenBadges.Model]]>
+    </Name>
+    <Description>
+      <![CDATA[Librería de código abierto sobre C# que permite manejar los objetos definidos en el modelo de datos de OpenBadges como objetos de alto nivel de C#,
+            realizando internamente las tareas de serialización/deserialización.]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>4</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>10</Id>
+      </DtoCategory>
+    </Categories>
+    <Url><![CDATA[https://bitbucket.org/sergi_gisbert/openbadges.model]]></Url>
+    <Date>2013</Date>
+    <Images>
+      <DtoImage>
+        <Id>10</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>22</Id>
+      </DtoImage>
+    </Images>
+    <Slug>openbadges-model</Slug>
+    <Business>
+      <Id>3</Id>
+    </Business>
+    <Technologies>
+      <string>C#</string>
+      <string>JSON</string>
+      <string>REST</string>
+      <string>Git</string>
+      <string>Nuget</string>
+      <string>MyGet</string>
+      <string>SymbolSource</string>
+    </Technologies>
+    <FullDescription>
+      <![CDATA[
+        <p>Librería C# que modela los objetos que componen la especificación <a href="http://openbadges.org" rel="nofollow" target="_blank">OpenBadges</a> de Mozilla</p>
+        <p>Se encarga de realizar las tareas de serialización / deserialización de los objetos JSON especificados a objetos de alto nivel de C#.</p>
+        <p>La librería se distribuye a través de Nuget (<a href="https://www.nuget.org/packages/openbadges.model" target="_blank">https://www.nuget.org/packages/openbadges.model</a>) y el código fuente se proporciona mediante una licencia MIT que permite su libre uso, distribución y modificación.
+        ]]>
+    </FullDescription>
+    <Tasks>
+      <![CDATA[
+        <p><strong>Developer - Owner</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Diseño de la arquitectura funcional de la librería.</li>
+                    <li><i class="icon-caret-right"></i>Alojamiento, distribución y mantenimiento del código fuente.</li>
+                    <li><i class="icon-caret-right"></i>Distribución de la librería con Nuget.</li>
+                    <li><i class="icon-caret-right"></i>Publicación de los símbolos de depuración en SymbolSource.</li>
+                </ul>
+        ]]>
+    </Tasks>
+  </DtoProject>
+  <DtoProject>
+    <Id>9</Id>
+    <Name><![CDATA[CloudFlare.API]]></Name>
+    <Description>
+      <![CDATA[Librería de código abierto sobre C# para encapsular el acceso al API de Cloudflare, sin tener que preocuparse de la gestión de las conexiones HTTP Rest.]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>4</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>10</Id>
+      </DtoCategory>
+    </Categories>
+    <Url>
+      <![CDATA[https://bitbucket.org/sergi_gisbert/cloudflare.api]]>
+    </Url>
+    <Date>2013</Date>
+    <Images>
+      <DtoImage>
+        <Id>9</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>21</Id>
+      </DtoImage>
+    </Images>
+    <Slug>cloudflare-api</Slug>
+    <Business>
+      <Id>3</Id>
+    </Business>
+    <Technologies>
+      <string>C#</string>
+      <string>JSON</string>
+      <string>REST</string>
+      <string>Git</string>
+      <string>Nuget</string>
+      <string>MyGet</string>
+      <string>SymbolSource</string>
+    </Technologies>
+    <FullDescription>
+      <![CDATA[
+        <p>Librería C# para acceder al API de CloudFlare (<a href="http://www.cloudflare.com" target="_blank">www.cloudflare.com</a>), de manera que no es necesario preocuparse de la gestión de 
+        las peticiones REST a bajo nivel.</p>
+        <p>La librería se distribuye a través de Nuget (<a href="https://www.nuget.org/packages/CloudFlare.API" target="_blank">https://www.nuget.org/packages/CloudFlare.API</a>) y el código fuente 
+        se proporciona mediante una licencia MIT que permite su libre uso, distribución y modificación.</p>
+        ]]>
+    </FullDescription>
+    <Tasks>
+      <![CDATA[
+        <p><strong>Developer - Owner</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Diseño de la arquitectura funcional de la librería.</li>
+                    <li><i class="icon-caret-right"></i>Alojamiento, distribución y mantenimiento del código fuente.</li>
+                    <li><i class="icon-caret-right"></i>Distribución de la librería con Nuget.</li>
+                    <li><i class="icon-caret-right"></i>Publicación de los símbolos de depuración en SymbolSource.</li>
+                </ul>
+        ]]>
+    </Tasks>
+  </DtoProject>
+  <DtoProject>
+    <Id>8</Id>
+    <Name>
+      <![CDATA[Estrato Media. Site corp.]]>
+    </Name>
+    <Description>
+      <![CDATA[Web corporativa de Estrato Media S.L., donde se ofrecen los productos y servicios que proporciona la empresa, desarrollada sobre Wordpress y optimizada
+            mediante técnicas WPO, Varnish Caché y Cloudflare.]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>2</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>3</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>6</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>7</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>8</Id>
+      </DtoCategory>
+    </Categories>
+    <Client>
+      <Id>7</Id>
+    </Client>
+    <Url>
+      <![CDATA[http://www.estratomedia.es]]>
+    </Url>
+    <Images>
+      <DtoImage>
+        <Id>7</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>27</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>28</Id>
+      </DtoImage>
+    </Images>
+    <Date>2012</Date>
+    <Slug>estratomedia</Slug>
+    <Business>
+      <Id>2</Id>
+    </Business>
+    <Technologies>
+      <string>Wordpress</string>
+      <string>HTML</string>
+      <string>CSS</string>
+      <string>Javascript</string>
+      <string>JQuery</string>
+      <string>Bootstrap</string>
+      <string>Responsive design</string>
+      <string>Windows Azure</string>
+      <string>Cloudflare</string>
+      <string>Varnish</string>
+      <string>WPO</string>
+      <string>SVN</string>
+    </Technologies>
+    <FullDescription>
+      <![CDATA[
+        <p>Web corporativa de la empresa, como puerta de entrada a los servicios que ofrecemos.</p>
+        <p>La web se desarrolla por completo en <span class="text-warning">Wordpress</span>, que se modifica, configura y optimiza para obtener el mayor rendimiento con los menores recursos posibles, a través de técnicas 
+        <span class="text-warning">WPO</span>, <span class="text-warning">CloudFlare</span> y <span class="text-warning">Varnish caché</span>.
+        ]]>
+    </FullDescription>
+    <Tasks>
+      <![CDATA[
+        <p><strong>Lead Developer</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Diseño de la arquitectura funcional de la página y redacción de los contenidos.</li>
+                    <li><i class="icon-caret-right"></i>Optimización del rendimiento de la aplicación mediante <span class="text-warning">WPO</span>.</li>
+                    <li><i class="icon-caret-right"></i>Responsable de la arquitectura de sistemas: <span class="text-warning">Azure Web Sites</span>, <span class="text-warning">MySql</span>, <span class="text-warning">WordPress</span>, 
+                    <span class="text-warning">CloudFlare DNS proxy</span> y <span class="text-warning">Varnish Proxy Caché</span>.</li>
+                </ul>
+        ]]>
+    </Tasks>
+  </DtoProject>
+  <DtoProject>
+    <Id>7</Id>
+    <Name>
+      <![CDATA[Stage Learning]]>
+    </Name>
+    <Description>
+      <![CDATA[Plataforma online de formación con modelo SaaS (Software-as-a-Service) orientada a resolver las necesidades formativas de la PYME y centros educativos,
+            como academias o escuelas de negocio.]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>1</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>2</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>5</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>7</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>8</Id>
+      </DtoCategory>
+    </Categories>
+    <Client>
+      <Id>7</Id>
+    </Client>
+    <Url>
+      <![CDATA[http://www.stagelearning.com]]>
+    </Url>
+    <Images>
+      <DtoImage>
+        <Id>6</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>29</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>30</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>31</Id>
+      </DtoImage>
+    </Images>
+    <Date>2012</Date>
+    <Slug>stage-learning</Slug>
+    <Business>
+      <Id>2</Id>
+    </Business>
+    <Technologies>
+      <string>ASP.Net MVC 4</string>
+      <string>Web API</string>
+      <string>C#</string>
+      <string>UML</string>
+      <string>HTML</string>
+      <string>CSS</string>
+      <string>Javascript</string>
+      <string>JQuery</string>
+      <string>Bootstrap</string>
+      <string>Responsive design</string>
+      <string>Windows Azure</string>
+      <string>SQL Server 2012</string>
+      <string>SQL Stored Procedures</string>
+      <string>Cloudflare</string>
+      <string>Varnish</string>
+      <string>WPO</string>
+      <string>SVN</string>
+      <string>Nuget</string>
+      <string>SymbolSource</string>
+      <string>TeamCity</string>
+      <string>SaaS</string>
+      <string>Cloud</string>
+    </Technologies>
+    <FullDescription>
+      <![CDATA[
+            <p>Fruto de los años de experiencia trabajando en el mundo del eLearning, nace <em>Stage Learning</em>, una plataforma de formación continua en la nube, altamente configurable y adaptable a las necesidades formativas del mundo empresarial<p>
+            <p>Cloud computing: Stage se ofrece como servicio en la nube (<span class="text-warning">SaaS</span>) por lo que no requiere instalación, ni mantenimiento ni un departamento de sistemas.</p>
+            <p>Escalable. Soporta planes de formación desde un grupo pequeño a uno con miles de usuarios. Además, al ser <span class="text-warning">pay-per-use</span>, solo pagas por lo que utilizas.</p>
+            <p>Desarrollada mediante <span class="text-warning">ASP.NET MVC 4</span>, dispone de una arquitectura robusta y escalable, con múltiples herramientas de comunicación integradas (foros, calendarios, tablón de anuncios, wikis, blogs o encuestas)</p>
+            <p>Optimizada mediante técnicas <span class="text-warning">WPO</span> desde el origen del desarrollo, incluyendo soporte de <span class="text-warning">CloudFlare</span></p>
+            ]]>
+    </FullDescription>
+    <Tasks>
+      <![CDATA[
+        <p><strong>Lead Developer</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Diseño de la <span class="text-warning">arquitectura de la plataforma</span>.</li>
+                    <li><i class="icon-caret-right"></i>Mantenimiento de los sistemas de la plataforma: <span class="text-warning">Azure Web Sites</span>, <span class="text-warning">SQL Server 2012</span>, <span class="text-warning">CloudFlare</span>, 
+                    <span class="text-warning">NewRelic</span>.</li>
+                    <li><i class="icon-caret-right"></i><span class="text-warning">Backend developer</span>: diseño y desarrollo de la capa de datos del proyecto.</li>
+                    <li><i class="icon-caret-right"></i>Responsable de los servicios de desarrollo: <span class="text-warning">Azure VM</span>, <span class="text-warning">TeamCity</span>, <span class="text-warning">SVN</span>, <span class="text-warning">TimeTracker</span></li>
+                    <li><i class="icon-caret-right"></i><span class="text-warning">Gestión del proyecto</span>: Planificación, asignación y revisión de las tareas a los desarrolladores.</li>
+                </ul>
+        ]]>
+    </Tasks>
+  </DtoProject>
+  <DtoProject>
+    <Id>6</Id>
+    <Name>
+      <![CDATA[Elabora]]>
+    </Name>
+    <Description>
+      <![CDATA[Aplicación que permite al usuario generar actividades formativas multimedia de distintas funcionalidades (arrastrar, ordenar, relacionar, opción...)
+            sin tener un conocimiento previo de programación.]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>1</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>9</Id>
+      </DtoCategory>
+    </Categories>
+    <Client>
+      <Id>1</Id>
+    </Client>
+    <Images>
+      <DtoImage>
+        <Id>18</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>19</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>20</Id>
+      </DtoImage>
+    </Images>
+    <Date>2010 – 2011</Date>
+    <Slug>elabora</Slug>
+    <Business>
+      <Id>1</Id>
+    </Business>
+    <Technologies>
+      <string>Adobe Flash</string>
+      <string>Adobe Flex</string>
+      <string>XML</string>
+      <string>AJAX</string>
+      <string>API Rest WCF</string>
+      <string>REST</string>
+      <string>C#</string>
+      <string>SQL Server 2008</string>
+      <string>SQL Stored Procedures</string>
+      <string>SVN</string>
+    </Technologies>
+    <FullDescription>
+      <![CDATA[
+            <p>Se realiza una aplicación que permite al usuario generar actividades de distintas funcionalidades (arrastrar, ordenar, relacionar, opción...) sin tener un conocimiento previo de programación. 
+            La creación de las actividades se lleva a cabo mediante unos sencillos asistentes que guían al usuario de principio a fin, y le permiten obtener una versión inicial completamente funcional de la actividad en un número muy reducido de pasos.</p> 
+            <p>Contiene una gran galería de recursos de alta calidad a disposición del usuario: fotos, audios, vídeos e ilustraciones.</p>
+            <p>Es una aplicación RIA (Rich Internet Application), lo que significa que tiene un enfoque de aplicación web 2.0, cuidando al extremo la usabilidad de la aplicación, el diseño, los elementos multimedia y en general, 
+            cualquier detalle que contribuya a conseguir "la mejor experiencia de usuario".</p>
+            ]]>
+    </FullDescription>
+    <Tasks>
+      <![CDATA[<p><strong>Backend Developer</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Definición y desarrollo de la estructura de BD.</li>
+                    <li><i class="icon-caret-right"></i>Creación del interfaz API Rest con la aplicación Frontend mediante WCF</li>
+                    <li><i class="icon-caret-right"></i>Automatización de la importación de recursos Multimedia desde la BD de AVE.</li>
+                </ul>]]>
+    </Tasks>
+  </DtoProject>
+  <DtoProject>
+    <Id>5</Id>
+    <Name>
+      <![CDATA[Materiales educativos para McGraw-Hill]]>
+    </Name>
+    <Description>
+      <![CDATA[Adaptación de los materiales educativos del Aula Virtual de Español para su comercialización en el mercado americano por parte de los medios digitales
+            de la editorial McGraw-Hill.]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>1</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>9</Id>
+      </DtoCategory>
+    </Categories>
+    <Client>
+      <Id>6</Id>
+    </Client>
+    <Images>
+      <DtoImage>
+        <Id>4</Id>
+      </DtoImage>
+    </Images>
+    <Date>2010 – 2011</Date>
+    <Slug>mcgraw-hill</Slug>
+    <Business>
+      <Id>1</Id>
+    </Business>
+    <Technologies>
+      <string>Adobe Flash</string>
+      <string>HTML</string>
+      <string>CSS</string>
+      <string>Javascript</string>
+      <string>SCORM</string>
+      <string>IMS-CP</string>
+      <string>Java applets</string>
+    </Technologies>
+    <FullDescription>
+      <![CDATA[
+        <p>Adaptación de los materiales multimedia educativos del Aula Virtual de Español para su comercialización en el mercado americano por parte de los medios digitales de la editorial McGraw-Hill.</p>
+        ]]>
+    </FullDescription>
+    <Tasks>
+      <![CDATA[<p><strong>SCORM consultant</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Definición de la estructura de los cursos y materiales a desarrollar.</li>
+                    <li><i class="icon-caret-right"></i>Creación del interfaz SCORM con las actividades Flash.</li>
+                    <li><i class="icon-caret-right"></i>Desarrollo de un sistema automatizado de generación de los objetos de aprendizaje.</li>
+                    <li><i class="icon-caret-right"></i>Empaquetado final del producto y testeo</li>
+                </ul>]]>
+    </Tasks>
+  </DtoProject>
+  <DtoProject>
+    <Id>4</Id>
+    <Name>
+      <![CDATA["Hola, ¿qué tal?"]]>
+    </Name>
+    <Description>
+      <![CDATA[Proyecto para la integración de los materiales educativos desarrollados con el Instituto Cervantes para el Aula Virtual de Español en un proyecto colaborativo 
+            con otras entidades y nuevos materiales para la enseñanza del español.]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>1</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>9</Id>
+      </DtoCategory>
+    </Categories>
+    <Client>
+      <Id>3</Id>
+    </Client>
+    <Url>
+      <![CDATA[http://www.holaquetal.com]]>
+    </Url>
+    <Images>
+      <DtoImage>
+        <Id>3</Id>
+      </DtoImage>
+    </Images>
+    <Date>2010 – 2011</Date>
+    <Slug>hola-que-tal</Slug>
+    <Business>
+      <Id>1</Id>
+    </Business>
+    <Technologies>
+      <string>Macromedia Authorware</string>
+      <string>Adobe Flash</string>
+      <string>HTML</string>
+      <string>CSS</string>
+      <string>Javascript</string>
+      <string>SCORM</string>
+      <string>IMS-CP</string>
+      <string>Java applets</string>
+      <string>SVN</string>
+    </Technologies>
+    <FullDescription>
+      <![CDATA[
+            <p>Curso de español dinámico, flexible, interactivo e innovador que pone al alcance del alumno los últimos avances tecnológicos para crear un entorno de aprendizaje atractivo y motivador que le permita experimentar la sensación 
+            de ser un estudiante que participa en la red social que ofrece el curso.</p>
+            <p>Este curso le brinda al usuario la posibilidad de crear su propio itinerario de aprendizaje, dejándole la libertad de utilizar las herramientas en el contexto y momento que mejor le convenga o seguir las sugerencias que le ofrece 
+            para guiarle en su proceso de aprendizaje. Podrá también recurrir, si así lo desea, a tutores disponibles a través de diferentes herramientas de comunicación.</p>
+            <p>&nbsp;</p>
+            <p>Con la colaboración de:</p>
+            <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Instituto Cervantes.</li>
+                    <li><i class="icon-caret-right"></i>RTVE</li>
+                    <li><i class="icon-caret-right"></i>Grupo SM</li>
+                    <li><i class="icon-caret-right"></i>Gobierno de La Rioja</li>
+                </ul>
+        ]]>
+    </FullDescription>
+    <Tasks>
+      <![CDATA[<p><strong>SCORM consultant</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Definición de la estructura de los cursos y materiales a desarrollar.</li>
+                    <li><i class="icon-caret-right"></i>Creación del interfaz SCORM con las actividades Flash.</li>
+                    <li><i class="icon-caret-right"></i>Desarrollo de un sistema automatizado de generación de los objetos de aprendizaje.</li>
+                    <li><i class="icon-caret-right"></i>Empaquetado final del producto y testeo</li>
+                </ul>]]>
+    </Tasks>
+  </DtoProject>
+  <DtoProject>
+    <Id>3</Id>
+    <Name>
+      <![CDATA[Saint James Way]]>
+    </Name>
+    <Description>
+      <![CDATA[Proyecto financiado por la Comisión Europea (Programa Leonardo Da Vinci) con la finalidad de crear un Curso de inglés online orientado al
+            sector hostelero que acoge a los peregrinos del Camino de Santiago.]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>1</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>3</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>6</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>9</Id>
+      </DtoCategory>
+    </Categories>
+    <Client>
+      <Id>4</Id>
+    </Client>
+    <Url>
+      <![CDATA[http://www.adam-europe.eu/adam/project/view.htm?prj=7145]]>
+    </Url>
+    <Images>
+      <DtoImage>
+        <Id>5</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>17</Id>
+      </DtoImage>
+    </Images>
+    <Date>2009 - 2011</Date>
+    <Slug>saint-james-way</Slug>
+    <Business>
+      <Id>1</Id>
+    </Business>
+    <Technologies>
+      <string>Social media</string>
+      <string>SEO</string>
+      <string>SEM</string>
+      <string>Wordpress</string>
+      <string>AdWords</string>
+      <string>Google Analytics</string>
+    </Technologies>
+    <Tasks>
+      <![CDATA[<p><strong>Elearning consultant</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Consultoría para la validación de la calidad de los materiales desarrollados.</li>
+                    <li><i class="icon-caret-right"></i>Certificación del cumplimiento de estándares de eLearning.</li>
+                </ul>
+                <p><strong>Social Media consultant</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Configuración y gestión del blog del proyecto en Wordpress: <a href="http://englishthesaintjamesway.wordpress.com/" target="_blank">http://englishthesaintjamesway.wordpress.com</a> .</li>
+                    <li><i class="icon-caret-right"></i>Integración del blog con las Redes Sociales</li>
+                    <li><i class="icon-caret-right"></i>Publicación automática de contenidos en Facebook y Twitter a partir del blog</li>
+                    <li><i class="icon-caret-right"></i>Campaña SEM de AdWords para la promoción del blog.</li>
+                </ul>]]>
+    </Tasks>
+    <FullDescription>
+      <![CDATA[<p>Proyecto financiado por la Comisión Europea para proporcionar una plataforma online de enseñanza de inglés orientada a los hosteleros que acogen a los peregrinos durante el Camino de Santiago.</p>
+                <p>El proyecto cuenta con varios socios colaboradores de varios países europeos:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i><a href="http://www.conexia.es/" target="_blank" style="color: green;">CONEXIA S. COOP</a> (Pais Vasco, España). Socio coordinador.</li>
+                    <li><i class="icon-caret-right"></i><a href="http://www.urremendi.org/" target="_blank" style="color: green;">Asociación de Desarrollo Rural URREMENDI</a> (Pais Vasco, España). Partner</li>
+                    <li><i class="icon-caret-right"></i><a href="http://www.virtua.ua.es/" target="_blank" style="color: green;"><strong>Universidad de Alicante: Virtua</strong></a> (Alicante, España). Partner</li>
+                    <li><i class="icon-caret-right"></i><span style="color: green;">ASESORIA DECLERQ SL ESTUDIOS EUROPEOS</span> (Madrid, España). Partner</li>
+                    <li><i class="icon-caret-right"></i><a href="http://www.endurance.nl/" target="_blank" style="color: green;">Endurance Partners in Hospitality</a> (Amersfoort, Holanda). Partner</li>
+                    <li><i class="icon-caret-right"></i><span style="color: green;">Fondazione "Cittalia - Centro europeo di studi e ricerche per i comuni e le città"</span> (Bruselas, Bélgica). Partner</li>
+                    <li><i class="icon-caret-right"></i><a href="http://www.comunemandas.it/" target="_blank" style="color: green;">Comunde di Mandas</a> (Mandas, Italia). Partner</li>
+                    <li><i class="icon-caret-right"></i><a href="http://www.alfmed.com/" target="_blank" style="color: green;">ACADEMIE DE LANGUES FRANCE MEDITERRANEE</a> (Perpignan, Francia). Partner</li>
+                </ul>]]>
+    </FullDescription>
+  </DtoProject>
+  <DtoProject>
+    <Id>2</Id>
+    <Name>
+      <![CDATA["Hola, amigos"]]>
+    </Name>
+    <Description>
+      <![CDATA[Proyecto para el desarrollo de materiales educativos de enseñanza del español para el Ministerio de Educación del estado de Alberta (Canadá).]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>1</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>9</Id>
+      </DtoCategory>
+    </Categories>
+    <Client>
+      <Id>2</Id>
+    </Client>
+    <Url>
+      <![CDATA[http://ave.cervantes.es/cursos_espanol/hola_amigos.html]]>
+    </Url>
+    <Images>
+      <DtoImage>
+        <Id>1</Id>
+      </DtoImage>
+    </Images>
+    <Date>2005 – 2009</Date>
+    <Slug>hola-amigos</Slug>
+    <Business>
+      <Id>1</Id>
+    </Business>
+    <Technologies>
+      <string>Macromedia Authorware</string>
+      <string>Adobe Flash</string>
+      <string>HTML</string>
+      <string>CSS</string>
+      <string>Javascript</string>
+      <string>SCORM</string>
+      <string>IMS-CP</string>
+      <string>Java applets</string>
+      <string>SVN</string>
+    </Technologies>
+    <Tasks>
+      <![CDATA[<p><strong>SCORM consultant</strong>:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Definición de la estructura de los cursos y materiales a desarrollar.</li>
+                    <li><i class="icon-caret-right"></i>Creación del interfaz SCORM con las actividades Flash.</li>
+                    <li><i class="icon-caret-right"></i>Desarrollo de un sistema automatizado de generación de los objetos de aprendizaje.</li>
+                    <li><i class="icon-caret-right"></i>Empaquetado final del producto y testeo</li>
+                </ul>]]>
+    </Tasks>
+    <FullDescription>
+      <![CDATA[<p>Curso de español en línea para niños y jóvenes, creado para el Instituto Cervantes y el Ministerio de Educación de Alberta (Canadá). </p>
+                <p><em>¡Hola, amigos!</em> está organizado en tres niveles de 9 unidades cada uno y cubre los niveles A1 y A2 del Plan Curricular del Instituto Cervantes y del Marco Común Europeo de referencia para las lenguas.</p>
+                <p>Los materiales pueden emplearse como un curso completo con una secuencia didáctica guiada o como un repositorio de actividades que funcionan como objetos de aprendizaje autónomos y accesibles de forma independiente.</p>
+                <p>La plataforma consta de 2 aplicaciones web y un API para integración de aplicaciones externas:</p>
+                <p>Se realizan diferentes empaquetados de los materiales, cumpliendo el estándar <span class="text-warning">SCORM</span> para su inclusión en la plataforma de formación de Alberta.</p>]]>
+    </FullDescription>
+  </DtoProject>
+  <DtoProject>
+    <Id>1</Id>
+    <Name>
+      <![CDATA[Aula Virtual de Español]]>
+    </Name>
+    <Description>
+      <![CDATA[El Aula Virtual de Español (AVE) es un entorno de aprendizaje en Internet creado por el Instituto Cervantes para la enseñanza del español como
+            lengua extranjera y para impartir cursos de formación de profesores.]]>
+    </Description>
+    <Categories>
+      <DtoCategory>
+        <Id>1</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>2</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>5</Id>
+      </DtoCategory>
+      <DtoCategory>
+        <Id>9</Id>
+      </DtoCategory>
+    </Categories>
+    <Client>
+      <Id>1</Id>
+    </Client>
+    <Url>
+      <![CDATA[http://ave.cervantes.es]]>
+    </Url>
+    <Images>
+      <DtoImage>
+        <Id>2</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>12</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>13</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>14</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>15</Id>
+      </DtoImage>
+      <DtoImage>
+        <Id>16</Id>
+      </DtoImage>
+    </Images>
+    <Date>2000 – 2011</Date>
+    <Slug>aula-virtual-espanol</Slug>
+    <Business>
+      <Id>1</Id>
+    </Business>
+    <Technologies>
+      <string>Macromedia Authorware</string>
+      <string>Adobe Flash</string>
+      <string>ASP Classic</string>
+      <string>HTML</string>
+      <string>CSS</string>
+      <string>Javascript</string>
+      <string>ASP.Net Webforms</string>
+      <string>ASP.Net MVC 3</string>
+      <string>C#</string>
+      <string>UML</string>
+      <string>XML</string>
+      <string>SCORM</string>
+      <string>IMS-CP</string>
+      <string>Java applets</string>
+      <string>GWT</string>
+      <string>XMPP</string>
+      <string>Openfire</string>
+      <string>Windows 2000 - 2008</string>
+      <string>SQL Server 2000 - 2008</string>
+      <string>SQL Stored Procedures</string>
+      <string>SVN</string>
+      <string>Nuget</string>
+      <string>SymbolSource</string>
+      <string>TeamCity</string>
+    </Technologies>
+    <Tasks>
+      <![CDATA[
+                    <p>Este ha sido el proyecto más longevo en el que he trabajado, por lo que ha supuesto la mayor parte de mi experiencia profesional, que podemos dividir en tres etapas:</p>
+                    <p>&nbsp;</p>
+                    <p><strong>2000 - 2002: Desarrollador multimedia</strong></p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="icon-caret-right"></i>En los inicios del proyecto, nos centramos en el desarrollo de actividades multimedia mediante <span class="text-warning">Macromedia Authorware</span>, llegando a implementar al final del
+                            proyecto más de 3.000 materiales diferentes, con cerca de 7.000 pantallas interactivas.
+                        </li>
+                        <li>
+                            <i class="icon-caret-right"></i>Todo el material se presenta al usuario en la <span class="text-warning">versión 1.0</span> del Campus Virtual del Instituto Cervantes.
+                        </li>
+                        <li>
+                            <i class="icon-caret-right"></i>Paralelamente, para gestionar el volumen ingente de material a desarrollar, diseñamos una <span class="text-warning">Intranet</span> para la gestión de la producción,
+                            que controla todo el proceso, desde la llegada de los guiones en texto, hasta la subida a producción de la actividad terminada, gestionando todas las tareas intermedias y sus responsables. Me encargo del diseño, análisis e implementación de dicha Intranet.
+                        </li>
+                    </ul>
+
+                    <p><strong>2003 - 2008: Lead developer</strong></p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="icon-caret-right"></i>En esta segunda fase, asumo la responsabilida técnica en la ejecución del proyecto, durante la cual se aborda el desarrollo de la <span class="text-warning">
+                                versión 2.0
+                            </span> del Campus Virtual, más potente y completo que la anterior
+                            incluyendo estándares de eLearning como <span class="text-warning">SCORM</span> o <span class="text-warning">IMS-CP</span>, que nos permiten importar y exportar contenidos desde y hacia otras plataformas.
+                        </li>
+                        <li>
+                            <i class="icon-caret-right"></i>Igualmente, me encargo de la profesionalización de la arquitectura de desarrollo del equipo, implantando servicios hoy imprescindibles como
+                            un <span class="text-warning">Control de Versiones</span> (CVS y luego SVN), un <span class="text-warning">Servidor de Integración Contínua</span> (TeamCity), <span class="text-warning">Bugtracker</span> y un
+                            <span class="text-warning">Gestor de proyectos</span> con Timetracking.
+                        </li>
+                    </ul>
+
+                    <p><strong>2009 - 2011: Lead developer</strong></p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="icon-caret-right"></i>Finalizado el <span class="text-warning">Máster en desarrollo de aplicaciones y Servicios Web</span>, en 2008, decido implantar los nuevos conocimientos en el proyecto
+                            por lo que iniciamos una migración a tecnología <span class="text-warning">ASP.Net</span>, primero en <span class="text-warning">WebForms</span>, durante la v2.0 de la plataforma, y finalmente a 
+                            <span class="text-warning">MVC 3</span> para el desarrollo de la <span class="text-warning">versión 3.0</span>, la cual obtiene una arquitectura más robusta y escalable que su predecesora, además de desarrollar 
+                            una <span class="text-warning">API</span> para las interacciones con aplicaciones de terceros.
+                        </li>
+                        <li>
+                            <i class="icon-caret-right"></i>Trabajo en el diseño de la <span class="text-warning">arquitectura web</span> basadas en el modelo MVC, incluyendo patrones de diseño como "<span class="text-warning">Dependency Injection</span>", 
+                            con el fin de obtener mayor estabilidad, mantenibilidad, robustez y bajo acoplamiento entre los sistemas desarrollados. Igualmente, me encardo de definir las líneas principales
+                            en el desarrollo de los proyectos, así como decidir las convenciones de código a utilizar y las metodologías de trabajo correspondientes a seguir por el equipo, con el fin
+                            de aumentar la productividad y reducir el índice de errores humanos.
+                        </li>
+                        <li>
+                            <i class="icon-caret-right"></i>Finalmente, con el objetivo de la productividad y la optimización en mente, me encargo del desarrollo de un <span class="text-warning">motor de generación de código</span> basado en 
+                            plantillas <span class="text-warning">T4</span> a partir de modelos de clases <span class="text-warning">UML</span> en Visual Studio 2010/12/13, que es capaz de generar las tres capas de la aplicación de 
+                            <span class="text-warning">Backend</span> de un módulo definido (Datos, Negocio y DTO), los "<span class="text-warning">stored procedures</span>" en <span class="text-warning">SQL</span> necesarios para implementar 
+                            el modelo <span class="text-warning">CRUD</span> base de dicho módulo y los <span class="text-warning">tests unitarios</span> mínimos para probar el módulo.
+                        </li>
+                        <li>
+                            <i class="icon-caret-right"></i>Igualmente, para la capa de <span class="text-warning">Frontend-UI</span>, trabajo en el desarrollo de plantillas de <span class="text-warning">scaffolding</span> para MVC 3 para generar 
+                            la capa <span class="text-warning">MVC</span> (Modelo, Vistas y Controlador) de un módulo concreto que implementa por defecto el <span class="text-warning">CRUD</span>.
+                        </li>
+                    </ul>
+                    
+                    <p><strong>Enero de 2012 – Marzo de 2012: Director Técnico</strong></p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="icon-caret-right"></i>Finalmente, se me encarga la dirección del proyecto en sus tres últimos meses de desarrollo, con el objetivo de cerrar el proyecto y hacer entrega al cliente de todo el código y documentación
+                            funcional y técnica elaborada.
+                        </li>
+                    </ul>
+        ]]>
+    </Tasks>
+    <FullDescription>
+      <![CDATA[<p>El Aula Virtual de Español es la plataforma de eLearning del Instituto Cervantes (IC), para la enseñanza del español en el mundo a través de Internet, así como de los cursos propios de IC. 
+                Actualmente, la plataforma da servicio a más de 130 000 usuarios mensuales y ha superado el 1 000 000 de páginas vistas al mes.</p>
+                <p>&nbsp;</p>
+                <p>La plataforma consta de 2 aplicaciones web y un API para integración de aplicaciones externas:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i><span class="text-warning">Herramienta de Administración</span>: Para la gestión administrativa de los alumnos y centros participantes.</li>
+                    <li><i class="icon-caret-right"></i><span class="text-warning">Campus Virtual</span>: Portal de eLearning donde se alojan los materiales didácticos y las herramientas de comunicación integradas.</li>
+                    <li><i class="icon-caret-right"></i><span class="text-warning">API REST</span>: API para la comunicación con apps de terceros, como gadgets de iGoogle que se desarrollaron en su momento.</li>
+                </ul>
+                <p>Con respecto a los contenidos del material didáctico:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>Se desarrollan más de <span class="text-warning">3.000 actividades multimedia</span>, con cerca de <span class="text-warning">7.000 pantallas interactivas.</span></li>
+                    <li><i class="icon-caret-right"></i>La plataforma soporta el estándar <span class="text-warning">SCORM</span> y los materiales también se generan siguiendo dicho estándar.</li>
+                </ul>
+                <p>Se desarrollan 3 versiones de la plataforma:</p>
+                <ul class="list-unstyled">
+                    <li><i class="icon-caret-right"></i>v1.0: <span class="text-warning">ASP Classic</span>, focalizada en la gestión de contenidos.</li>
+                    <li><i class="icon-caret-right"></i>v2.0: <span class="text-warning">ASP.Net WebForms</span>: Fortalecimiento de las capacidades eLearning e integración con SCORM.</li>
+                    <li><i class="icon-caret-right"></i>v3.0: <span class="text-warning">ASP.NET MVC 3</span>: rediseño de la arquitectura para escalabilidad y potencia.</li>
+                </ul>]]>
+    </FullDescription>
+  </DtoProject>
+
+</ArrayOfDtoProject>

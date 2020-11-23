@@ -1,0 +1,60 @@
+@using System.Resources
+@using Model.DTO.Projects
+ 
+@{
+	ViewData[Constants.Title] = "Sergi Gisbert - " + Miniblog.Core.Texts.Home.Content.Projects;
+	ViewData[Constants.Description] = Miniblog.Core.Texts.Projects.Content.Description;
+}
+
+@section Breadcrumbs {
+	<div class="breadcrumbs margin-bottom-10">
+		<div class="container">
+			<h1 class="pull-left">@Miniblog.Core.Texts.Home.Content.Projects</h1>
+		</div>
+	</div>
+}
+
+@section Head {
+	<link rel="stylesheet" href="~/assets/css/pages/portfolio-v2.css" />
+
+}
+
+@section Scripts {
+	<script src="~/assets/plugins/jquery.mixitup.min.js" async defer></script>
+	<script src="~/assets/plugins/lazyload/jquery.lazyload.js" async defer></script>
+	<script src="~/assets/js/pages/portfolio.js" async defer></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function () {
+			App.init();
+			Portfolio.init();
+		});
+	</script>
+
+}
+
+<div class="container">
+
+	<div class="tag-box tag-box-v2">
+		<p>@Miniblog.Core.Texts.Projects.Content.Lead1</p>
+	</div>
+
+	<!-- Portfolio Sorting Blocks -->
+	<div class="sorting-block">
+		<ul class="sorting-nav sorting-nav-v1 text-center">
+			<li class="filter active" data-filter="all">@Miniblog.Core.Texts.Projects.Content.All</li>
+			@{
+				foreach (var category in (List<DtoCategory>)ViewBag.Categories)
+				{
+					<li class="filter" data-filter="category_@category.Id">@category.Value</li>
+				}
+			}
+		</ul>
+
+
+		<div class="clearfix"></div>
+	</div>
+	<!-- End Portfolio Sorting Blocks -->
+</div>
+
+
+

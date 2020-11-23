@@ -2,8 +2,10 @@ using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 using Shared;
+using Shared.Constants;
 
 using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace Model.Extensions
@@ -14,7 +16,7 @@ namespace Model.Extensions
 
         public static IHtmlContent RenderMarkdown(this IHtmlHelper helper, string filename)
         {
-            var rootPath = (string)AppDomain.CurrentDomain.GetData("ContentRootPath");
+            var rootPath = (string)AppDomain.CurrentDomain.GetData(AppDomainConstants.ContentRootPath);
             //var selectedLanguage = helper.ViewContext.Controller.ControllerContext.GetSelectedLanguage();
 
             //var pathSelected = helper.ViewContext.HttpContext.Server.MapPath(filename + "." + selectedLanguage + ".md");
@@ -33,7 +35,7 @@ namespace Model.Extensions
 
             // Load source text
             var text = Cache.Get<String>(cacheKey, makeCopy: false);
-            if (text == null) // || HttpContext.Current.IsDebuggingEnabled)
+            if (text == null || Debugger.IsAttached)
             {
                 //text = File.ReadAllText(pathSelected);
                 text = File.ReadAllText(pathDefault);

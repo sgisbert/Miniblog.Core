@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfDtoCategory>
+  <DtoCategory>
+    <Id>1</Id>
+    <Name><![CDATA[E-Learning]]></Name>
+  </DtoCategory>
+  <DtoCategory>
+    <Id>2</Id>
+    <Name><![CDATA[WPO]]></Name>
+  </DtoCategory>
+  <DtoCategory>
+    <Id>3</Id>
+    <Name><![CDATA[Wordpress]]></Name>
+  </DtoCategory>
+  <DtoCategory>
+    <Id>4</Id>
+    <Name><![CDATA[Open Source]]></Name>
+  </DtoCategory>
+  <DtoCategory>
+    <Id>5</Id>
+    <Name><![CDATA[Web App]]></Name>
+  </DtoCategory>
+  <DtoCategory>
+    <Id>6</Id>
+    <Name><![CDATA[Social Media]]></Name>
+  </DtoCategory>
+  <DtoCategory>
+    <Id>7</Id>
+    <Name><![CDATA[Responsive Web]]></Name>
+  </DtoCategory>
+  <DtoCategory>
+    <Id>8</Id>
+    <Name><![CDATA[Estrato Media]]></Name>
+  </DtoCategory>
+  <DtoCategory>
+    <Id>9</Id>
+    <Name><![CDATA[Universidad de Alicante]]></Name>
+  </DtoCategory>
+  <DtoCategory>
+    <Id>10</Id>
+    <Name><![CDATA[Sergi Gisbert]]></Name>
+  </DtoCategory>
+  <DtoCategory>
+    <Id>11</Id>
+    <Name><![CDATA[Umbraco]]></Name>
+  </DtoCategory>
+  <DtoCategory>
+    <Id>12</Id>
+    <Name><![CDATA[Sitecore]]></Name>
+  </DtoCategory>
+  <DtoCategory>
+    <Id>13</Id>
+    <Name><![CDATA[ClearPeople]]></Name>
+  </DtoCategory>
+</ArrayOfDtoCategory>

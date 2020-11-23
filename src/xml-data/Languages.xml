@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfDtoLanguage>
+    <DtoLanguage>
+        <Id>1</Id>
+        <Name><![CDATA[Español]]></Name>
+        <CodeStandard>es</CodeStandard>
+        <IsDefault>true</IsDefault>
+    </DtoLanguage>
+    <DtoLanguage>
+        <Id>2</Id>
+        <Name><![CDATA[English]]></Name>
+        <CodeStandard>en</CodeStandard>
+        <IsDefault>false</IsDefault>
+    </DtoLanguage>
+</ArrayOfDtoLanguage>

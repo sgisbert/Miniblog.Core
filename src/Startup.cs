@@ -12,6 +12,9 @@ namespace Miniblog.Core
 
     using Miniblog.Core.Services;
 
+    using Shared.Constants;
+    using Shared.Services;
+
     using System;
     using System.IO.Compression;
     using System.Linq;
@@ -94,8 +97,11 @@ namespace Miniblog.Core
                 });
 
             // setup app's root folders
-            AppDomain.CurrentDomain.SetData("ContentRootPath", env.ContentRootPath);
-            AppDomain.CurrentDomain.SetData("WebRootPath", env.WebRootPath);
+            if (env != null)
+            {
+                AppDomain.CurrentDomain.SetData(AppDomainConstants.ContentRootPath, env.ContentRootPath);
+                AppDomain.CurrentDomain.SetData(AppDomainConstants.WebRootPath, env.WebRootPath);
+            }
         }
 
         /// <remarks>This method gets called by the runtime. Use this method to add services to the container.</remarks>
@@ -109,6 +115,10 @@ namespace Miniblog.Core
             services.Configure<BlogSettings>(this.Configuration.GetSection("blog"));
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMetaWeblog<MetaWeblogService>();
+
+            // Custom content
+            services.AddSingleton<ICategoriesService, CategoriesService>();
+
 
             // Progressive Web Apps https://github.com/madskristensen/WebEssentials.AspNetCore.ServiceWorker
             services.AddProgressiveWebApp(

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfDtoBusiness>
+  <DtoBusiness>
+    <Id>1</Id>
+    <Name><![CDATA[DLSI. Universidad de Alicante]]></Name>
+    <Url>http://www.dlsi.ua.es</Url>
+  </DtoBusiness>
+  <DtoBusiness>
+    <Id>2</Id>
+    <Name><![CDATA[Estrato Media S.L.]]></Name>
+    <Url>http://www.estratomedia.es</Url>
+  </DtoBusiness>
+  <DtoBusiness>
+    <Id>3</Id>
+    <Name><![CDATA[Desarrollo propio]]></Name>
+    <Url>http://www.sergigisbert.es</Url>
+  </DtoBusiness>
+  <DtoBusiness>
+    <Id>4</Id>
+    <Name><![CDATA[ClearPeople]]></Name>
+    <Url>http://www.clearpeople.com</Url>
+  </DtoBusiness>
+  <DtoBusiness>
+    <Id>5</Id>
+    <Name><![CDATA[Kabel]]></Name>
+    <Url>http://www.kabel.es</Url>
+  </DtoBusiness>
+</ArrayOfDtoBusiness>

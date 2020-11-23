@@ -227,9 +227,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\DtoBase.cs" />
+    <Compile Include="DTO\IDto.cs" />
+    <Compile Include="DTO\Projects\DtoCategory.cs" />
+    <Compile Include="DTO\Projects\IDtoCategory.cs" />
     <Compile Include="Extensions\MarkdownExtension.cs" />
-    <Compile Include="ObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CategoriesService.cs" />
+    <Compile Include="Services\ICategoriesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\MarkdownDeep License.txt" />

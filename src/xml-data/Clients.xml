@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfDtoClient>
+    <DtoClient>
+        <Id>1</Id>
+        <Name><![CDATA[Instituto Cervantes]]></Name>
+        <Url>http://www.cervantes.es</Url>
+    </DtoClient>
+    <DtoClient>
+        <Id>2</Id>
+        <Name><![CDATA[Ministerio de Educación de Alberta (Canadá)]]></Name>
+        <Url>http://education.alberta.ca/</Url>
+    </DtoClient>
+    <DtoClient>
+        <Id>3</Id>
+        <Name><![CDATA[Grupo BBVA]]></Name>
+        <Url>http://www.bbva.es</Url>
+    </DtoClient>
+    <DtoClient>
+        <Id>4</Id>
+        <Name><![CDATA[European Comission - Education & Training]]></Name>
+        <Url>http://ec.europa.eu</Url>
+    </DtoClient>
+    <DtoClient>
+        <Id>5</Id>
+        <Name><![CDATA[IE Business School]]></Name>
+        <Url>http://www.ie.edu/business-school/</Url>
+    </DtoClient>
+    <DtoClient>
+        <Id>6</Id>
+        <Name><![CDATA[McGraw-Hill]]></Name>
+        <Url>http://www.mheducation.com/</Url>
+    </DtoClient>
+    <DtoClient>
+        <Id>7</Id>
+        <Name><![CDATA[Estrato Media]]></Name>
+        <Url>http://www.estratomedia.es</Url>
+    </DtoClient>
+    <DtoClient>
+        <Id>8</Id>
+        <Name><![CDATA[Personal]]></Name>
+        <Url>http://www.sergigisbert.es</Url>
+    </DtoClient>
+    <DtoClient>
+        <Id>9</Id>
+        <Name><![CDATA[UFV-ADEN  Business School]]></Name>
+        <Url>http://www.ufvaden.edu.es</Url>
+    </DtoClient>
+</ArrayOfDtoClient>

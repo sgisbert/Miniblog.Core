@@ -1,0 +1,244 @@
+@using Model.Models.Projects;
+@using System.Resources
+@using Model.Utils;
+
+@{
+    System.Resources.ResourceManager rm = new ResourceManager(Type.GetType("WebSite.Texts.Projects.Project" + Model.Id + ".Project" + Model.Id + ",WebSite"));
+
+    ViewBag.Title = "Sergi Gisbert - " + WebSite.Texts.Projects.Content.Project + " " + rm.GetString("Name");
+    ViewBag.Description = "Web personal de Sergi Gisbert. " + WebSite.Texts.Projects.Content.Project + " " + rm.GetString("Name") + ". " + rm.GetString("Description");
+}
+
+@section Breadcrumbs {
+    <div class="breadcrumbs margin-bottom-10">
+        <div class="container">
+            <h1 class="pull-left">@WebSite.Texts.Projects.Content.Project: @rm.GetString("Name")</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="/@ViewBag.SelectedLanguage/Projects">@WebSite.Texts.Home.Content.Projects</a></li>
+                <li class="active">@rm.GetString("Name")</li>
+            </ul>
+        </div>
+    </div>
+}
+
+@section styles {
+
+}
+
+@section scripts {
+
+}
+
+<div class="container">
+    <div class="row portfolio-item" style="margin-top: 15px;">
+        <!-- Content Info -->
+        <div class="col-md-6 md-margin-bottom-40">
+            <h2>@WebSite.Texts.Projects.Content.ProjectData</h2>
+            <p class="margin-bottom-20">@rm.GetString("Description")</p>
+
+            <h2>@WebSite.Texts.Projects.Content.TechnicalDetails</h2>
+            <div class="tag-box tag-box-v2">
+                <div class="row fa fa-icons">
+                    <div class="col-md-12">
+                        <ul class="list-unstyled">
+                            <li style="font-size: 14px;"><i class="icon-briefcase"></i><em>@WebSite.Texts.Projects.Content.Business</em>: <a href="@Model.Business.Url" target="_blank">@Model.Business.Value</a></li>
+                            @if (Model.Client != null)
+                            {
+                                <li style="font-size: 14px; "><i class="icon-eur "></i><em>@WebSite.Texts.Projects.Content.Client</em>: <a href="@Model.Client.Url" target="_blank">@Model.Client.Value</a> </li>
+                            }
+                            <li style="font-size: 14px; "><i class="icon-calendar "></i><em>@WebSite.Texts.Projects.Content.Date</em>: @Model.Date </li>
+                            @if (!String.IsNullOrEmpty(Model.Url))
+                            {
+                                <li style="font-size: 14px;"><i class="icon-link "></i><em>@WebSite.Texts.Projects.Content.Link</em>: <a href="@Model.Url" target="_blank">@Model.Url</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            @*@if (Model.Technologies != null && Model.Technologies.Count > 0)
+                {
+                    <h2>Tecnologías</h2>
+                    <div class="tag-box tag-box-v2" style="font-size:medium;">
+                        @foreach (var tag in Model.Technologies)
+                        {
+                            <span class="label label-success">@tag</span>
+                        }
+                    </div>
+                }*@
+
+            @*<h2>Tecnologías empleadas</h2>
+                <div class="tag-box tag-box-v4" style="font-size:large;">
+                    <span class="label label-success">.net</span>
+                    <span class="label label-success">c#</span>
+                    <span class="label label-success">asp.net-mvc-3</span>
+                    <span class="label label-success">asp.net-mvc-4</span>
+                    <span class="label label-success">sql</span>
+                    <span class="label label-success">sql-server</span>
+                    <span class="label label-success">visul studio</span>
+                    <span class="label label-success">svn</span>
+                    <span class="label label-success">git</span>
+                    <span class="label label-success">windows azure</span>
+                    <span class="label label-success">varnish</span>
+                    <span class="label label-success">cloudflare</span>
+                    <span class="label label-success">newrelic</span>
+                    <span class="label label-success">teamcity</span>
+                    <span class="label label-success">bootstrap</span>
+                    <span class="label label-success">responsive web</span>
+                    <span class="label label-success">wordpress</span>
+                    <span class="label label-success">WPO</span>
+                    <span class="label label-success">page speed</span>
+                    <span class="label label-success">yslow</span>
+                    <span class="label label-success">elearning</span>
+                    <span class="label label-success">scorm</span>
+                    <span class="label label-success">open badges</span>
+                </div>*@
+            @*<div class="row portfolio-item1">
+                    <div class="col-xs-6">
+                        <ul class="list-unstyled">
+                            <li><i class="icon-dropbox color-green"></i> 25GB For Free</li>
+                            <li><i class="icon-cloud color-green"></i> Cloud Hosting</li>
+                            <li><i class="icon-globe color-green"></i> Best Quality Ever</li>
+                            <li><i class="icon-comments color-green"></i> 24 Hours Support</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-6">
+                        <ul class="list-unstyled">
+                            <li><i class="icon-shopping-cart color-green"></i> Easy Shopping</li>
+                            <li><i class="icon-cog color-green"></i> Best Service</li>
+                            <li><i class="icon-html5 color-green"></i> HTML5/CSS3</li>
+                            <li><i class="icon-beaker color-green"></i> UI Design</li>
+                        </ul>
+                    </div>
+                </div>*@
+            @*<p><a class="btn-u btn-u-large" href="@Model.Url" target="_blank">VISITA ONLINE</a></p>*@
+        </div>
+        <!-- End Content Info -->
+        <!-- Carousel -->
+        <div class="col-md-6">
+            <div class="carousel slide carousel-v1" id="myCarousel">
+                <div class="carousel-inner">
+                    @{
+                        int cont = 1;
+                        foreach (var image in Model.Images)
+                        {
+                            <div class="item @(cont==1 ? "active" : "")">
+                                <img alt="" src="@ImageModel.GetUrl(image)" />
+                                <div class="carousel-caption">
+                                    <p>@image.Name</p>
+                                </div>
+                            </div>
+                            cont++;
+                        }
+                    }
+
+                </div>
+
+                <div class="carousel-arrow">
+                    <a data-slide="prev" href="#myCarousel" class="left carousel-control">
+                        <i class="icon-angle-left"></i>
+                    </a>
+                    <a data-slide="next" href="#myCarousel" class="right carousel-control">
+                        <i class="icon-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- End Carousel -->
+    </div>
+
+    <div class="row portfolio-item" style="margin-top:10px;">
+        <div class="col-md-12">
+
+            <div class="tag-box tag-box-v2">
+                <h2>@WebSite.Texts.Projects.Content.ProjectDescription</h2>
+                @*@Html.Raw(Model.FullDescription)*@
+                @*@Html.Raw(rm.GetString("FullDescription"))*@
+                @MarkdownExtension.RenderMarkdown(Html, "/Texts/Projects/Project" + Model.Id.ToString() + "/Project" + Model.Id.ToString() + "-desc")
+
+                @*<p>Proyecto financiado por la Comisión Europea para proporcionar una plataforma online de enseñanza de inglés orientada a los hosteleros que acogen a los peregrinos durante el Camino de Santiago.</p>
+                    <p>El proyecto conta de varios socios colaboradores de varios países europeos:</p>
+                    <ul class="list-unstyled">
+                        <li><i class="icon-caret-right"></i><a href="http://www.conexia.es/" target="_blank" style="color: green;">CONEXIA S. COOP</a> (Pais Vasco, España). Socio coordinador.</li>
+                        <li><i class="icon-caret-right"></i><a href="http://www.urremendi.org/" target="_blank" style="color: green;">Asociación de Desarrollo Rural URREMENDI</a> (Pais Vasco, España). Partner</li>
+                        <li><i class="icon-caret-right"></i><a href="http://www.virtua.ua.es/" target="_blank" style="color: green;">Universidad de Alicante: Virtua</a> (Alicante, España). Partner</li>
+                        <li><i class="icon-caret-right"></i><span style="color: green;">ASESORIA DECLERQ SL ESTUDIOS EUROPEOS</span> (Madrid, España). Partner</li>
+                        <li><i class="icon-caret-right"></i><a href="http://www.endurance.nl/" target="_blank" style="color: green;">Endurance Partners in Hospitality</a> (Amersfoort, Holanda). Partner</li>
+                        <li><i class="icon-caret-right"></i><span style="color: green;">Fondazione "Cittalia - Centro europeo di studi e ricerche per i comuni e le città"</span> (Bruselas, Bélgica). Partner</li>
+                        <li><i class="icon-caret-right"></i><a href="http://www.comunemandas.it/" target="_blank" style="color: green;">Comunde di Mandas</a> (Mandas, Italia). Partner</li>
+                        <li><i class="icon-caret-right"></i><a href="http://www.alfmed.com/" target="_blank" style="color: green;">ACADEMIE DE LANGUES FRANCE MEDITERRANEE</a> (Perpignan, Francia). Partner</li>
+                    </ul>*@
+            </div>
+            <div class="tag-box tag-box-v2">
+                <h2>@WebSite.Texts.Projects.Content.Tasks</h2>
+                @*@Html.Raw(Model.Tasks)*@
+                @*@Html.Raw(rm.GetString("Tasks"))*@
+                @MarkdownExtension.RenderMarkdown(Html, "/Texts/Projects/Project" + Model.Id.ToString() + "/Project" + Model.Id.ToString() + "-tasks")
+                @*<p><strong>Elearning consultant</strong>:</p>
+                    <ul class="list-unstyled">
+                        <li><i class="icon-caret-right"></i>Consultoría para la validación de la calidad de los materiales desarrollados.</li>
+                        <li><i class="icon-caret-right"></i>Certificación del cumplimiento de estándares de eLearning.</li>
+                    </ul>
+                    <p><strong>Social Media consultant</strong>:</p>
+                    <ul class="list-unstyled">
+                        <li><i class="icon-caret-right"></i>Configuración y gestión del blog del proyecto en Wordpress: <a href="http://englishthesaintjamesway.wordpress.com/" target="_blank">http://englishthesaintjamesway.wordpress.com</a> .</li>
+                        <li><i class="icon-caret-right"></i>Integración del blog con las Redes Sociales</li>
+                        <li><i class="icon-caret-right"></i>Publicación automática de contenidos en Facebook y Twitter a partir del blog</li>
+                        <li><i class="icon-caret-right"></i>Campaña SEM de AdWords para la promoción del blog.</li>
+                    </ul>*@
+                @*
+                    <p><strong>2003 - 2008: Lead developer</strong></p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="icon-caret-right"></i>En esta segunda fase, asumo la responsabilida técnica en la ejecución del proyecto, durante la cual se aborda el desarrollo de la <span class="text-warning">
+                                versión 2.0
+                            </span> del Campus Virtual, más potente y completo que la anterior
+                            incluyendo estándares de eLearning como <span class="text-warning">SCORM</span> o <span class="text-warning">IMS-CP</span>, que nos permiten importar y exportar contenidos desde y hacia otras plataformas.
+                        </li>
+                        <li>
+                            <i class="icon-caret-right"></i>Igualmente, me encargo de la profesionalización de la arquitectura de desarrollo del equipo, implantando servicios hoy imprescindibles como
+                            un <span class="text-warning">Control de Versiones</span> (CVS y luego SVN), un <span class="text-warning">Servidor de Integración Contínua</span> (TeamCity), <span class="text-warning">Bugtracker</span> y un
+                            <span class="text-warning">Gestor de proyectos</span> con Timetracking.
+                        </li>
+                    </ul>
+
+                    <p><strong>2009 - 2011: Lead developer</strong></p>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="icon-caret-right"></i>Finalizado el <span class="text-warning">Máster en desarrollo de aplicaciones y Servicios Web</span>, en 2008, decido implantar los nuevos conocimientos en el proyecto
+                            por lo que iniciamos una migración a tecnología <span class="text-warning">ASP.Net</span>, primero en <span class="text-warning">WebForms</span>, durante la v2.0 de la plataforma, y finalmente a
+                            <span class="text-warning">MVC 3</span> para el desarrollo de la <span class="text-warning">versión 3.0</span>,la cual obtiene una arquitectura más robusta y escalable que su predecesora, además de desarrollar
+                            una <span class="text-warning">API</span> para las interacciones con aplicaciones de terceros.
+                        </li>
+                        <li>
+                            <i class="icon-caret-right"></i>Trabajo en el diseño de la <span class="text-warning">arquitectura web</span> basadas en el modelo MVC, incluyendo patrones de diseño como "<span class="text-warning">Dependency Injection</span>",
+                            con el fin de obtener mayor estabilidad, mantenibilidad, robustez y bajo acoplamiento entre los sistemas desarrollados. Igualmente, me encardo de definir las líneas principales
+                            en el desarrollo de los proyectos, así como decidir las convenciones de código a utilizar y las metodologías de trabajo correspondientes a seguir por el equipo, con el fin
+                            de aumentar la productividad y reducir el índice de errores humanos.
+                        </li>
+                        <li>
+                            <i class="icon-caret-right"></i>Finalmente, con el objetivo de la productividad y la optimización en mente, me encargo del desarrollo de un <span class="text-warning">motor de generación de código</span> basado en
+                            plantillas <span class="text-warning">T4</span> a partir de modelos de clases <span class="text-warning">UML</span> en Visual Studio 2010/12/13, que es capaz de generar las tres capas de la aplicación de
+                            <span class="text-warning">Backend</span> de un módulo definido (Datos, Negocio y DTO), los "<span class="text-warning">stored procedures</span>" en <span class="text-warning">SQL</span> necesarios para implementar
+                            el modelo <span class="text-warning">CRUD</span> base de dicho módulo y los <span class="text-warning">tests unitarios</span> mínimos para probar el módulo.
+                        </li>
+                        <li>
+                            <i class="icon-caret-right"></i>Igualmente, para la capa de <span class="text-warning">Frontend-UI</span>, trabajo en el desarrollo de plantillas de <span class="text-warning">scaffolding</span> para MVC 3 para generar
+                            la capa <span class="text-warning">MVC</span> (Modelo, Vistas y Controlador) de un módulo concreto que implementa por defecto el <span class="text-warning">CRUD</span>.
+                        </li>
+                    </ul>*@
+            </div>
+
+            @if (Model.Technologies != null && Model.Technologies.Count > 0)
+            {
+                <h2>@WebSite.Texts.Projects.Content.Technologies</h2>
+                <div class="tag-box tag-box-v2" style="font-size:medium;">
+                    @foreach (var tag in Model.Technologies)
+                    {
+                        <span class="label label-success">@tag</span>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
