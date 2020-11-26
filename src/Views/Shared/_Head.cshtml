@@ -1,0 +1,57 @@
+@{
+	var host = $"{Context.Request.Scheme}://{Context.Request.Host}";
+}
+<meta charset="utf-8" />
+<title>@ViewData[Constants.Title]</title>
+<meta name="description" content="@ViewData[Constants.Description]" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="preload" href="~/js/site.js" as="script" />
+<link rel="preload" href="~/css/belowthefold.scss" as="style" />
+<noscript><link rel="stylesheet" href="~/css/belowthefold.scss" /></noscript>
+
+@*<link rel="stylesheet" href="~/css/abovethefold.scss" inline />*@
+
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Monda:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="~/assets/css/bootstrap-yeti.css" />
+<link rel="stylesheet" href="~/assets/css/app.css" />
+<link rel="stylesheet" href="~/assets/css/style.css" />
+<link rel="stylesheet" href="~/assets/css/responsive.css" />
+<link rel="stylesheet" href="~/assets/css/headers/header1.css" />
+<link rel="stylesheet" href="~/assets/css/themes/default.css" />
+<link rel="stylesheet" href="~/assets/plugins/font-awesome/css/font-awesome.css" />
+<link rel="stylesheet" href="~/assets/css/site.css" />
+<link rel="stylesheet" href="~/assets/css/highCompat.css" />
+
+@*<link rel="preload" href="~/assets/js/vendor/jquery-migrate-1.2.1.min.js" as="script" />
+	<link rel="preload" href="~/assets/js/vendor/bootstrap.js" as="script" />
+	<link rel="preload" href="~/assets/js/vendor/respond.js" as="script" />
+	<link rel="preload" href="~/assets/js/vendor/hover-dropdown.min.js" as="script" />
+	<link rel="preload" href="~/assets/js/vendor/back-to-top.js" as="script" />
+	<link rel="preload" href="~/assets/js/app.js" as="script" />
+	<link rel="preload" href="~/assets/js/analytics.js" as="script" />*@
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="@ViewData[Constants.Title]" />
+<meta property="og:description" content="@ViewData[Constants.Description]" />
+<meta property="og:url" content="@(host + Context.Request.Path)" />
+<meta property="og:image" content="@host/img/icon512x512.png" />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+
+<meta name="msapplication-square150x150logo" content="~/assets/favicon.png" />
+
+<link rel="icon" type="image/png" sizes="16x16" href="~/assets/favicon.png" />
+<link rel="apple-touch-icon" href="~/assets/favicon.png" />
+<link rel="shortcut icon" href="~/assets/favicon.png" />
+<link rel="favicon" href="~/assets/favicon.png" type="image/x-icon" />
+
+<link rel="edituri" type="application/rsd+xml" title="RSD" href="~/rsd.xml" />
+<link rel="alternate" type="application/rss+xml" href="~/feed/rss/" title="@ViewData[Constants.Title]" />
+<link rel="alternate" type="application/atom+xml" href="~/feed/atom/" title="@ViewData[Constants.Title]" />
+
+<meta name="application-name" content="@ViewData[Constants.Title]" />
+<meta name="msapplication-TileColor" content="#ffffff" />

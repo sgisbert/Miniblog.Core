@@ -1,38 +1,63 @@
-﻿@model IAsyncEnumerable<Post>
+@using System.Linq;
+
+@model IAsyncEnumerable<Post>
 @inject IOptionsSnapshot<BlogSettings> settings
 @{
-    int currentPage = int.Parse(ViewContext.RouteData.Values[Constants.page] as string ?? "0");
+	int currentPage = int.Parse(ViewContext.RouteData.Values[Constants.page] as string ?? "0");
 
-    int pageCount;
-    pageCount = int.TryParse(ViewData[Constants.TotalPostCount].ToString(), out pageCount) ? 0 : pageCount / 2;
+	int pageCount;
+	pageCount = int.TryParse(ViewData[Constants.TotalPostCount].ToString(), out pageCount) ? 0 : pageCount / 2;
+	List<string> categories = (List<string>)ViewData[Constants.categories];
 }
 
-@await foreach (var post in Model)
-{
-    await Html.RenderPartialAsync("Post.cshtml", post);
+@section Head {
+	@if ((await Model.AnyAsync()) && currentPage < pageCount)
+	{
+		<link rel="prev" href="@ViewData[Constants.prev]" />
+	}
+	@if (currentPage > 0)
+	{
+		<link rel="next" href="@ViewData[Constants.next]" />
+	}
+
+	<link rel="stylesheet" href="~/assets/css/pages/blog.css" />
+	<link rel="stylesheet" href="~/assets/css/pages/page_magazine.css" />
 }
+
+<div class="row blog-page">
+	<div class="col-md-9">
+		@await foreach (var post in Model)
+		{
+			await Html.RenderPartialAsync("_Post.cshtml", post);
+		}
+	</div>
+	<div class="col-md-3 magazine-page">
+		<div class="headline headline-md"><h2>Conecta conmigo</h2></div>
+		@{ await Html.RenderPartialAsync("_SocialLinks"); }
+
+		@if (categories != null && categories.Any())
+		{
+			<div class="headline headline-md" style="padding-top: 30px;"><h2>Categorías</h2></div>
+			<ul class="list-unstyled blog-tags">
+				@foreach (var cat in categories)
+				{
+					<li>
+						<a asp-controller="Blog" asp-action="Category" asp-route-category="@cat.ToLowerInvariant()" asp-route-page="" rel="category tag" title="Ver los posts en @cat"><i class="icon-tags"></i> @cat</a>
+					</li>
+				}
+			</ul>
+		}
+	</div>
+</div>
 
 <nav class="pagination container" aria-label="Pagination">
-    @if ((await Model.AnyAsync()) && currentPage < pageCount)
-    {
-        <a rel="prev" href="@ViewData[Constants.prev]" title="Older posts">&laquo; Older</a>
-    }
-    @if (currentPage > 0)
-    {
-        <a rel="next" href="@ViewData[Constants.next]" title="Newer posts">Newer &raquo;</a>
-    }
-    <br /><br />
-
-    @section Head {
-        @if ((await Model.AnyAsync()) && currentPage < pageCount)
-        {
-            <link rel="prev" href="@ViewData[Constants.prev]" />
-        }
-        @if (currentPage > 0)
-        {
-            <link rel="next" href="@ViewData[Constants.next]" />
-        }
-    }
+	@if ((await Model.AnyAsync()) && currentPage < pageCount)
+	{
+		<a rel="prev" href="@ViewData[Constants.prev]" title="Older posts">&laquo; Older</a>
+	}
+	@if (currentPage > 0)
+	{
+		<a rel="next" href="@ViewData[Constants.next]" title="Newer posts">Newer &raquo;</a>
+	}
+	<br /><br />
 </nav>
-
-@{await Html.RenderPartialAsync("_SocialSharing", ViewData[Constants.Title]);}
