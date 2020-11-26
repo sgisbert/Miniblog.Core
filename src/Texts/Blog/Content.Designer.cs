@@ -106,6 +106,15 @@ namespace Miniblog.Core.Texts.Blog {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Desarrollador de aplicaciones, trabajando principalmente en el mundo Web y con entornos Microsoft, pero sin cerrarme a nuevas aventuras. Actualmente, Senior Sitecore Architect en &lt;a href=&quot;http://www.kabel.es&quot; target=&quot;_blank&quot;&gt;Kabel&lt;/a&gt;.
+        /// </summary>
+        public static string PostFooter {
+            get {
+                return ResourceManager.GetString("PostFooter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Publicado el .
         /// </summary>
         public static string Published {

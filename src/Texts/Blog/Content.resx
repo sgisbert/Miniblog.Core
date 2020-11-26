@@ -132,6 +132,9 @@
   <data name="Older" xml:space="preserve">
     <value>Anteriores</value>
   </data>
+  <data name="PostFooter" xml:space="preserve">
+    <value>Desarrollador de aplicaciones, trabajando principalmente en el mundo Web y con entornos Microsoft, pero sin cerrarme a nuevas aventuras. Actualmente, Senior Sitecore Architect en &lt;a href="http://www.kabel.es" target="_blank"&gt;Kabel&lt;/a&gt;</value>
+  </data>
   <data name="Published" xml:space="preserve">
     <value>Publicado el </value>
   </data>

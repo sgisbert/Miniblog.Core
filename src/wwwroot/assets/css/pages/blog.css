@@ -3,7 +3,7 @@
 /*Blog Page*/
 
 article {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .page h2,
@@ -90,6 +90,7 @@ article {
 	background: #72c02c;
 }
 
+nav div.nav-links a:hover,
 footer.entry-meta a:hover,
 footer.entry-meta a:hover i,
 div.entry-content a.more-link:hover,
@@ -102,7 +103,7 @@ div.entry-content a.more-link:hover i {
 	transition: all 0.2s ease-in-out;
 }
 
-div.entry-content a.more-link,
+div.entry-content a.more-link,nav div.nav-links a,
 footer.entry-meta a {
 	color: #555;
 	font-size: 11px;
@@ -111,7 +112,7 @@ footer.entry-meta a {
 	margin-right: 2px;
 	background: #f4f4f4;
 }
-div.entry-content a.more-link:hover,
+div.entry-content a.more-link:hover,nav div.nav-links a:hover,
 footer.entry-meta a:hover {
 	background: #72c02c;
 }
