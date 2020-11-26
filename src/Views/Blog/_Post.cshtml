@@ -9,8 +9,21 @@
 }
 
 @section Head {
+	@if (showFullPost)
+	{
+		@* This lazy loads the stylesheet in a non-render blocking way *@
+		<link rel="preload" href="~/css/comments.scss" as="style" />
+		<noscript><link rel="stylesheet" href="~/css/comments.scss" /></noscript>
+		@if (isCodePreview)
+		{
+			<link rel="preload" href="~/lib/prism/prism.scss" as="style" />
+			<script src="~/lib/prism/prism.js" async defer></script>
+		}
+	}
 	<link rel="canonical" href="@(host + Model.GetLink())" />
 }
+@showFullPost
+@isCodePreview
 
 <article class="post type-post" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
 	<header class="entry-header">

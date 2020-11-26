@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<post>
+  <title>Cómo instalar WordPress en una carpeta de Azure Websites</title>
+  <slug>como-instalar-wordpress-en-una-carpeta-de-azure-websites</slug>
+  <pubDate>2020-11-26T16:57:34.260Z</pubDate>
+  <lastModified>2020-11-26T16:57:34.266Z</lastModified>
+  <excerpt>A raíz de una consulta que me llega, parece que instalar WordPress en una carpeta de Azure Websites no es tan común como pensaba, o, al menos, no está demasiado documentada. La idea es que http://www.miwebsite.com/blog pueda alojar una instancia de WordPress, mientras que en el raíz se mantenga una aplicación .Net. Este mismo escenario es el que  tenía yo mismo, en la anterior versión de este blog.</excerpt>
+  <content>&lt;p&gt;A ra&amp;iacute;z de una consulta que me llega de&amp;nbsp;&lt;a title="Jes&amp;uacute;s Gonz&amp;aacute;lez" href="https://plus.google.com/u/1/+Jes%C3%BAsGonz%C3%A1lez" target="_blank" rel="noopener"&gt;Jes&amp;uacute;s Gonz&amp;aacute;lez&lt;/a&gt;&amp;nbsp;a trav&amp;eacute;s de Google+, parece que instalar WordPress en una carpeta de Azure Websites&amp;nbsp;no es tan com&amp;uacute;n como pensaba, o, al menos, no est&amp;aacute; demasiado documentada. La idea es que http://www.miwebsite.com/blog pueda alojar una instancia de WordPress, mientras que en el ra&amp;iacute;z se mantenga una aplicaci&amp;oacute;n .Net. Este mismo escenario es el que ten&amp;iacute;a yo mismo, en la anterior versi&amp;oacute;n de este blog.&lt;/p&gt;
+&lt;p&gt;Para ello, la primera opci&amp;oacute;n ser&amp;iacute;a seguir uno de los tutoriales que existen para ello, como este:&amp;nbsp;&lt;a href="https://blogs.msdn.com/b/kaushal/archive/2014/04/19/microsoft-azure-web-sites-deploying-wordpress-to-a-virtual-directory-within-the-azure-web-site.aspx" target="_blank" rel="noopener"&gt;http://blogs.msdn.com/b/kaushal/archive/2014/04/19/microsoft-azure-web-sites-deploying-wordpress-to-a-virtual-directory-within-the-azure-web-site.aspx&lt;/a&gt;. Este tutorial aborda una instalaci&amp;oacute;n desde cero de WordPress, realizando una instalaci&amp;oacute;n en local a trav&amp;eacute;s de la galer&amp;iacute;a de aplicaciones de WebMatrix, y realizando la publicaci&amp;oacute;n a posteriori sobre el website.&lt;/p&gt;
+&lt;p&gt;Sin embargo, se puede dar el caso de que ya dispongamos de un WordPress funcionando y no queremos que WebMatrix le meta mano a nuestro c&amp;oacute;digo. Para ello necesitaremos realizar un par de peque&amp;ntilde;as modificaciones manuales.&lt;/p&gt;
+&lt;p&gt;En&amp;nbsp;&lt;a title="Detalles t&amp;eacute;cnicos de implantaci&amp;oacute;n de la web" href="http://www.sergigisbert.com/blog/detalles-tecnicos-de-implantacion-de-la-web/" target="_blank" rel="noopener"&gt;este&amp;nbsp;post anterior&lt;/a&gt;, en el que desglosaba un poco los detalles t&amp;eacute;cnicos que he utilizado para implementar esta web, ya indicaba la problem&amp;aacute;tica de compartir WordPress con MVC en Azure, y c&amp;oacute;mo lo hab&amp;iacute;a solucionado, pero parece que el tema tiene entidad suficiente como para dedicarle este peque&amp;ntilde;o post.&lt;/p&gt;
+&lt;h2&gt;Configurando el Website&lt;/h2&gt;
+&lt;p&gt;El problema principal de intentar hacer convivir una aplicaci&amp;oacute;n basada en .Net con otra basada en PHP, como es el caso, es saber discernir cu&amp;aacute;ndo las peticiones que recibe el website las tiene que manejar un framework y cu&amp;aacute;ndo el otro. En este caso, todo lo que se reciba a la url &amp;laquo;/blog&amp;raquo; y por debajo de &amp;eacute;sta, lo tiene que renderizar el motor de PHP, y, en concreto, WordPress. Todas las dem&amp;aacute;s, dejaremos que las maneje .Net.&lt;/p&gt;
+&lt;p&gt;Para ello, a&amp;ntilde;adiremos la siguiente configuraci&amp;oacute;n al archivo&amp;nbsp;web.config&amp;nbsp;que se encuentra en el ra&amp;iacute;z del sitio web:&lt;/p&gt;
+&lt;pre class="language-markup"&gt;&lt;code&gt;&amp;lt;system.webServer&amp;gt;
+    &amp;lt;rewrite&amp;gt;
+        &amp;lt;rules&amp;gt;
+            &amp;lt;rule name="blog" patternSyntax="Wildcard"&amp;gt;
+                &amp;lt;match url="blog/*" /&amp;gt;
+                &amp;lt;conditions&amp;gt;
+                    &amp;lt;add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" /&amp;gt;
+                    &amp;lt;add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" /&amp;gt;
+                &amp;lt;/conditions&amp;gt;
+                &amp;lt;action type="Rewrite" url="blog/index.php" /&amp;gt;
+            &amp;lt;/rule&amp;gt;
+        &amp;lt;/rules&amp;gt;
+    &amp;lt;/rewrite&amp;gt;
+&amp;lt;/system.webServer&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;De esta manera, utilizamos el m&amp;oacute;dulo&amp;nbsp;url_rewrite&amp;nbsp;para enviar al motor de WordPress todas las peticiones que se reciban en la carpeta &amp;laquo;/blog&amp;raquo;&lt;/p&gt;
+&lt;p&gt;En segundo lugar, crearemos un segundo archivo&amp;nbsp;web.config&amp;nbsp;y lo alojaremos dentro de la carpeta &amp;laquo;/blog&amp;raquo;, con el mismo contenido:&lt;/p&gt;
+&lt;pre class="language-markup"&gt;&lt;code&gt;&amp;lt;?xml version="1.0" encoding="UTF-8"?&amp;gt;
+&amp;lt;configuration&amp;gt;
+    &amp;lt;system.webServer&amp;gt;
+        &amp;lt;rewrite&amp;gt;
+            &amp;lt;rules&amp;gt;
+                &amp;lt;rule name="wordpress" patternSyntax="Wildcard"&amp;gt;
+                    &amp;lt;match url="*"/&amp;gt;
+                    &amp;lt;conditions&amp;gt;
+                        &amp;lt;add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true"/&amp;gt;
+                        &amp;lt;add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true"/&amp;gt;
+                    &amp;lt;/conditions&amp;gt;
+                    &amp;lt;action type="Rewrite" url="index.php"/&amp;gt;
+                &amp;lt;/rule&amp;gt;
+            &amp;lt;/rules&amp;gt;
+        &amp;lt;/rewrite&amp;gt;
+    &amp;lt;/system.webServer&amp;gt;
+&amp;lt;/configuration&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finalmente, tambi&amp;eacute;n ser&amp;iacute;a recomendable configurar el Website para indicarle que hay una aplicaci&amp;oacute;n virtual en la carpeta &amp;laquo;/blog&amp;raquo;, tal y como se indica en el enlace que he dejado al inicio.&lt;/p&gt;
+&lt;p&gt;Dependiendo del tipo de aplicaci&amp;oacute;n .Net que tengamos instalada, tendremos que decirle a su vez que ignore todas las peticiones a &amp;laquo;/blog&amp;raquo;. En mi caso,que utilizo MVC, esto se consigue a&amp;ntilde;adiendo la siguiente configuraci&amp;oacute;n de enrutamiento:&lt;/p&gt;
+&lt;pre class="language-csharp"&gt;&lt;code&gt;routes.IgnoreRoute("blog/{*pathInfo}");&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En general, el concepto es el mismo para hacer convivir cualquier aplicaci&amp;oacute;n .NET y PHP:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Redirigir las peticiones desde la aplicaci&amp;oacute;n ra&amp;iacute;z a la carpeta de la otra aplicaci&amp;oacute;n&lt;/li&gt;
+&lt;li&gt;Configurar la aplicaci&amp;oacute;n ra&amp;iacute;z para que ignore las peticiones a la aplicaci&amp;oacute;n anidada.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;iexcl;Espero que os sea de utilidad!&lt;/p&gt;</content>
+  <ispublished>true</ispublished>
+  <categories>
+    <category>wordpress</category>
+    <category>blogs</category>
+    <category>azure</category>
+  </categories>
+  <comments></comments>
+</post>
