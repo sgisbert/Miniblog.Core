@@ -1,12 +1,7 @@
 @model Post
 @inject IOptionsSnapshot<BlogSettings> settings
 @{
-	ViewData[Constants.Title] = Model.Title;
-	ViewData[Constants.Description] = Model.Excerpt;
-	bool showFullPost = ViewContext.RouteData.Values.ContainsKey(Constants.slug);
 	string host = $"{Context.Request.Scheme}://{Context.Request.Host}";
-	bool isCodePreview = Model.Content.Contains("</code>");
-	List<string> categories = (List<string>)ViewData[Constants.categories];
 }
 
 @section Head {
@@ -15,26 +10,11 @@
 	<link rel="stylesheet" href="~/assets/css/pages/page_magazine.css" />
 }
 
-
 <div class="row blog-page">
 	<div class="col-md-9">
 		@{ await Html.RenderPartialAsync("_Post.cshtml", Model); }
 	</div>
 	<div class="col-md-3 magazine-page">
-		<div class="headline headline-md"><h2>Conecta conmigo</h2></div>
-		@{ await Html.RenderPartialAsync("_SocialLinks"); }
-
-		@if (categories != null && categories.Any())
-		{
-			<div class="headline headline-md" style="padding-top: 30px;"><h2>Categorías</h2></div>
-			<ul class="list-unstyled blog-tags">
-				@foreach (var cat in categories)
-				{
-					<li>
-						<a asp-controller="Blog" asp-action="Category" asp-route-category="@cat.ToLowerInvariant()" asp-route-page="" rel="category tag" title="Ver los posts en @cat"><i class="icon-tags"></i> @cat</a>
-					</li>
-				}
-			</ul>
-		}
+		@{ await Html.RenderPartialAsync("_Sidebar.cshtml"); }
 	</div>
 </div>

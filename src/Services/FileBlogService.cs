@@ -131,6 +131,17 @@ namespace Miniblog.Core.Services
             return posts;
         }
 
+        public async Task<int> GetPostsCountAsync()
+        {
+            var isAdmin = this.IsAdmin();
+
+            var posts = this.cache
+                .Where(p => p.IsVisible() || isAdmin)
+                .ToAsyncEnumerable();
+
+            return await posts.CountAsync();
+        }
+
         public virtual IAsyncEnumerable<Post> GetPostsByCategory(string category)
         {
             var isAdmin = this.IsAdmin();
@@ -346,5 +357,7 @@ namespace Miniblog.Core.Services
                 this.cache.Add(post);
             }
         }
+
+        
     }
 }

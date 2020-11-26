@@ -7,7 +7,6 @@
 
 	int pageCount;
 	pageCount = int.TryParse(ViewData[Constants.TotalPostCount].ToString(), out pageCount) ? 0 : pageCount / 2;
-	List<string> categories = (List<string>)ViewData[Constants.categories];
 }
 
 @section Head {
@@ -32,32 +31,18 @@
 		}
 	</div>
 	<div class="col-md-3 magazine-page">
-		<div class="headline headline-md"><h2>Conecta conmigo</h2></div>
-		@{ await Html.RenderPartialAsync("_SocialLinks"); }
-
-		@if (categories != null && categories.Any())
-		{
-			<div class="headline headline-md" style="padding-top: 30px;"><h2>Categorías</h2></div>
-			<ul class="list-unstyled blog-tags">
-				@foreach (var cat in categories)
-				{
-					<li>
-						<a asp-controller="Blog" asp-action="Category" asp-route-category="@cat.ToLowerInvariant()" asp-route-page="" rel="category tag" title="Ver los posts en @cat"><i class="icon-tags"></i> @cat</a>
-					</li>
-				}
-			</ul>
-		}
+		@{ await Html.RenderPartialAsync("_Sidebar.cshtml"); }
 	</div>
 </div>
 
 <nav class="pagination container" aria-label="Pagination">
 	@if ((await Model.AnyAsync()) && currentPage < pageCount)
 	{
-		<a rel="prev" href="@ViewData[Constants.prev]" title="Older posts">&laquo; Older</a>
+	<a rel="prev" href="@ViewData[Constants.prev]" title="Older posts">&laquo; @Miniblog.Core.Texts.Blog.Content.Older</a>
 	}
 	@if (currentPage > 0)
 	{
-		<a rel="next" href="@ViewData[Constants.next]" title="Newer posts">Newer &raquo;</a>
+<a rel="next" href="@ViewData[Constants.next]" title="Newer posts">@Miniblog.Core.Texts.Blog.Content.Newer &raquo;</a>
 	}
 	<br /><br />
 </nav>

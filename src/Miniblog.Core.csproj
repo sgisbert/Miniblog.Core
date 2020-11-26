@@ -41,6 +41,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Content.resx</DependentUpon>
     </Compile>
+    <Compile Update="Texts\Blog\Content.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Content.resx</DependentUpon>
+    </Compile>
     <Compile Update="Texts\Home\Content.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -132,6 +137,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Texts\Bio\Content.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Content.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Texts\Blog\Content.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Content.Designer.cs</LastGenOutput>
     </EmbeddedResource>

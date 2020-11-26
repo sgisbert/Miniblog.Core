@@ -25,7 +25,7 @@
 					<li>
 						<i class="icon-calendar"></i> <span class="date updated">
 							<a href="@Model.GetLink()" title="Enlace permanente a @Model.Title" rel="bookmark">
-								<time datetime="@Model.PubDate.ToString("s")" itemprop="datePublished">Publicado en @Model.PubDate.ToString("d MMM yyyy")</time>
+								<time datetime="@Model.PubDate.ToString("s")" itemprop="datePublished">@Miniblog.Core.Texts.Blog.Content.Published @Model.PubDate.ToString("d MMM yyyy")</time>
 							</a>
 						</span>
 					</li>

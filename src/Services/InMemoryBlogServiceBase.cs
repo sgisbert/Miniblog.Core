@@ -92,6 +92,17 @@ namespace Miniblog.Core.Services
             return posts.ToAsyncEnumerable();
         }
 
+        public async Task<int> GetPostsCountAsync()
+        {
+            var isAdmin = this.IsAdmin();
+
+            var posts = this.Cache
+                .Where(p => p.IsVisible() || isAdmin)
+                .ToAsyncEnumerable();
+
+            return await posts.CountAsync();
+        }
+
         public abstract Task<string> SaveFile(byte[] bytes, string fileName, string? suffix = null);
 
         public abstract Task SavePost(Post post);

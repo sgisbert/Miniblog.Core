@@ -150,23 +150,26 @@ namespace Miniblog.Core.Controllers
         [OutputCache(Profile = "default")]
         public async Task<IActionResult> Index([FromRoute]int page = 0)
         {
+            var skip = this.settings.Value.PostsPerPage * page;
+            var count = this.settings.Value.PostsPerPage;
+
             // get published posts.
-            var posts = this.blog.GetPosts();
+            var posts = this.blog.GetPosts(count, skip);
 
             // apply paging filter.
-            var filteredPosts = posts.Skip(this.settings.Value.PostsPerPage * page).Take(this.settings.Value.PostsPerPage);
+            //var filteredPosts = posts.Skip(this.settings.Value.PostsPerPage * page).Take(this.settings.Value.PostsPerPage);
 
             // set the view option
             this.ViewData[Constants.ViewOption] = this.settings.Value.ListView;
 
-            this.ViewData[Constants.TotalPostCount] = await posts.CountAsync().ConfigureAwait(true);
+            this.ViewData[Constants.TotalPostCount] = await this.blog.GetPostsCountAsync().ConfigureAwait(true);
             this.ViewData[Constants.categories] = await blog.GetCategories().ToListAsync();
             this.ViewData[Constants.Title] = this.manifest.Name;
             this.ViewData[Constants.Description] = this.manifest.Description;
             this.ViewData[Constants.prev] = $"/{page + 1}/";
             this.ViewData[Constants.next] = $"/{(page <= 1 ? null : $"{page - 1}/")}";
 
-            return this.View("~/Views/Blog/Index.cshtml", filteredPosts);
+            return this.View("~/Views/Blog/Index.cshtml", posts);
         }
 
         [Route("/blog/{slug?}")]
