@@ -23,6 +23,18 @@
 	<link rel="stylesheet" href="~/assets/css/pages/page_magazine.css" />
 }
 
+@section Breadcrumbs {
+	@if (this.ViewData[Constants.BlogSection] != null)
+	{
+		<div class="breadcrumbs margin-bottom-20">
+			<div class="container">
+				<header>
+					<h2>@this.ViewData[Constants.BlogSection]</h2>
+				</header>
+			</div>
+		</div>
+	}
+}
 <div class="row blog-page">
 	<div class="col-md-9">
 		@await foreach (var post in Model)
@@ -38,11 +50,11 @@
 <nav class="pagination container" aria-label="Pagination">
 	@if ((await Model.AnyAsync()) && currentPage < pageCount)
 	{
-	<a rel="prev" href="@ViewData[Constants.prev]" title="Older posts">&laquo; @Miniblog.Core.Texts.Blog.Content.Older</a>
+		<a rel="prev" href="@ViewData[Constants.prev]" title="Older posts">&laquo; @Miniblog.Core.Texts.Blog.Content.Older</a>
 	}
 	@if (currentPage > 0)
 	{
-<a rel="next" href="@ViewData[Constants.next]" title="Newer posts">@Miniblog.Core.Texts.Blog.Content.Newer &raquo;</a>
+		<a rel="next" href="@ViewData[Constants.next]" title="Newer posts">@Miniblog.Core.Texts.Blog.Content.Newer &raquo;</a>
 	}
 	<br /><br />
 </nav>

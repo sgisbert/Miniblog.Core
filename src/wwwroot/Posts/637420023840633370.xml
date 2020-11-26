@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<post>
+  <title>Optimización automática de imágenes en Kentico</title>
+  <slug>optimizacion-automatica-imagenes-kentico</slug>
+  <pubDate>2016-02-23T15:47:28.502Z</pubDate>
+  <lastModified>2020-11-26T16:46:08.906Z</lastModified>
+  <excerpt>Como todo CMS, el contenido de la web depende del trabajo de los editores, y en muchas ocasiones, la optimización del contenido no es la mejor posible. Uno de los principales problemas de rendimiento que puede sufrir nuestra web está en las imágenes que los editores suben a nuestra web. Por norma general, el editor no se va a preocupar de subir imágenes optimizadas, lo que supone que el peso de las páginas se verá incrementado en unos cuantos KBs de más, con lo que ello supone en cuanto a rendimiento y transferencia de datos.
+
+En este post,  muestro como optimizar las imágenes en Kentico automáticamente.</excerpt>
+  <content>&lt;p&gt;&lt;a href="https://www.kentico.com/" target="_blank" rel="noopener"&gt;Kentico&lt;/a&gt;&amp;nbsp;es un popular CMS (Content Management System) basado en .Net con el que estoy trabajando desde hace algunos meses en&amp;nbsp;&lt;a href="http://www.clearpeople.com/" target="_blank" rel="noopener"&gt;ClearPeople&lt;/a&gt;. Como todo CMS, el contenido de la web depende del trabajo de los editores, y en muchas ocasiones, la optimizaci&amp;oacute;n del contenido no es la mejor posible. Uno de los principales problemas de rendimiento que puede sufrir nuestra web est&amp;aacute; en las im&amp;aacute;genes que los editores suben a nuestra web. Por norma general, el editor no se va a preocupar de subir im&amp;aacute;genes optimizadas, lo que supone que el peso de las p&amp;aacute;ginas se ver&amp;aacute; incrementado en unos cuantos KBs de m&amp;aacute;s, con lo que ello supone en cuanto a rendimiento y transferencia de datos.&lt;/p&gt;
+&lt;h3&gt;Plugin para Kentico&lt;/h3&gt;
+&lt;p&gt;Para evitar este problema, en nuestro &amp;uacute;ltimo proyecto desarroll&amp;eacute; un plugin para Kentico que se encarga autom&amp;aacute;ticamente de optimizar las im&amp;aacute;genes que los editores suban a la Media Library, de manera transparente. El c&amp;oacute;digo fuente lo puedes encontrar en&amp;nbsp;&lt;a href="https://github.com/sgisbert/Dianoga-for-Kentico" target="_blank" rel="noopener"&gt;https://github.com/sgisbert/Dianoga-for-Kentico&lt;/a&gt;&amp;nbsp;y se distribuye a trav&amp;eacute;s de&amp;nbsp;&lt;a href="https://www.nuget.org/packages?q=%22Dianoga+for+Kentico%22" target="_blank" rel="noopener"&gt;Nuget&lt;/a&gt;. Este plugin es un fork de la librer&amp;iacute;a original de&amp;nbsp;&lt;a href="https://github.com/kamsar/Dianoga" target="_blank" rel="noopener"&gt;Kamsar para Sitecore&lt;/a&gt;, que hemos adaptado para Kentico. Est&amp;aacute; disponible en dos versiones, tanto para Kentico 8.x (.Net 4), como para Kentico 9 (.Net 4.6). Adem&amp;aacute;s, ha sido aceptado en el marketplace de Kentico: &lt;a href="https://devnet.kentico.com/marketplace/utilities/dianoga-image-optimizer" target="_blank" rel="noopener"&gt;https://devnet.kentico.com/marketplace/utilities/dianoga-image-optimizer&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Instalaci&amp;oacute;n&lt;/h3&gt;
+&lt;p&gt;La instalaci&amp;oacute;n es muy sencilla y transparente, y se realiza a trav&amp;eacute;s del administrador de paquetes de Nuget. Si lo realizamos a trav&amp;eacute;s del GUI, buscaremos&amp;nbsp;&amp;laquo;dianoga&amp;raquo;&amp;nbsp;en nuget.org e instalamos la versi&amp;oacute;n correspondiente a la versi&amp;oacute;n de Kentico que tengamos instalada: 8 o 9.&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/Posts/files/2016-02-21_1223_637420042759091619.png" alt="2016-02-21_1223.png" width="560" height="385" /&gt;&lt;/p&gt;
+&lt;p&gt;O bien a trav&amp;eacute;s de la consola de Nuget: Kentico 8.x:&lt;/p&gt;
+&lt;pre class="language-python"&gt;&lt;code&gt;PM&amp;gt; Install-Package Dianoga.Kentico_8&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kentico 9:&lt;/p&gt;
+&lt;pre class="language-markup"&gt;&lt;code&gt;PM&amp;gt; Install-Package Dianoga.Kentico_9&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una vez instalado el paquete adecuado, funciona sin necesidad de ninguna configuraci&amp;oacute;n adicional, y se producen los siguientes cambios en nuestra aplicaci&amp;oacute;n:&amp;nbsp;Web.Config:&amp;nbsp;Se a&amp;ntilde;aden las siguientes entradas al web.config:&lt;/p&gt;
+&lt;p&gt;Soluci&amp;oacute;n&amp;nbsp;Se incluye una nueva carpeta en la soluci&amp;oacute;n, &amp;laquo;/Dianoga Tools&amp;raquo;, que contiene las librer&amp;iacute;as que realizan la optimizaci&amp;oacute;n, y que debemos desplegar junto con el resto del proyecto.&lt;/p&gt;
+&lt;h3&gt;C&amp;oacute;mo funciona&lt;/h3&gt;
+&lt;p&gt;Dianoga se encarga de optimizar autom&amp;aacute;ticamente las im&amp;aacute;genes que se suban a la Media Library. Para comprobar su funcionamiento, subiremos una imagen y comprobaremos su tama&amp;ntilde;o. Pongamos como ejemplo la imagen anterior de este mismo art&amp;iacute;culo:&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/Posts/files/2016-02-21_1607_637420059688307609.png" alt="2016-02-21_1607.png" width="245" height="225" /&gt;&lt;/p&gt;
+&lt;p&gt;Si la subimos a la Media Library, observamos la reducci&amp;oacute;n de tama&amp;ntilde;o:&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/Posts/files/2016-02-21_1609_637420059688576460.png" alt="2016-02-21_1609.png" width="708" height="115" /&gt;&lt;/p&gt;
+&lt;p&gt;En el visor de eventos se registra la optimizaci&amp;oacute;n que ha sufrido cada imagen subida:&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/Posts/files/2016-02-21_1611_637420059688720206.png" alt="2016-02-21_1611.png" width="781" height="145" /&gt;&lt;/p&gt;
+&lt;p&gt;Donde podemos ver los detalles:&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/Posts/files/2016-02-21_1611_001_637420059688925171.png" alt="2016-02-21_1611_001.png" width="928" height="47" /&gt;&lt;/p&gt;
+&lt;h3&gt;Conclusi&amp;oacute;n&lt;/h3&gt;
+&lt;p&gt;Esta peque&amp;ntilde;a librer&amp;iacute;a es un fijo en nuestros proyectos de Kentico. Si te ha servido de utilidad, &amp;iexcl;com&amp;eacute;ntalo! Y si crees que puedes aportar alguna mejora, no dudes en colaborar en el repositorio de GitHub.&lt;/p&gt;
+&lt;p style="box-sizing: border-box; border-radius: 0px !important; margin: 0px 0px 10.5px; color: #555555; line-height: 1.6; text-align: justify; font-family: 'open sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content>
+  <ispublished>true</ispublished>
+  <categories>
+    <category>wpo</category>
+    <category>plugins</category>
+    <category>opensource</category>
+    <category>kentico</category>
+    <category>cms</category>
+    <category>.net</category>
+  </categories>
+  <comments></comments>
+</post>

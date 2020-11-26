@@ -21,6 +21,7 @@ namespace Miniblog.Core
         public static readonly string Title = "Title";
         public static readonly string TotalPostCount = "TotalPostCount";
         public static readonly string ViewOption = "ViewOption";
+        public static readonly string BlogSection = "BlogSection";
 
         [SuppressMessage(
             "Design",

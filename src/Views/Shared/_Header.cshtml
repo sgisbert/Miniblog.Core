@@ -15,35 +15,40 @@
 				<li><a href="/Projects">@Miniblog.Core.Texts.Home.Content.Projects</a></li>
 				<li><a href="/About">@Miniblog.Core.Texts.Home.Content.Biography</a></li>
 				<li><a href="/blog/">@Miniblog.Core.Texts.Home.Content.Blog</a></li>
-				@*<li class="divider">&nbsp;</li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
-						<i class="icon-globe"></i>
-						@WebSite.Texts.Home.Content.Language
-						<i class="icon-angle-down"></i>
-					</a>
-					<ul class="dropdown-menu">
-						@{
-							foreach (DTO.Translate.DtoLanguage idioma in ViewBag.Languages)
-							{
-								if (ViewBag.SelectedLanguage == idioma.CodeStandard)
+				<li class="divider">&nbsp;</li>
+				@if (User.Identity.IsAuthenticated)
+				{
+					<li><a asp-controller="Blog" asp-action="Edit" asp-route-id="">@Miniblog.Core.Properties.Resources.NewPost</a></li>
+					<li><a href="~/logout/" title="@Miniblog.Core.Properties.Resources.SignOutAsAdministrator">@Miniblog.Core.Properties.Resources.SignOut</a></li>
+				}
+				@*<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+							<i class="icon-globe"></i>
+							@WebSite.Texts.Home.Content.Language
+							<i class="icon-angle-down"></i>
+						</a>
+						<ul class="dropdown-menu">
+							@{
+								foreach (DTO.Translate.DtoLanguage idioma in ViewBag.Languages)
 								{
-									<li class="active">
-										<a href="#"><i class="icon-ok"></i> @idioma.Name</a>
-									</li>
-								}
-								else
-								{
-									<li>
-										<a href="@Url.Action(Resources.Home.ChangeLanguage(idioma.CodeStandard, Request.RawUrl))">
-											@idioma.Name
-										</a>
-									</li>
+									if (ViewBag.SelectedLanguage == idioma.CodeStandard)
+									{
+										<li class="active">
+											<a href="#"><i class="icon-ok"></i> @idioma.Name</a>
+										</li>
+									}
+									else
+									{
+										<li>
+											<a href="@Url.Action(Resources.Home.ChangeLanguage(idioma.CodeStandard, Request.RawUrl))">
+												@idioma.Name
+											</a>
+										</li>
+									}
 								}
 							}
-						}
-					</ul>
-				</li>*@
+						</ul>
+					</li>*@
 			</ul>
 			@*@Html.Partial("_LoginPartial")*@
 		</div>

@@ -4,7 +4,7 @@ namespace Miniblog.Core
     {
         public int CommentsCloseAfterDays { get; set; } = 10;
 
-        public PostListView ListView { get; set; } = PostListView.FullPosts;
+        public PostListView ListView { get; set; } = PostListView.TitlesAndExcerpts;
 
         public string Owner { get; set; } = "Sergi Gisbert";
 

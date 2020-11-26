@@ -1,3 +1,25 @@
+a.enlace-box:hover, p a:hover, li a.link:hover, div.tagcloud a:hover, div.widgets-list-layout-links a:hover {
+	color: #fff !important;
+	text-decoration: none;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	background: #72c02c
+}
+
+a.enlace-box, p a, li a.link, div.tagcloud a, div.widgets-list-layout-links a {
+	color: #555;
+	display: inline;
+	padding: 2px 4px;
+	margin-right: 0;
+	background: #f1f1f1
+}
+
+div.widgets-list-layout-links {
+	text-align: left
+}
+
 a:focus, 
 a:hover, 
 a:active {

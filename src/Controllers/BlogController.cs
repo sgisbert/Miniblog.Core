@@ -85,8 +85,9 @@ namespace Miniblog.Core.Controllers
             this.ViewData[Constants.TotalPostCount] = await posts.CountAsync().ConfigureAwait(true);
             this.ViewData[Constants.dates] = await blog.GetGroupedDates().ToListAsync();
             this.ViewData[Constants.categories] = await blog.GetGroupedCategories().ToListAsync();
-            this.ViewData[Constants.Title] = $"{this.manifest.Name} {category}";
-            this.ViewData[Constants.Description] = $"Articles posted in the {category} category";
+            this.ViewData[Constants.Title] = $"{this.manifest.Name} - {category}";
+            this.ViewData[Constants.Description] = $"{Texts.Blog.Content.ArticlesPostedInCategory} '{category}'";
+            this.ViewData[Constants.BlogSection] = $"{Texts.Blog.Content.ArticlesPostedInCategory} '{category}'";
             this.ViewData[Constants.prev] = $"/blog/category/{category}/{page + 1}/";
             this.ViewData[Constants.next] = $"/blog/category/{category}/{(page <= 1 ? null : page - 1 + "/")}";
             return this.View("~/Views/Blog/Index.cshtml", filteredPosts.AsAsyncEnumerable());
@@ -109,7 +110,8 @@ namespace Miniblog.Core.Controllers
             this.ViewData[Constants.dates] = await blog.GetGroupedDates().ToListAsync();
             this.ViewData[Constants.categories] = await blog.GetGroupedCategories().ToListAsync();
             this.ViewData[Constants.Title] = $"{this.manifest.Name} - {CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month)} {year}";
-            this.ViewData[Constants.Description] = $"Articles posted in {CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month)} {year}";
+            this.ViewData[Constants.Description] = $"{Texts.Blog.Content.ArticlesPostedInDate} {CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month)} {year}";
+            this.ViewData[Constants.BlogSection] = $"{Texts.Blog.Content.ArticlesPostedInDate} {CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month)} {year}";
             this.ViewData[Constants.prev] = $"/blog/{year}/{month}/{page + 1}/";
             this.ViewData[Constants.next] = $"/blog/{year}/{month}/{(page <= 1 ? null : page - 1 + "/")}";
             return this.View("~/Views/Blog/Index.cshtml", filteredPosts.AsAsyncEnumerable());
@@ -214,7 +216,7 @@ namespace Miniblog.Core.Controllers
         [HttpGet]
         public IActionResult Redirects(string slug) => this.LocalRedirectPermanent($"/blog/{slug}");
 
-        [Route("/blog/{slug?}")]
+        [Route("/blog/edit/{slug?}")]
         [HttpPost, Authorize, AutoValidateAntiforgeryToken]
         [SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase", Justification = "Consumer preference.")]
         public async Task<IActionResult> UpdatePost(Post post)

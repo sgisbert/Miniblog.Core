@@ -61,6 +61,24 @@ namespace Miniblog.Core.Texts.Blog {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Posts en la categoría.
+        /// </summary>
+        public static string ArticlesPostedInCategory {
+            get {
+                return ResourceManager.GetString("ArticlesPostedInCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Archivos mensuales:.
+        /// </summary>
+        public static string ArticlesPostedInDate {
+            get {
+                return ResourceManager.GetString("ArticlesPostedInDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Categorías.
         /// </summary>
         public static string Categories {
