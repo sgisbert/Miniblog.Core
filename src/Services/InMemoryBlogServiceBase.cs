@@ -14,7 +14,7 @@ namespace Miniblog.Core.Services
     {
         protected InMemoryBlogServiceBase(IHttpContextAccessor contextAccessor) => this.ContextAccessor = contextAccessor;
 
-        protected List<Post> Cache { get; } = new List<Post>();
+        protected List<Post> cache { get; } = new List<Post>();
 
         protected IHttpContextAccessor ContextAccessor { get; }
 
@@ -28,7 +28,7 @@ namespace Miniblog.Core.Services
         {
             var isAdmin = this.IsAdmin();
 
-            var categories = this.Cache
+            var categories = this.cache
                 .Where(p => p.IsPublished || isAdmin)
                 .SelectMany(post => post.Categories)
                 .Select(cat => cat.ToLowerInvariant())
@@ -42,7 +42,7 @@ namespace Miniblog.Core.Services
         {
             var isAdmin = this.IsAdmin();
 
-            var categories = this.Cache
+            var categories = this.cache
                 .Where(p => p.IsPublished || isAdmin)
                 .SelectMany(post => post.Categories)
                 .GroupBy(c => c)
@@ -57,7 +57,7 @@ namespace Miniblog.Core.Services
         {
             var isAdmin = this.IsAdmin();
 
-            return this.Cache
+            return this.cache
                 .Where(p => p.IsPublished || isAdmin)
                 .Select(post => post.PubDate)
                 .GroupBy(date => new { date.Month, date.Year })
@@ -72,7 +72,7 @@ namespace Miniblog.Core.Services
         public virtual Task<Post?> GetPostById(string id)
         {
             var isAdmin = this.IsAdmin();
-            var post = this.Cache.FirstOrDefault(p => p.ID.Equals(id, StringComparison.OrdinalIgnoreCase));
+            var post = this.cache.FirstOrDefault(p => p.ID.Equals(id, StringComparison.OrdinalIgnoreCase));
 
             return Task.FromResult(
                 post is null || !post.IsVisible() || !isAdmin
@@ -83,7 +83,7 @@ namespace Miniblog.Core.Services
         public virtual Task<Post?> GetPostBySlug(string slug)
         {
             var isAdmin = this.IsAdmin();
-            var post = this.Cache.FirstOrDefault(p => p.Slug.Equals(slug, StringComparison.OrdinalIgnoreCase));
+            var post = this.cache.FirstOrDefault(p => p.Slug.Equals(slug, StringComparison.OrdinalIgnoreCase));
 
             return Task.FromResult(
                 post is null || !post.IsVisible() || !isAdmin
@@ -91,18 +91,42 @@ namespace Miniblog.Core.Services
                 : post);
         }
 
+        public Task<Post?> GetNextPost(string id)
+        {
+            var isAdmin = this.IsAdmin();
+            var post = this.cache.FirstOrDefault(p => p.ID.Equals(id, StringComparison.OrdinalIgnoreCase));
+
+            var index = this.cache.IndexOf(post);
+            return Task.FromResult(
+                index == this.cache.Count - 1
+                ? null
+                : this.cache.ElementAt(index + 1));
+        }
+
+        public Task<Post?> GetPreviousPost(string id)
+        {
+            var isAdmin = this.IsAdmin();
+            var post = this.cache.FirstOrDefault(p => p.ID.Equals(id, StringComparison.OrdinalIgnoreCase));
+
+            var index = this.cache.IndexOf(post);
+            return Task.FromResult(
+                index == 0
+                ? null
+                : this.cache.ElementAt(index - 1));
+        }
+
         /// <remarks>Overload for getPosts method to retrieve all posts.</remarks>
         public virtual IAsyncEnumerable<Post> GetPosts()
         {
             var isAdmin = this.IsAdmin();
-            return this.Cache.Where(p => p.IsVisible() || isAdmin).ToAsyncEnumerable();
+            return this.cache.Where(p => p.IsVisible() || isAdmin).ToAsyncEnumerable();
         }
 
         public virtual IAsyncEnumerable<Post> GetPosts(int count, int skip = 0)
         {
             var isAdmin = this.IsAdmin();
 
-            var posts = this.Cache
+            var posts = this.cache
                 .Where(p => p.IsVisible() || isAdmin)
                 .Skip(skip)
                 .Take(count)
@@ -115,7 +139,7 @@ namespace Miniblog.Core.Services
         {
             var isAdmin = this.IsAdmin();
 
-            var posts = from p in this.Cache
+            var posts = from p in this.cache
                         where p.IsVisible() || isAdmin
                         where p.Categories.Contains(category, StringComparer.OrdinalIgnoreCase)
                         select p;
@@ -129,7 +153,7 @@ namespace Miniblog.Core.Services
             var initDate = new DateTime(year, month, 1);
             var endDate = new DateTime(year, month, DateTime.DaysInMonth(year, month));
 
-            var posts = from p in this.Cache
+            var posts = from p in this.cache
                         where p.PubDate >= initDate && p.PubDate <= endDate && (p.IsPublished || isAdmin)
                         select p;
 
@@ -140,7 +164,7 @@ namespace Miniblog.Core.Services
         {
             var isAdmin = this.IsAdmin();
 
-            var posts = this.Cache
+            var posts = this.cache
                 .Where(p => p.IsVisible() || isAdmin)
                 .ToAsyncEnumerable();
 
@@ -153,6 +177,6 @@ namespace Miniblog.Core.Services
 
         protected bool IsAdmin() => this.ContextAccessor.HttpContext?.User?.Identity.IsAuthenticated ?? false;
 
-        protected void SortCache() => this.Cache.Sort((p1, p2) => p2.PubDate.CompareTo(p1.PubDate));
+        protected void SortCache() => this.cache.Sort((p1, p2) => p2.PubDate.CompareTo(p1.PubDate));
     }
 }

@@ -175,7 +175,7 @@ namespace Miniblog.Core.Controllers
 
         [Route("/blog/{page:int?}")]
         [OutputCache(Profile = "default")]
-        public async Task<IActionResult> Index([FromRoute]int page = 0)
+        public async Task<IActionResult> Index([FromRoute] int page = 0)
         {
             var skip = this.settings.Value.PostsPerPage * page;
             var count = this.settings.Value.PostsPerPage;
@@ -205,9 +205,13 @@ namespace Miniblog.Core.Controllers
         public async Task<IActionResult> Post(string slug)
         {
             var post = await this.blog.GetPostBySlug(slug).ConfigureAwait(true);
-            this.ViewData[Constants.categories] = await blog.GetGroupedCategories().ToListAsync();
-            this.ViewData[Constants.dates] = await blog.GetGroupedDates().ToListAsync();
-
+            if (post != null)
+            {
+                this.ViewData[Constants.categories] = await blog.GetGroupedCategories().ToListAsync();
+                this.ViewData[Constants.dates] = await blog.GetGroupedDates().ToListAsync();
+                this.ViewData[Constants.nextPost] = await blog.GetNextPost(post.ID).ConfigureAwait(true);
+                this.ViewData[Constants.prevPost] = await blog.GetPreviousPost(post.ID).ConfigureAwait(true);
+            }
             return post is null ? this.NotFound() : (IActionResult)this.View(post);
         }
 

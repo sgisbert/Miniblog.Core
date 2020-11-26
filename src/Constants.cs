@@ -11,6 +11,8 @@ namespace Miniblog.Core
         public static readonly string Description = "Description";
         public static readonly string Head = "Head";
         public static readonly string next = "next";
+        public static readonly string nextPost = "nextPost";
+        public static readonly string prevPost = "prevPost";
         public static readonly string page = "page";
         public static readonly string Preload = "Preload";
         public static readonly string prev = "prev";

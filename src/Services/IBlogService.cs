@@ -20,6 +20,9 @@ namespace Miniblog.Core.Services
 
         Task<Post?> GetPostBySlug(string slug);
 
+        Task<Post?> GetNextPost(string id);
+        Task<Post?> GetPreviousPost(string id);
+
         Task<int> GetPostsCountAsync();
 
         IAsyncEnumerable<Post> GetPosts();

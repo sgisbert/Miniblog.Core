@@ -135,6 +135,32 @@ namespace Miniblog.Core.Services
                 : post);
         }
 
+        public Task<Post?> GetNextPost(string id)
+        {
+            var isAdmin = this.IsAdmin();
+            var post = this.cache.FirstOrDefault(p => p.ID.Equals(id, StringComparison.OrdinalIgnoreCase));
+
+            var index = this.cache.IndexOf(post);
+            return Task.FromResult(
+                index == this.cache.Count - 1
+                ? null
+                : this.cache.ElementAt(index + 1));
+        }
+
+        public Task<Post?> GetPreviousPost(string id)
+        {
+            var isAdmin = this.IsAdmin();
+            var post = this.cache.FirstOrDefault(p => p.ID.Equals(id, StringComparison.OrdinalIgnoreCase));
+
+            var index = this.cache.IndexOf(post);
+            return Task.FromResult(
+                index == 0
+                ? null
+                : this.cache.ElementAt(index - 1));
+        }
+
+
+
         /// <remarks>Overload for getPosts method to retrieve all posts.</remarks>
         public virtual IAsyncEnumerable<Post> GetPosts()
         {
@@ -400,6 +426,5 @@ namespace Miniblog.Core.Services
                 this.cache.Add(post);
             }
         }
-
     }
 }

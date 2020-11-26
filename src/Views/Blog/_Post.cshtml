@@ -6,6 +6,8 @@
 	bool showFullPost = ViewContext.RouteData.Values.ContainsKey(Constants.slug);
 	string host = $"{Context.Request.Scheme}://{Context.Request.Host}";
 	bool isCodePreview = Model.Content.Contains("</code>");
+	Post? next = (Post?)ViewData[Constants.nextPost];
+	Post? prev = (Post?)ViewData[Constants.prevPost];
 }
 
 @section Head {
@@ -22,8 +24,6 @@
 	}
 	<link rel="canonical" href="@(host + Model.GetLink())" />
 }
-@showFullPost
-@isCodePreview
 
 <article class="post type-post" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
 	<header class="entry-header">
@@ -93,6 +93,26 @@
 
 @if (showFullPost)
 {
+	<nav class="navigation post-navigation" role="navigation">
+		<h1 class="screen-reader-text">Ir a la entrada</h1>
+		<div class="nav-links" style="width: 100%; margin-bottom: 15px; overflow: hidden;">
+			<div style="width: 50%; text-align: left; float: left;">
+				@if (prev != null)
+				{
+					<a href="@prev.GetLink()" rel="prev"><span class="meta-nav">←</span> @prev.Title</a>
+				}
+			</div>
+			<div style="width: 50%; text-align: right; float: right;">
+				@if (next != null)
+				{
+					<a href="@next.GetLink()" rel="prev"> @next.Title <span class="meta-nav">→</span></a>
+				}
+				</div>
+		</div>
+		<hr>
+	</nav>
+
+
 	await Html.RenderPartialAsync("_SocialSharing", Model.Title);
 	//await Html.RenderPartialAsync("Comments");
 
