@@ -11,6 +11,8 @@ namespace Miniblog.Core.Services
 
         IAsyncEnumerable<string> GetCategories();
 
+        IAsyncEnumerable<KeyValuePair<string,int>> GetGroupedCategories();
+
         Task<Post?> GetPostById(string id);
 
         Task<Post?> GetPostBySlug(string slug);

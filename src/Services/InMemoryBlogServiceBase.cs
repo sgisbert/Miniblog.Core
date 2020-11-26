@@ -38,6 +38,21 @@ namespace Miniblog.Core.Services
             return categories;
         }
 
+        public IAsyncEnumerable<KeyValuePair<string, int>> GetGroupedCategories()
+        {
+            var isAdmin = this.IsAdmin();
+
+            var categories = this.Cache
+                .Where(p => p.IsPublished || isAdmin)
+                .SelectMany(post => post.Categories)
+                .GroupBy(c => c)
+                .Select(g => new { Category = g.Key, Count = g.Count() })
+                .ToDictionary(cat => cat.Category, cat => cat.Count)
+                .ToAsyncEnumerable();
+
+            return categories;
+        }
+
         public virtual Task<Post?> GetPostById(string id)
         {
             var isAdmin = this.IsAdmin();

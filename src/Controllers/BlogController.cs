@@ -163,7 +163,7 @@ namespace Miniblog.Core.Controllers
             this.ViewData[Constants.ViewOption] = this.settings.Value.ListView;
 
             this.ViewData[Constants.TotalPostCount] = await this.blog.GetPostsCountAsync().ConfigureAwait(true);
-            this.ViewData[Constants.categories] = await blog.GetCategories().ToListAsync();
+            this.ViewData[Constants.categories] = await blog.GetGroupedCategories().ToListAsync();
             this.ViewData[Constants.Title] = this.manifest.Name;
             this.ViewData[Constants.Description] = this.manifest.Description;
             this.ViewData[Constants.prev] = $"/{page + 1}/";
@@ -177,7 +177,7 @@ namespace Miniblog.Core.Controllers
         public async Task<IActionResult> Post(string slug)
         {
             var post = await this.blog.GetPostBySlug(slug).ConfigureAwait(true);
-            this.ViewData[Constants.categories] = await blog.GetCategories().ToListAsync();
+            this.ViewData[Constants.categories] = await blog.GetGroupedCategories().ToListAsync();
 
             return post is null ? this.NotFound() : (IActionResult)this.View(post);
         }

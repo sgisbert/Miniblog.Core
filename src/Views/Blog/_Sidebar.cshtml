@@ -2,7 +2,7 @@
 
 @inject IOptionsSnapshot<BlogSettings> settings
 @{
-	List<string> categories = (List<string>)ViewData[Constants.categories];
+	List<KeyValuePair<string, int>> categories = (List<KeyValuePair<string, int>>)ViewData[Constants.categories];
 }
 
 <div class="headline headline-md">
@@ -19,7 +19,7 @@
 		@foreach (var cat in categories)
 		{
 			<li>
-				<a asp-controller="Blog" asp-action="Category" asp-route-category="@cat.ToLowerInvariant()" asp-route-page="" rel="category tag" title="@Miniblog.Core.Texts.Blog.Content.SeePostsIn @cat"><i class="icon-tags"></i> @cat</a>
+				<a asp-controller="Blog" asp-action="Category" asp-route-category="@cat.Key.ToLowerInvariant()" asp-route-page="" rel="category tag" title="@Miniblog.Core.Texts.Blog.Content.SeePostsIn @cat.Key"><i class="icon-tags"></i> @cat.Key (@cat.Value)</a>
 			</li>
 		}
 	</ul>
