@@ -3,6 +3,7 @@
 @inject IOptionsSnapshot<BlogSettings> settings
 @{
 	List<KeyValuePair<string, int>> categories = (List<KeyValuePair<string, int>>)ViewData[Constants.categories];
+	List<KeyValuePair<string, Tuple<int, int, int>>> dates = (List<KeyValuePair<string, Tuple<int, int, int>>>)ViewData[Constants.dates];
 }
 
 <div class="headline headline-md">
@@ -20,6 +21,23 @@
 		{
 			<li>
 				<a asp-controller="Blog" asp-action="Category" asp-route-category="@cat.Key.ToLowerInvariant()" asp-route-page="" rel="category tag" title="@Miniblog.Core.Texts.Blog.Content.SeePostsIn @cat.Key"><i class="icon-tags"></i> @cat.Key (@cat.Value)</a>
+			</li>
+		}
+	</ul>
+}
+
+@if (dates != null && dates.Any())
+{
+	<div class="headline headline-md">
+		<h2 style="padding-top: 25px;">Archivo</h2>
+	</div>
+	<ul>
+		@foreach (var date in dates)
+		{
+			<li>
+				<a asp-controller="Blog" asp-action="Date" asp-route-year="@date.Value.Item2" asp-route-month="@date.Value.Item1" asp-route-page="" title="@date.Key">
+					@date.Key (@date.Value.Item3)
+				</a>
 			</li>
 		}
 	</ul>

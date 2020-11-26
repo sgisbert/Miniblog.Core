@@ -9,6 +9,7 @@ namespace Miniblog.Core.Controllers
 
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
@@ -82,11 +83,35 @@ namespace Miniblog.Core.Controllers
             this.ViewData["ViewOption"] = this.settings.Value.ListView;
 
             this.ViewData[Constants.TotalPostCount] = await posts.CountAsync().ConfigureAwait(true);
-            this.ViewData[Constants.categories] = await blog.GetCategories().ToListAsync();
+            this.ViewData[Constants.dates] = await blog.GetGroupedDates().ToListAsync();
+            this.ViewData[Constants.categories] = await blog.GetGroupedCategories().ToListAsync();
             this.ViewData[Constants.Title] = $"{this.manifest.Name} {category}";
             this.ViewData[Constants.Description] = $"Articles posted in the {category} category";
             this.ViewData[Constants.prev] = $"/blog/category/{category}/{page + 1}/";
             this.ViewData[Constants.next] = $"/blog/category/{category}/{(page <= 1 ? null : page - 1 + "/")}";
+            return this.View("~/Views/Blog/Index.cshtml", filteredPosts.AsAsyncEnumerable());
+        }
+
+        [Route("/blog/{year}/{month}/{page:int?}")]
+        [OutputCache(Profile = "default")]
+        public async Task<IActionResult> Date(int year, int month, int page = 0)
+        {
+            // get posts for the selected date.
+            var posts = this.blog.GetPostsByDate(year, month);
+
+            // apply paging filter.
+            var filteredPosts = posts.Skip(this.settings.Value.PostsPerPage * page).Take(this.settings.Value.PostsPerPage);
+
+            // set the view option
+            this.ViewData["ViewOption"] = this.settings.Value.ListView;
+
+            this.ViewData[Constants.TotalPostCount] = await posts.CountAsync().ConfigureAwait(true);
+            this.ViewData[Constants.dates] = await blog.GetGroupedDates().ToListAsync();
+            this.ViewData[Constants.categories] = await blog.GetGroupedCategories().ToListAsync();
+            this.ViewData[Constants.Title] = $"{this.manifest.Name} - {CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month)} {year}";
+            this.ViewData[Constants.Description] = $"Articles posted in {CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month)} {year}";
+            this.ViewData[Constants.prev] = $"/blog/{year}/{month}/{page + 1}/";
+            this.ViewData[Constants.next] = $"/blog/{year}/{month}/{(page <= 1 ? null : page - 1 + "/")}";
             return this.View("~/Views/Blog/Index.cshtml", filteredPosts.AsAsyncEnumerable());
         }
 
@@ -164,6 +189,7 @@ namespace Miniblog.Core.Controllers
 
             this.ViewData[Constants.TotalPostCount] = await this.blog.GetPostsCountAsync().ConfigureAwait(true);
             this.ViewData[Constants.categories] = await blog.GetGroupedCategories().ToListAsync();
+            this.ViewData[Constants.dates] = await blog.GetGroupedDates().ToListAsync();
             this.ViewData[Constants.Title] = this.manifest.Name;
             this.ViewData[Constants.Description] = this.manifest.Description;
             this.ViewData[Constants.prev] = $"/{page + 1}/";
@@ -178,6 +204,7 @@ namespace Miniblog.Core.Controllers
         {
             var post = await this.blog.GetPostBySlug(slug).ConfigureAwait(true);
             this.ViewData[Constants.categories] = await blog.GetGroupedCategories().ToListAsync();
+            this.ViewData[Constants.dates] = await blog.GetGroupedDates().ToListAsync();
 
             return post is null ? this.NotFound() : (IActionResult)this.View(post);
         }

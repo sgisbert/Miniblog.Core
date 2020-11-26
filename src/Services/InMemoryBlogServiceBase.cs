@@ -53,6 +53,22 @@ namespace Miniblog.Core.Services
             return categories;
         }
 
+        public IAsyncEnumerable<KeyValuePair<string, Tuple<int, int, int>>> GetGroupedDates()
+        {
+            var isAdmin = this.IsAdmin();
+
+            return this.Cache
+                .Where(p => p.IsPublished || isAdmin)
+                .Select(post => post.PubDate)
+                .GroupBy(date => new { date.Month, date.Year })
+                .Select(g => new { Date = g.Key, Count = g.Count() })
+                .OrderByDescending(d => d.Date.Year).ThenByDescending(d => d.Date.Month)
+                .ToDictionary(
+                    keySelector: date => new DateTime(date.Date.Year, date.Date.Month, 1).ToString("MMMM yyyy"),
+                    elementSelector: date => new Tuple<int, int, int>(date.Date.Month, date.Date.Year, date.Count))
+                .ToAsyncEnumerable();
+        }
+
         public virtual Task<Post?> GetPostById(string id)
         {
             var isAdmin = this.IsAdmin();
@@ -102,6 +118,19 @@ namespace Miniblog.Core.Services
             var posts = from p in this.Cache
                         where p.IsVisible() || isAdmin
                         where p.Categories.Contains(category, StringComparer.OrdinalIgnoreCase)
+                        select p;
+
+            return posts.ToAsyncEnumerable();
+        }
+
+        public IAsyncEnumerable<Post> GetPostsByDate(int year, int month)
+        {
+            var isAdmin = this.IsAdmin();
+            var initDate = new DateTime(year, month, 1);
+            var endDate = new DateTime(year, month, DateTime.DaysInMonth(year, month));
+
+            var posts = from p in this.Cache
+                        where p.PubDate >= initDate && p.PubDate <= endDate && (p.IsPublished || isAdmin)
                         select p;
 
             return posts.ToAsyncEnumerable();
