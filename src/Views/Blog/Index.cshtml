@@ -6,7 +6,7 @@
 	int currentPage = int.Parse(ViewContext.RouteData.Values[Constants.page] as string ?? "0");
 
 	int pageCount;
-	pageCount = int.TryParse(ViewData[Constants.TotalPostCount].ToString(), out pageCount) ? 0 : pageCount / 2;
+	pageCount = int.TryParse(ViewData[Constants.TotalPostCount].ToString(), out pageCount) ? pageCount : 0;
 }
 
 @section Head {
@@ -35,26 +35,30 @@
 		</div>
 	}
 }
+
 <div class="row blog-page">
 	<div class="col-md-9">
 		@await foreach (var post in Model)
 		{
 			await Html.RenderPartialAsync("_Post.cshtml", post);
 		}
+
+		<nav class="pagination" aria-label="Pagination" style="width: 100%;">
+			@if ((await Model.AnyAsync()) && currentPage < pageCount-1)
+			{
+				<a rel="prev" href="@ViewData[Constants.prev]" title="Older posts">&laquo; @Miniblog.Core.Texts.Blog.Content.Older</a>
+			}
+			@if (currentPage > 0)
+			{
+				<a rel="next" href="@ViewData[Constants.next]" title="Newer posts">@Miniblog.Core.Texts.Blog.Content.Newer &raquo;</a>
+			}
+			<br /><br />
+		</nav>
+
 	</div>
 	<div class="col-md-3 magazine-page">
 		@{ await Html.RenderPartialAsync("_Sidebar.cshtml"); }
 	</div>
 </div>
 
-<nav class="pagination container" aria-label="Pagination">
-	@if ((await Model.AnyAsync()) && currentPage < pageCount)
-	{
-		<a rel="prev" href="@ViewData[Constants.prev]" title="Older posts">&laquo; @Miniblog.Core.Texts.Blog.Content.Older</a>
-	}
-	@if (currentPage > 0)
-	{
-		<a rel="next" href="@ViewData[Constants.next]" title="Newer posts">@Miniblog.Core.Texts.Blog.Content.Newer &raquo;</a>
-	}
-	<br /><br />
-</nav>
+
