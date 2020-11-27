@@ -6,7 +6,9 @@ namespace Miniblog.Core.Services
     using Miniblog.Core.Models;
 
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.IO;
@@ -23,7 +25,7 @@ namespace Miniblog.Core.Services
 
         private const string POSTS = "Posts";
 
-        private readonly List<Post> cache = new List<Post>();
+        private List<Post> cache = new List<Post>();
 
         private readonly IHttpContextAccessor contextAccessor;
 
@@ -43,7 +45,7 @@ namespace Miniblog.Core.Services
             this.folder = Path.Combine(env.WebRootPath, POSTS);
             this.contextAccessor = contextAccessor;
 
-            this.Initialize();
+            this.InitializeAsync().ConfigureAwait(true);
         }
 
         public Task DeletePost(Post post)
@@ -66,6 +68,12 @@ namespace Miniblog.Core.Services
             }
 
             return Task.CompletedTask;
+        }
+
+        public void RefreshCache()
+        {
+            this.cache.Clear();
+            this.InitializeAsync().ConfigureAwait(true);
         }
 
         [SuppressMessage(
@@ -379,9 +387,9 @@ namespace Miniblog.Core.Services
             Justification = "Path not derived from user input.")]
         private string GetFilePath(Post post) => Path.Combine(this.folder, $"{post.ID}.xml");
 
-        private void Initialize()
+        private async Task InitializeAsync()
         {
-            this.LoadPosts();
+            await this.LoadPostsAsync().ConfigureAwait(true);
             this.SortCache();
         }
 
@@ -389,16 +397,68 @@ namespace Miniblog.Core.Services
             "Globalization",
             "CA1308:Normalize strings to uppercase",
             Justification = "The slug should be lower case.")]
-        private void LoadPosts()
+        private async Task LoadPostsAsync()
         {
             if (!Directory.Exists(this.folder))
             {
                 Directory.CreateDirectory(this.folder);
             }
 
+            Stopwatch globalTimer = new Stopwatch();
+            globalTimer.Start();
+
+            // Add to ConcurrentBag concurrently
+            ConcurrentBag<Post> posts = new ConcurrentBag<Post>();
+            List<Task> RunningTasks = new List<Task>();
+
             // Can this be done in parallel to speed it up?
             foreach (var file in Directory.EnumerateFiles(this.folder, "*.xml", SearchOption.TopDirectoryOnly))
             {
+                RunningTasks.Add(LoadPost(posts, file));
+
+                //Stopwatch timer = new Stopwatch();
+                //timer.Start();
+                //var doc = XElement.Load(file);
+
+                //var post = new Post
+                //{
+                //    ID = Path.GetFileNameWithoutExtension(file),
+                //    Title = ReadValue(doc, "title"),
+                //    Excerpt = ReadValue(doc, "excerpt"),
+                //    Content = ReadValue(doc, "content"),
+                //    Slug = ReadValue(doc, "slug").ToLowerInvariant(),
+                //    PubDate = DateTime.Parse(ReadValue(doc, "pubDate"), CultureInfo.InvariantCulture,
+                //        DateTimeStyles.AdjustToUniversal),
+                //    LastModified = DateTime.Parse(
+                //        ReadValue(
+                //            doc,
+                //            "lastModified",
+                //            DateTime.UtcNow.ToString(CultureInfo.InvariantCulture)),
+                //        CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal),
+                //    IsPublished = bool.Parse(ReadValue(doc, "ispublished", "true")),
+                //};
+
+                //LoadCategories(post, doc);
+                //LoadComments(post, doc);
+                //this.cache.Add(post);
+                //Console.WriteLine($"[POST LOADED]: {post.Title} - {timer.Elapsed}");
+            }
+            // Wait until all te posts are loaded
+            await Task.WhenAll(RunningTasks).ConfigureAwait(true);
+            this.cache = posts.ToList();
+            Console.WriteLine($"[ALL POSTS LOADED]: {globalTimer.Elapsed}");
+        }
+
+        [SuppressMessage(
+            "Globalization",
+            "CA1308:Normalize strings to uppercase",
+            Justification = "The slug should be lower case.")]
+        private async Task LoadPost(ConcurrentBag<Post> cb, string file)
+        {
+            await Task.Run(() =>
+            {
+                Stopwatch timer = new Stopwatch();
+                timer.Start();
                 var doc = XElement.Load(file);
 
                 var post = new Post
@@ -421,8 +481,9 @@ namespace Miniblog.Core.Services
 
                 LoadCategories(post, doc);
                 LoadComments(post, doc);
-                this.cache.Add(post);
-            }
+                cb.Add(post);
+                Console.WriteLine($"[POST LOADED]: {post.Title} - {timer.Elapsed}");
+            }).ConfigureAwait(true);
         }
     }
 }

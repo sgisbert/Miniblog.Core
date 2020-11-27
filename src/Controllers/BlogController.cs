@@ -155,6 +155,17 @@ namespace Miniblog.Core.Controllers
             return this.Redirect("/");
         }
 
+        [Route("/blog/refresh")]
+        [HttpGet]
+        public async Task<IActionResult> RefreshCache()
+        {
+            if (!this.HttpContext.User.Identity.IsAuthenticated)
+                return NotFound();
+
+            this.blog.RefreshCache();
+            return this.Redirect("/blog");
+        }
+
         [Route("/blog/edit/{id?}")]
         [HttpGet, Authorize]
         public async Task<IActionResult> Edit(string? id)

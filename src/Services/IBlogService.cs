@@ -10,6 +10,8 @@ namespace Miniblog.Core.Services
     {
         Task DeletePost(Post post);
 
+        void RefreshCache();
+
         IAsyncEnumerable<string> GetCategories();
 
         IAsyncEnumerable<KeyValuePair<string,int>> GetGroupedCategories();
@@ -21,6 +23,7 @@ namespace Miniblog.Core.Services
         Task<Post?> GetPostBySlug(string slug);
 
         Task<Post?> GetNextPost(string id);
+
         Task<Post?> GetPreviousPost(string id);
 
         Task<int> GetPostsCountAsync();

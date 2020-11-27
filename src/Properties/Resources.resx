@@ -147,6 +147,9 @@
   <data name="PoweredBy" xml:space="preserve">
     <value>Powered by</value>
   </data>
+  <data name="RefreshCache" xml:space="preserve">
+    <value>Refresh Cache</value>
+  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Sign in</value>
   </data>

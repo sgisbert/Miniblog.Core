@@ -151,6 +151,15 @@ namespace Miniblog.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Refresh Cache.
+        /// </summary>
+        public static string RefreshCache {
+            get {
+                return ResourceManager.GetString("RefreshCache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sign in.
         /// </summary>
         public static string SignIn {

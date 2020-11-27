@@ -19,6 +19,7 @@
 				@if (User.Identity.IsAuthenticated)
 				{
 					<li><a asp-controller="Blog" asp-action="Edit" asp-route-id="">@Miniblog.Core.Properties.Resources.NewPost</a></li>
+					<li><a asp-controller="Blog" asp-action="RefreshCache">@Miniblog.Core.Properties.Resources.RefreshCache</a></li>
 					<li><a href="~/logout/" title="@Miniblog.Core.Properties.Resources.SignOutAsAdministrator">@Miniblog.Core.Properties.Resources.SignOut</a></li>
 				}
 				@*<li class="dropdown">

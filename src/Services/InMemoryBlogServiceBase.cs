@@ -20,6 +20,8 @@ namespace Miniblog.Core.Services
 
         public abstract Task DeletePost(Post post);
 
+        public abstract void RefreshCache();
+
         [SuppressMessage(
             "Globalization",
             "CA1308:Normalize strings to uppercase",
