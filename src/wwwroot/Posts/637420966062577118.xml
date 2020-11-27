@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<post>
+  <title>Cómo gestionar la traducción de contenidos en ASP.NET MVC</title>
+  <slug>como-gestionar-la-traduccion-de-contenidos-en-asp-net-mv</slug>
+  <pubDate>2014-02-26T18:07:49.823Z</pubDate>
+  <lastModified>2020-11-27T18:07:50.006Z</lastModified>
+  <excerpt>Aprovechando la reciente traducción de este sitio web al inglés, voy a dedicar este post a explicar cómo gestionar la traducción de contenidos en ASP.NET MVC multi idioma, cuando hablamos de contenido con cierto tamaño y formato, es decir, más allá de los archivos de recursos, útiles sobre todo para palabras o frases cortas.</excerpt>
+  <content>&lt;p&gt;Aprovechando la reciente traducci&amp;oacute;n de este sitio web al ingl&amp;eacute;s, voy a dedicar este post a explicar c&amp;oacute;mo gestionar la traducci&amp;oacute;n de contenidos en ASP.NET MVC multi idioma, cuando hablamos de contenido con cierto tama&amp;ntilde;o y formato, es decir, m&amp;aacute;s all&amp;aacute; de los archivos de recursos, &amp;uacute;tiles sobre todo para palabras o frases cortas.&lt;/p&gt;
+&lt;h3&gt;Traducci&amp;oacute;n mediante archivos de recursos&lt;/h3&gt;
+&lt;p&gt;En mi caso, al iniciar la traducci&amp;oacute;n, empec&amp;eacute; utilizando archivos de Recursos (.resx), que permiten disponer de una librer&amp;iacute;a de recursos organizados por clave-valor, en este caso, cadenas, donde es el propio servidor el que gestiona qu&amp;eacute; idioma mostrar.&lt;/p&gt;
+&lt;p&gt;Para ello, se dispone de un archivo &amp;laquo;Content.resx&amp;raquo; donde se definen todos los textos que vamos a utilizar, con su clave correspondiente:&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/Posts/files/resources1_637420972698645280.png" alt="resources1.png" width="560" height="165" /&gt;&lt;/p&gt;
+&lt;p&gt;A continuaci&amp;oacute;n, creamos un archivo con el mismo nombre, pero a&amp;ntilde;adi&amp;eacute;ndole el sufijo del c&amp;oacute;digo ISO del idioma al que queremos traducir, que en el caso del ingl&amp;eacute;s es &amp;laquo;en&amp;raquo;. Por tanto, el archivo ser&amp;aacute; &amp;laquo;Content.en.resx&amp;raquo;, y duplicamos las claves del archivo original, pero traduciendo el contenido en este caso:&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/Posts/files/resources2_637420972699040489.png" alt="resources2.png" width="560" height="165" /&gt;&lt;/p&gt;
+&lt;p&gt;La aplicaci&amp;oacute;n utiliza los valores de:&lt;/p&gt;
+&lt;pre class="language-csharp"&gt;&lt;code&gt;Thread.CurrentThread.CurrentUICulture
+Thread.CurrentThread.CurrentCulture&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;para determinar el idioma a utilizar, y para ello utilizar&amp;aacute; el sufijo que hemos a&amp;ntilde;adido al archivo de recursos. En caso de no encontrar ning&amp;uacute;n archivo con el sufijo correcto (&amp;laquo;de&amp;raquo;, por ejemplo), utilizar&amp;aacute; el archivo sin sufijo como fallback. Por eso este archivo sin sufijo siempre representa el idioma por defecto de nuestro contenido.&lt;/p&gt;
+&lt;p&gt;Las ventajas de este sistema es que al estar los recursos dentro del ensamblado, el acceso a los mismos es inmediato y es el sistema el que se encarga de decidir qu&amp;eacute; archivo de recursos utilizar en funci&amp;oacute;n del idioma, liber&amp;aacute;ndonos de dicha tarea.&lt;/p&gt;
+&lt;p&gt;En nuestro ejemplo, ya podemos utilizar en la vista el siguiente c&amp;oacute;digo (si&amp;nbsp;&lt;em&gt;Content.resx&lt;/em&gt;&amp;nbsp;est&amp;aacute; en el ra&amp;iacute;z de la aplicaci&amp;oacute;n):&lt;/p&gt;
+&lt;pre class="language-markup"&gt;&lt;code&gt;&amp;lt;h4&amp;gt;@Content.Academic&amp;lt;/h4&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;que mostrar&amp;aacute; el subt&amp;iacute;tulo &amp;laquo;Formaci&amp;oacute;n acad&amp;eacute;mica&amp;raquo; en la tercera pesta&amp;ntilde;a de la p&amp;aacute;gina &amp;laquo;&lt;a href="http://www.sergigisbert.com/es/about" target="_blank" rel="noopener"&gt;/es/about&lt;/a&gt;&amp;raquo;, mientras que mostrar&amp;aacute; &amp;laquo;Academic&amp;raquo; en la p&amp;aacute;gina &amp;laquo;&lt;a href="http://www.sergigisbert.com/en/about" target="_blank" rel="noopener"&gt;/en/about&lt;/a&gt;&amp;raquo;. En este caso, utilizo un par&amp;aacute;metro en cada ruta &amp;laquo;{culture}/about&amp;raquo; que indica el idioma a seleccionar.&lt;/p&gt;
+&lt;p&gt;El c&amp;oacute;digo de ejemplo que gestiona el cambio de idioma ser&amp;iacute;a:&lt;/p&gt;
+&lt;pre class="language-csharp"&gt;&lt;code&gt;String routeCulture = requestContext.RouteData.Values["culture"].ToString();
+
+CultureInfo cultureInfo = new CultureInfo(routeCulture);
+Thread.CurrentThread.CurrentUICulture = cultureInfo;
+Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(cultureInfo.Name);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Que implica que hemos definido en nuestra tabla de rutas que &amp;eacute;stas tienen un par&amp;aacute;metro&amp;nbsp;{culture}&amp;nbsp;en cada una de ellas.&amp;nbsp;La gesti&amp;oacute;n de rutas multi idioma la dejaremos para otra publicaci&amp;oacute;n.&lt;/p&gt;
+&lt;p&gt;Pero utilizar archivos de recursos tiene dos problemas fundamentales:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Al ser archivos compilados, es necesario volver a compilar y publicar las DLLs del site para cualquier modificaci&amp;oacute;n, lo que le resta versatilidad y mantenimiento.&lt;/li&gt;
+&lt;li&gt;Cuando necesitamos traducir grandes bloques de contenido, que a su vez incorporan formato HTML, se convierte en un formato poco manejable y que mezcla formato con contenido. Como ejemplo, si accedemos a una p&amp;aacute;gina con descripci&amp;oacute;n de proyecto, como&amp;nbsp;&lt;a href="http://www.sergigisbert.com/es/Projects/web-personal" target="_blank" rel="noopener"&gt;/es/Projects/web-personal&lt;/a&gt;, observamos que las secciones de &amp;laquo;&lt;em&gt;Descripci&amp;oacute;n del proyecto&lt;/em&gt;&amp;raquo; o &amp;laquo;&lt;em&gt;Responsabilidades y tarea&lt;/em&gt;s&amp;raquo; contienen gran cantidad de texto y formato.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Markdown al rescate&lt;/h3&gt;
+&lt;p&gt;Para solucionarlo he separado el contenido en archivos de&amp;nbsp;&lt;a title="Markdown" href="https://en.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener"&gt;Markdown&lt;/a&gt;&amp;nbsp;para editar el contenido. La sintaxis de Markdown es muy sencilla, y se hizo muy popular para la edici&amp;oacute;n de Wikis, por ejemplo. Existen diversos editores para modificar archivos markdown, si no queremos tener que aprender la sintaxis. Yo estoy utilizando&amp;nbsp;&lt;a title="Markdown Pad" href="http://markdownpad.com/" target="_blank" rel="noopener"&gt;Markdown Pad 2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para diferenciar los idiomas, sigo utilizando la misma filosof&amp;iacute;a de sufijos ISO que con los archivos de recursos, a&amp;ntilde;adiendo &amp;laquo;.en&amp;raquo; a los archivos en ingl&amp;eacute;s. De esta manera, por ejemplo, para traducir el contenido de la secci&amp;oacute;n&amp;nbsp;&amp;laquo;&lt;em&gt;Responsabilidades y tareas&lt;/em&gt;&amp;raquo; del ejemplo anterior,&amp;nbsp;&lt;a href="http://www.sergigisbert.com/es/Projects/web-personal" target="_blank" rel="noopener"&gt;/es/Projects/web-personal&lt;/a&gt;, tenemos 2 archivos:&amp;nbsp;Project12-tasks.md&amp;nbsp;y&amp;nbsp;Project12-tasks.en.md. De esta manera, la gesti&amp;oacute;n del contenido se hace con un editor especializado, que me permite modificar el formato de manera sencilla, y los cambios son visibles con tan s&amp;oacute;lo subir el archivo afectado, sin tener que recompilar el site.&lt;/p&gt;
+&lt;p&gt;La edici&amp;oacute;n de un archivo de markup es tan sencilla como abrir el archivo con el editor y realizar las modificaciones al contenido:&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/Posts/files/project12_tasks_637420972699246961.png" alt="project12_tasks.png" width="624" height="575" /&gt;&lt;/p&gt;
+&lt;p&gt;Como se puede observar, el propio archivo de markdown permite incluir c&amp;oacute;digos HTML, aunque luego no los muestre en la vista previa. Esto es importante porque nos permite total flexibilidad con nuestro contenido y luego veremos como este c&amp;oacute;digo HTML insertado s&amp;iacute; que es tenido en cuenta a la hora de generar el HTML asociado.&lt;/p&gt;
+&lt;p&gt;A modo de ejemplo, as&amp;iacute; es como ha quedado organizado el contenido asociado con el proyecto 12 completo,&amp;nbsp;&lt;a href="http://www.sergigisbert.com/es/Projects/web-personal" target="_blank" rel="noopener"&gt;/es/Projects/web-personal&lt;/a&gt;:&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/Posts/files/project_md_637420972699417036.png" alt="project_md.png" width="210" height="240" /&gt;&lt;/p&gt;
+&lt;p&gt;Donde observamos un archivo de recursos para los textos sencillos, y dos archivos de markdown para las dos secciones complejas, y en cada caso, la correspondiente r&amp;eacute;plica en ingl&amp;eacute;s.&lt;/p&gt;
+&lt;h3&gt;De markdown a HTML&lt;/h3&gt;
+&lt;p&gt;Obviamante, el formato markdown no se puede mostrar directamente en el navegador como tal, sino que tenemos que transformarlo al HTML correspondiente y enviarlo a la vista.&lt;/p&gt;
+&lt;p&gt;Para ello, utilizo la librer&amp;iacute;a de c&amp;oacute;digo abierto&amp;nbsp;&lt;a title="MarkdownDeep" href="http://www.toptensoftware.com/markdowndeep/" target="_blank" rel="noopener"&gt;MarkdowDeep&lt;/a&gt;, que nos permite transformar el contenido markdown en HTML con muy poco esfuerzo. Tambi&amp;eacute;n implementa una librer&amp;iacute;a de cliente que nos permitir&amp;iacute;a editar el markdown desde el navegador, mediante javascript.&lt;/p&gt;
+&lt;p&gt;Para instalar la librer&amp;iacute;a, utilizaremos Nuget. Existen dos versiones de la librer&amp;iacute;a: una que s&amp;oacute;lo incluye la parte de .NET y otra que incluye adem&amp;aacute;s el c&amp;oacute;digo de cliente. En mi caso, s&amp;oacute;lo he necesitado la versi&amp;oacute;n de .NET, por lo que procedemos a su instalaci&amp;oacute;n, desde la Consola de Nuget:&lt;/p&gt;
+&lt;pre class="language-csharp"&gt;&lt;code&gt;PM&amp;gt; Install-Package MarkdownDeep.NET&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;O a trav&amp;eacute;s del gestor de paquetes de Nuget:&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/Posts/files/markdowndeep_637420972699810527.png" alt="markdowndeep.png" width="851" height="252" /&gt;&lt;/p&gt;
+&lt;p&gt;Una vez instalada, la manera m&amp;aacute;s sencilla de utilizar es cre&amp;aacute;ndonos una extensi&amp;oacute;n de HtmlHelper que gestione esta tarea:&lt;/p&gt;
+&lt;pre class="language-csharp"&gt;&lt;code&gt;    /// &amp;lt;summary&amp;gt;
+    /// Lectura de archivos de contenido en markdown
+    /// &amp;lt;/summary&amp;gt;
+    public static class MarkdownExtension
+    {
+        #region "M&amp;eacute;todos"
+
+        public static IHtmlString RenderMarkdown(this HtmlHelper helper, string filename)
+        {
+                var selectedLanguage = helper.ViewContext.Controller.ControllerContext.GetSelectedLanguage();
+                var pathSelected = helper.ViewContext.HttpContext.Server.MapPath(filename + "." + selectedLanguage + ".md");
+                var pathDefault = helper.ViewContext.HttpContext.Server.MapPath(filename + ".md");
+                if (!File.Exists(pathSelected))
+                    if (!File.Exists(pathDefault))
+                        return helper.Raw("File " + pathDefault + " not found");
+                    else
+                        pathSelected = pathDefault;
+
+                // Load source text
+                var text = File.ReadAllText(pathSelected);
+
+                // Setup processor
+                var md = new MarkdownDeep.Markdown
+                {
+                    SafeMode = false,
+                    ExtraMode = true,
+                    AutoHeadingIDs = true,
+                    MarkdownInHtml = true,
+                    NewWindowForExternalLinks = true
+                };
+
+                // Write it
+                return helper.Raw(md.Transform(text));
+            }
+
+        #endregion
+
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notas a destacar:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;La funci&amp;oacute;n recibe como par&amp;aacute;metro el nombre base del archivo a generar, por ejemplo &amp;laquo;/Texts/Projects/Project12/Project12-desc&amp;raquo;, y ella ya se encarga de a&amp;ntilde;adirle el sufijo de idioma correspondiente y la extensi&amp;oacute;n &amp;laquo;.md&amp;raquo;&lt;/li&gt;
+&lt;li&gt;Si no encuentra el archivo con la extensi&amp;oacute;n del idioma seleccionado, utiliza como&amp;nbsp;fallback&amp;nbsp;el archivo por defecto sin idioma.&lt;/li&gt;
+&lt;li&gt;La lectura del archivo se puede almacenar en Cach&amp;eacute;, si queremos aligerar la carga de proceso, aunque seg&amp;uacute;n mis pruebas, y al ser archivos relativamente peque&amp;ntilde;os, la mejora es muy poca, del orden de 2ms por archivo.&lt;/li&gt;
+&lt;li&gt;Al instanciar la librer&amp;iacute;a de Markdown con la propiedad&amp;nbsp;MarkdownInHtml = true,&amp;nbsp;permite que el HTML incluido en el archivo se incorpore tambi&amp;eacute;n a la salida.&lt;/li&gt;
+&lt;li&gt;Finalmente, devolvemos el resultado de la generaci&amp;oacute;n con&amp;nbsp;Raw()&amp;nbsp;para que el HTML no se interprete como texto, sino como salida tal cual.&lt;/li&gt;
+&lt;li&gt;La l&amp;iacute;nea de c&amp;oacute;digo:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="language-csharp"&gt;&lt;code&gt;var selectedLanguage = helper.ViewContext.Controller.ControllerContext.GetSelectedLanguage();&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;obtiene el idioma seleccionado, en mi caso, de la ruta. Esta l&amp;iacute;nea depender&amp;aacute; de la implementaci&amp;oacute;n del idioma de cada uno.&lt;/p&gt;
+&lt;p&gt;Una vez tenemos la extensi&amp;oacute;n implementada, tan s&amp;oacute;lo nos queda utilizarla en nuestra vista:&lt;/p&gt;
+&lt;pre class="language-csharp"&gt;&lt;code&gt;@Html.RenderMarkdown("/Texts/Projects/Project12/Project12-desc")&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Como nota adicional, he tenido problemas si la ruta del archivo no es un literal de texto, sino una cadena din&amp;aacute;mica. En este caso, en lugar de utilizar la extensi&amp;oacute;n, he tenido que utilizar directamente la clase est&amp;aacute;tica para acceder al m&amp;eacute;todo:&lt;/p&gt;
+&lt;pre class="language-csharp"&gt;&lt;code&gt;@MarkdownExtension.RenderMarkdown(Html, "/Texts/Projects/Project" + Model.Id.ToString() + "/Project" + Model.Id.ToString() + "-desc")&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Conclusiones&lt;/h3&gt;
+&lt;p&gt;La combinaci&amp;oacute;n de archivos de recursos para textos cortos y sencillos, con archivos de texto para contenido m&amp;aacute;s elaborados y con formato (en este caso mediante Markdown) nos permiten realizar una gesti&amp;oacute;n sencilla de aplicaciones multi idioma, f&amp;aacute;cilmente ampliables a nuevos idiomas en un futuro y que facilitan la actualizaci&amp;oacute;n de los contenidos en un futuro.&lt;/p&gt;
+&lt;p&gt;Seguramente hay otras soluciones y cada uno tiene sus trucos, pero esta es la que he utilizado yo en mi propia web. &amp;iquest;Y t&amp;uacute;, c&amp;oacute;mo gestionas grandes bloques de contenido multi idioma? &amp;iexcl;Se aceptan sugerencias!&lt;/p&gt;
+&lt;p style="box-sizing: border-box; border-radius: 0px !important; margin: 0px 0px 10.5px; color: #555555; line-height: 1.6; text-align: justify; font-family: 'open sans', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"&gt;&amp;nbsp;&lt;/p&gt;</content>
+  <ispublished>true</ispublished>
+  <categories>
+    <category>tips</category>
+    <category>mvc</category>
+    <category>i18n</category>
+    <category>c#</category>
+  </categories>
+  <comments></comments>
+</post>
