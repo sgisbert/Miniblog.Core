@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<post>
+  <title>Cómo instalar MiniProfiler en Sitecore CMS</title>
+  <slug>como-instalar-miniprofiler-en-sitecore-cms</slug>
+  <pubDate>2014-09-30T13:53:22.561Z</pubDate>
+  <lastModified>2020-11-27T13:53:22.605Z</lastModified>
+  <excerpt>Sitecore permite añadir nuestro propio código, y, por ello, obtener el mejor rendimiento nos corresponde a nosotros. Para ayudarnos en esta tarea, estoy utilizando &lt;a title="MiniProfiler" href="http://miniprofiler.com/" target="_blank"&gt;MiniProfiler&lt;/a&gt;, que es un plugin para monitorizar aplicaciones web desarrolladas en .NET, muy útil para analizar el rendimiento de nuestras páginas en «tiempo real», sin la necesidad de indagar a posteriori en el &lt;em&gt;log&lt;/em&gt; de Sitecore, o utilizar las herramientas de &lt;em&gt;profiling&lt;/em&gt; que también nos ofrece. Además, está disponible como código abierto en GitHub: &lt;a title="MiniProfiler en GitHub" href="https://github.com/MiniProfiler" target="_blank"&gt;https://github.com/MiniProfiler&lt;/a&gt;.
+&lt;br /&gt;&lt;br/&gt;
+Lo que a priori parecía una tarea sencilla, «Instalar MiniProfiler en Sitecore», terminó necesitando cierto tiempo de investigación (aún me queda mucho Sitecore que aprender…), por lo que reproduzco a continuación los pasos necesarios para activar MiniProfiler en una instancia de Sitecore, en mi caso, la versión 6.6, aunque entiendo que será muy similar para cualquier versión posterior.</excerpt>
+  <content>&lt;p&gt;Hace unos meses que empec&amp;eacute; una nueva andadura profesional, que me ha tenido bastante ocupado, por lo que no he tenido tiempo de actualizar el blog con nuevo contenido, hasta ahora.&lt;/p&gt;
+&lt;p&gt;&amp;Uacute;ltimamente, dedico mi tiempo profesional a trabajar con&amp;nbsp;&lt;a title="Sitecore" href="http://www.sitecore.net/" target="_blank" rel="noopener"&gt;Sitecore&lt;/a&gt;, que es un CMS desarrollado en .Net, enfocado a grandes webs corporativas con grandes vol&amp;uacute;menes de contenido y requisitos de personalizaci&amp;oacute;n. Este CMS, a pesar de su complejidad, tiene un rendimiento notable, gracias a varios niveles de cach&amp;eacute; incorporados, que funcionan bastante bien.&lt;/p&gt;
+&lt;p&gt;Sin embargo, Sitecore permite a&amp;ntilde;adir nuestro propio c&amp;oacute;digo, y, en este caso, obtener el mejor rendimiento nos corresponde a nosotros. Para ayudarnos en esta tarea, estoy utilizando&amp;nbsp;&lt;a title="MiniProfiler" href="http://miniprofiler.com/" target="_blank" rel="noopener"&gt;MiniProfiler&lt;/a&gt;, que es un plugin para monitorizar aplicaciones web desarrolladas en .NET, muy &amp;uacute;til para analizar el rendimiento de nuestras p&amp;aacute;ginas en &amp;laquo;tiempo real&amp;raquo;, sin la necesidad de indagar a posteriori en el&amp;nbsp;log&amp;nbsp;de Sitecore, o utilizar las herramientas de&amp;nbsp;profiling&amp;nbsp;que tambi&amp;eacute;n nos ofrece. Adem&amp;aacute;s, est&amp;aacute; disponible como c&amp;oacute;digo abierto en GitHub:&amp;nbsp;&lt;a title="MiniProfiler en GitHub" href="https://github.com/MiniProfiler" target="_blank" rel="noopener"&gt;https://github.com/MiniProfiler&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Lo que a priori parec&amp;iacute;a una tarea sencilla, &amp;laquo;Instalar MiniProfiler en Sitecore&amp;raquo;, termin&amp;oacute; necesitando cierto tiempo de investigaci&amp;oacute;n (a&amp;uacute;n me queda mucho Sitecore que aprender&amp;hellip;), por lo que reproduzco a continuaci&amp;oacute;n los pasos necesarios para activar MiniProfiler en una instancia de Sitecore, en mi caso, la versi&amp;oacute;n 6.6, aunque entiendo que ser&amp;aacute; muy similar para cualquier versi&amp;oacute;n posterior.&lt;/p&gt;
+&lt;h2&gt;Instalar MiniProfiler en Sitecore&lt;/h2&gt;
+&lt;p&gt;El primer paso, obvio, consiste en instalar MiniProfiler en nuestro proyecto. Para ello, la manera m&amp;aacute;s sencilla es utilizar&amp;nbsp;&lt;a title="Nuget" href="https://www.nuget.org/packages/MiniProfiler/" target="_blank" rel="noopener"&gt;NuGet&lt;/a&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Abrir la ventana de comandos de NuGet.&lt;/li&gt;
+&lt;li&gt;Seleccionar en el desplegable de &amp;laquo;Proyecto por defecto&amp;raquo; el proyecto que contiene la aplicaci&amp;oacute;n web&lt;/li&gt;
+&lt;li&gt;Ejecutar el comando:&amp;nbsp;PM&amp;gt; Install-Package MiniProfiler&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;En este caso, estamos instalando la versi&amp;oacute;n b&amp;aacute;sica de MiniProfiler, suficiente para trabajar con ASP.NET WebForms. Pod&amp;eacute;is consultar en la web de&amp;nbsp;&lt;a title="MiniProfiler" href="http://miniprofiler.com/" target="_blank" rel="noopener"&gt;MiniProfiler&amp;nbsp;&lt;/a&gt;otras extensiones para MVC, EF, etc.&lt;/p&gt;
+&lt;h2&gt;Configuraci&amp;oacute;n de MiniProfiler&lt;/h2&gt;
+&lt;p&gt;A partir del&amp;nbsp;&lt;a title="Proyecto de ejemplo WebForms" href="https://github.com/MiniProfiler/dotnet/tree/master/Sample.WebForms"&gt;proyecto de ejemplo para WebForms&lt;/a&gt;, podemos configurar f&amp;aacute;cilmente nuestra aplicaci&amp;oacute;n web.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Global.asax.cs:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A&amp;ntilde;adir la configuraci&amp;oacute;n al archivo Global.asax.cs, que copiaremos de&amp;nbsp;&lt;a href="https://github.com/MiniProfiler/dotnet/blob/master/Sample.WebForms/Global.asax.cs" target="_blank" rel="noopener"&gt;https://github.com/MiniProfiler/dotnet/blob/master/Sample.WebForms/Global.asax.cs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;En el m&amp;eacute;todo, recomiendo a&amp;ntilde;adir las siguientes entradas a la lista de extensiones ignoradas por MiniProfiler, de manera que no apaezcan archivos est&amp;aacute;ticos ni las propias p&amp;aacute;ginas de Sitecore:&lt;br /&gt;
+&lt;div id="crayon-5f4d1188e8313255427709" data-settings=" touchscreen minimize scroll-mouseover"&gt;
+&lt;div&gt;
+&lt;pre class="language-csharp"&gt;&lt;code&gt;ignored.Add(".axd");
+ignored.Add(".xml");
+ignored.Add(".mp3");
+ignored.Add(".flv");
+ignored.Add(".js");
+ignored.Add(".css");
+ignored.Add(".gif");
+ignored.Add(".png");
+ignored.Add(".jpg");
+ignored.Add("~/media");
+ignored.Add("/sitecore/");&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Web.Config:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Comprobar que la secci&amp;oacute;n &amp;lt;Modules&amp;gt; tiene el atributo runAllManagedModulesForAllRequests="true".&lt;br /&gt;
+&lt;div id="crayon-5f4d1188e8335989609368" data-settings=" touchscreen minimize scroll-mouseover"&gt;
+&lt;div data-settings=""&gt;
+&lt;div&gt;
+&lt;pre class="language-markup"&gt;&lt;code&gt;&amp;lt;system.webServer&amp;gt;
+&amp;lt;modules runAllManagedModulesForAllRequests="true"&amp;gt;
+...
+&amp;lt;/modules&amp;gt;
+&amp;lt;/system.webServer&amp;gt;​&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;A&amp;ntilde;adir a la lista de URLs ignoradas por Sitecore la siguiente: /mini-profiler-resources,&amp;nbsp;sin eliminar las de Sitecore.&lt;br /&gt;
+&lt;div id="crayon-5f4d1188e8350436120929" data-settings=" touchscreen minimize scroll-mouseover"&gt;
+&lt;div data-settings=""&gt;
+&lt;div&gt;
+&lt;pre class="language-markup"&gt;&lt;code&gt;&amp;lt;setting name="IgnoreUrlPrefixes" value="/mini-profiler-resources|/sitecore/default.aspx|..."&amp;gt;​&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Por &amp;uacute;ltimo, nos queda a&amp;ntilde;adir a nuestro(s) layout(s) el c&amp;oacute;digo que incluye los archivos JS necesarios para mostrar los resultados en pantalla, justo antes de la etiqueta &amp;lt;/body&amp;gt;:&lt;br /&gt;
+&lt;div id="crayon-5f4d1188e835c119853413" data-settings=" touchscreen minimize scroll-mouseover"&gt;
+&lt;div data-settings=""&gt;
+&lt;div&gt;
+&lt;pre class="language-csharp"&gt;&lt;code&gt;&amp;lt;%= StackExchange.Profiling.MiniProfiler.RenderIncludes(useExistingjQuery:false) %&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A partir de este momento, publicamos los cambios en el site y ya debe de aparecernos la capa de&amp;nbsp;timing&amp;nbsp;que nos aporta MiniProfiler en la parte superior izquierda de nuestra web.&lt;/p&gt;</content>
+  <ispublished>true</ispublished>
+  <categories>
+    <category>sitecore</category>
+    <category>plugins</category>
+    <category>nuget</category>
+    <category>miniprofiler</category>
+    <category>cms</category>
+  </categories>
+  <comments></comments>
+</post>

@@ -2,7 +2,7 @@
 <post>
   <title>Cómo instalar WordPress en una carpeta de Azure Websites</title>
   <slug>como-instalar-wordpress-en-una-carpeta-de-azure-websites</slug>
-  <pubDate>2020-11-26T16:57:34.260Z</pubDate>
+  <pubDate>2014-11-7T16:57:34.260Z</pubDate>
   <lastModified>2020-11-26T16:57:34.266Z</lastModified>
   <excerpt>A raíz de una consulta que me llega, parece que instalar WordPress en una carpeta de Azure Websites no es tan común como pensaba, o, al menos, no está demasiado documentada. La idea es que http://www.miwebsite.com/blog pueda alojar una instancia de WordPress, mientras que en el raíz se mantenga una aplicación .Net. Este mismo escenario es el que  tenía yo mismo, en la anterior versión de este blog.</excerpt>
   <content>&lt;p&gt;A ra&amp;iacute;z de una consulta que me llega de&amp;nbsp;&lt;a title="Jes&amp;uacute;s Gonz&amp;aacute;lez" href="https://plus.google.com/u/1/+Jes%C3%BAsGonz%C3%A1lez" target="_blank" rel="noopener"&gt;Jes&amp;uacute;s Gonz&amp;aacute;lez&lt;/a&gt;&amp;nbsp;a trav&amp;eacute;s de Google+, parece que instalar WordPress en una carpeta de Azure Websites&amp;nbsp;no es tan com&amp;uacute;n como pensaba, o, al menos, no est&amp;aacute; demasiado documentada. La idea es que http://www.miwebsite.com/blog pueda alojar una instancia de WordPress, mientras que en el ra&amp;iacute;z se mantenga una aplicaci&amp;oacute;n .Net. Este mismo escenario es el que ten&amp;iacute;a yo mismo, en la anterior versi&amp;oacute;n de este blog.&lt;/p&gt;
