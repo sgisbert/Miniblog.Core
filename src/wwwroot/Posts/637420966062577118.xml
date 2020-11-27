@@ -3,7 +3,7 @@
   <title>Cómo gestionar la traducción de contenidos en ASP.NET MVC</title>
   <slug>como-gestionar-la-traduccion-de-contenidos-en-asp-net-mv</slug>
   <pubDate>2014-02-26T18:07:49.823Z</pubDate>
-  <lastModified>2020-11-27T18:07:50.006Z</lastModified>
+  <lastModified>2020-11-27T19:11:15.910Z</lastModified>
   <excerpt>Aprovechando la reciente traducción de este sitio web al inglés, voy a dedicar este post a explicar cómo gestionar la traducción de contenidos en ASP.NET MVC multi idioma, cuando hablamos de contenido con cierto tamaño y formato, es decir, más allá de los archivos de recursos, útiles sobre todo para palabras o frases cortas.</excerpt>
   <content>&lt;p&gt;Aprovechando la reciente traducci&amp;oacute;n de este sitio web al ingl&amp;eacute;s, voy a dedicar este post a explicar c&amp;oacute;mo gestionar la traducci&amp;oacute;n de contenidos en ASP.NET MVC multi idioma, cuando hablamos de contenido con cierto tama&amp;ntilde;o y formato, es decir, m&amp;aacute;s all&amp;aacute; de los archivos de recursos, &amp;uacute;tiles sobre todo para palabras o frases cortas.&lt;/p&gt;
 &lt;h3&gt;Traducci&amp;oacute;n mediante archivos de recursos&lt;/h3&gt;

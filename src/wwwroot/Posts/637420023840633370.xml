@@ -3,7 +3,7 @@
   <title>Optimización automática de imágenes en Kentico</title>
   <slug>optimizacion-automatica-imagenes-kentico</slug>
   <pubDate>2016-02-23T15:47:28.502Z</pubDate>
-  <lastModified>2020-11-26T16:46:08.906Z</lastModified>
+  <lastModified>2020-11-27T19:12:05.157Z</lastModified>
   <excerpt>Como todo CMS, el contenido de la web depende del trabajo de los editores, y en muchas ocasiones, la optimización del contenido no es la mejor posible. Uno de los principales problemas de rendimiento que puede sufrir nuestra web está en las imágenes que los editores suben a nuestra web. Por norma general, el editor no se va a preocupar de subir imágenes optimizadas, lo que supone que el peso de las páginas se verá incrementado en unos cuantos KBs de más, con lo que ello supone en cuanto a rendimiento y transferencia de datos.
 
 En este post,  muestro como optimizar las imágenes en Kentico automáticamente.</excerpt>
