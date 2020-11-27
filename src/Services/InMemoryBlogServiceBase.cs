@@ -38,7 +38,7 @@ namespace Miniblog.Core.Services
             return categories;
         }
 
-        public IAsyncEnumerable<KeyValuePair<string, int>> GetGroupedCategories()
+        public virtual IAsyncEnumerable<KeyValuePair<string, int>> GetGroupedCategories()
         {
             var isAdmin = this.IsAdmin();
 
@@ -53,7 +53,7 @@ namespace Miniblog.Core.Services
             return categories;
         }
 
-        public IAsyncEnumerable<KeyValuePair<string, Tuple<int, int, int>>> GetGroupedDates()
+        public virtual IAsyncEnumerable<KeyValuePair<string, Tuple<int, int, int>>> GetGroupedDates()
         {
             var isAdmin = this.IsAdmin();
 
@@ -91,7 +91,7 @@ namespace Miniblog.Core.Services
                 : post);
         }
 
-        public Task<Post?> GetNextPost(string id)
+        public virtual Task<Post?> GetNextPost(string id)
         {
             var isAdmin = this.IsAdmin();
             var post = this.cache.FirstOrDefault(p => p.ID.Equals(id, StringComparison.OrdinalIgnoreCase));
@@ -103,7 +103,7 @@ namespace Miniblog.Core.Services
                 : this.cache.ElementAt(index + 1));
         }
 
-        public Task<Post?> GetPreviousPost(string id)
+        public virtual Task<Post?> GetPreviousPost(string id)
         {
             var isAdmin = this.IsAdmin();
             var post = this.cache.FirstOrDefault(p => p.ID.Equals(id, StringComparison.OrdinalIgnoreCase));
@@ -147,7 +147,7 @@ namespace Miniblog.Core.Services
             return posts.ToAsyncEnumerable();
         }
 
-        public IAsyncEnumerable<Post> GetPostsByDate(int year, int month)
+        public virtual IAsyncEnumerable<Post> GetPostsByDate(int year, int month)
         {
             var isAdmin = this.IsAdmin();
             var initDate = new DateTime(year, month, 1);
@@ -160,7 +160,7 @@ namespace Miniblog.Core.Services
             return posts.ToAsyncEnumerable();
         }
 
-        public async Task<int> GetPostsCountAsync()
+        public virtual async Task<int> GetPostsCountAsync()
         {
             var isAdmin = this.IsAdmin();
 

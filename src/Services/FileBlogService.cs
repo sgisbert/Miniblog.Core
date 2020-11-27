@@ -84,7 +84,7 @@ namespace Miniblog.Core.Services
                 .ToAsyncEnumerable();
         }
 
-        public IAsyncEnumerable<KeyValuePair<string, int>> GetGroupedCategories()
+        public virtual IAsyncEnumerable<KeyValuePair<string, int>> GetGroupedCategories()
         {
             var isAdmin = this.IsAdmin();
 
@@ -97,7 +97,7 @@ namespace Miniblog.Core.Services
                 .ToAsyncEnumerable();
         }
 
-        public IAsyncEnumerable<KeyValuePair<string, Tuple<int, int, int>>> GetGroupedDates()
+        public virtual IAsyncEnumerable<KeyValuePair<string, Tuple<int, int, int>>> GetGroupedDates()
         {
             var isAdmin = this.IsAdmin();
 
@@ -135,7 +135,7 @@ namespace Miniblog.Core.Services
                 : post);
         }
 
-        public Task<Post?> GetNextPost(string id)
+        public virtual Task<Post?> GetNextPost(string id)
         {
             var isAdmin = this.IsAdmin();
             var post = this.cache.FirstOrDefault(p => p.ID.Equals(id, StringComparison.OrdinalIgnoreCase));
@@ -147,7 +147,7 @@ namespace Miniblog.Core.Services
                 : this.cache.ElementAt(index + 1));
         }
 
-        public Task<Post?> GetPreviousPost(string id)
+        public virtual Task<Post?> GetPreviousPost(string id)
         {
             var isAdmin = this.IsAdmin();
             var post = this.cache.FirstOrDefault(p => p.ID.Equals(id, StringComparison.OrdinalIgnoreCase));
@@ -158,8 +158,6 @@ namespace Miniblog.Core.Services
                 ? null
                 : this.cache.ElementAt(index - 1));
         }
-
-
 
         /// <remarks>Overload for getPosts method to retrieve all posts.</remarks>
         public virtual IAsyncEnumerable<Post> GetPosts()
@@ -186,7 +184,7 @@ namespace Miniblog.Core.Services
             return posts;
         }
 
-        public async Task<int> GetPostsCountAsync()
+        public virtual async Task<int> GetPostsCountAsync()
         {
             var isAdmin = this.IsAdmin();
 
@@ -209,7 +207,7 @@ namespace Miniblog.Core.Services
             return posts.ToAsyncEnumerable();
         }
 
-        public IAsyncEnumerable<Post> GetPostsByDate(int year, int month)
+        public virtual IAsyncEnumerable<Post> GetPostsByDate(int year, int month)
         {
             var isAdmin = this.IsAdmin();
             var initDate = new DateTime(year, month, 1);
