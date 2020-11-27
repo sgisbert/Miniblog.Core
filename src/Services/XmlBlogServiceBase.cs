@@ -1,18 +1,27 @@
 namespace Miniblog.Core.Services
 {
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
 
     using Miniblog.Core.Models;
 
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
+    using System.IO;
     using System.Linq;
+    using System.Text.RegularExpressions;
+    using System.Threading;
     using System.Threading.Tasks;
+    using System.Xml.Linq;
+    using System.Xml.XPath;
 
-    public abstract class InMemoryBlogServiceBase : IBlogService
+    public abstract class XmlBlogServiceBase : IBlogService
     {
-        protected InMemoryBlogServiceBase(IHttpContextAccessor contextAccessor) => this.ContextAccessor = contextAccessor;
+        protected XmlBlogServiceBase(IHttpContextAccessor contextAccessor) => this.ContextAccessor = contextAccessor;
 
         protected List<Post> Cache { get; set; } = new List<Post>();
 
@@ -192,5 +201,109 @@ namespace Miniblog.Core.Services
         protected bool IsAdmin() => this.ContextAccessor.HttpContext?.User?.Identity.IsAuthenticated ?? false;
 
         protected void SortCache() => this.Cache.Sort((p1, p2) => p2.PubDate.CompareTo(p1.PubDate));
+
+        #region Private methods
+
+        protected static string CleanFromInvalidChars(string input)
+        {
+            // ToDo: what we are doing here if we switch the blog from windows to unix system or
+            // vice versa? we should remove all invalid chars for both systems
+
+            var regexSearch = Regex.Escape(new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars()));
+            var r = new Regex($"[{regexSearch}]");
+            return r.Replace(input, string.Empty);
+        }
+
+        protected static string FormatDateTime(DateTime dateTime)
+        {
+            const string UTC = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'";
+
+            return dateTime.Kind == DateTimeKind.Utc
+                ? dateTime.ToString(UTC, CultureInfo.InvariantCulture)
+                : dateTime.ToUniversalTime().ToString(UTC, CultureInfo.InvariantCulture);
+        }
+
+        protected static void LoadCategories(Post post, XElement doc)
+        {
+            var categories = doc.Element("categories");
+            if (categories is null)
+            {
+                return;
+            }
+
+            post.Categories.Clear();
+            categories.Elements("category").Select(node => node.Value).ToList().ForEach(post.Categories.Add);
+        }
+
+        protected static void LoadComments(Post post, XElement doc)
+        {
+            var comments = doc.Element("comments");
+
+            if (comments is null)
+            {
+                return;
+            }
+
+            foreach (var node in comments.Elements("comment"))
+            {
+                var comment = new Comment
+                {
+                    ID = ReadAttribute(node, "id"),
+                    Author = ReadValue(node, "author"),
+                    Email = ReadValue(node, "email"),
+                    IsAdmin = bool.Parse(ReadAttribute(node, "isAdmin", "false")),
+                    Content = ReadValue(node, "content"),
+                    PubDate = DateTime.Parse(ReadValue(node, "date", "2000-01-01"),
+                        CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal),
+                };
+
+                post.Comments.Add(comment);
+            }
+        }
+
+        protected static string ReadAttribute(XElement element, XName name, string defaultValue = "") =>
+            element.Attribute(name) is null ? defaultValue : element.Attribute(name)?.Value ?? defaultValue;
+
+        protected static string ReadValue(XElement doc, XName name, string defaultValue = "") =>
+            doc.Element(name) is null ? defaultValue : doc.Element(name)?.Value ?? defaultValue;
+
+        [SuppressMessage(
+            "Globalization",
+            "CA1308:Normalize strings to uppercase",
+            Justification = "The slug should be lower case.")]
+        protected static async Task LoadPost(ConcurrentBag<Post> cb, string file)
+        {
+            await Task.Run(() =>
+            {
+                Stopwatch timer = new Stopwatch();
+                timer.Start();
+                var doc = XElement.Load(file);
+
+                var post = new Post
+                {
+                    ID = Path.GetFileNameWithoutExtension(file),
+                    Title = ReadValue(doc, "title"),
+                    Excerpt = ReadValue(doc, "excerpt"),
+                    Content = ReadValue(doc, "content"),
+                    Slug = ReadValue(doc, "slug").ToLowerInvariant(),
+                    PubDate = DateTime.Parse(ReadValue(doc, "pubDate"), CultureInfo.InvariantCulture,
+                        DateTimeStyles.AdjustToUniversal),
+                    LastModified = DateTime.Parse(
+                        ReadValue(
+                            doc,
+                            "lastModified",
+                            DateTime.UtcNow.ToString(CultureInfo.InvariantCulture)),
+                        CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal),
+                    IsPublished = bool.Parse(ReadValue(doc, "ispublished", "true")),
+                };
+
+                LoadCategories(post, doc);
+                LoadComments(post, doc);
+                cb.Add(post);
+                Console.WriteLine($"[POST LOADED]: {post.Title} - {timer.Elapsed}");
+            }).ConfigureAwait(true);
+        }
+
+        #endregion
     }
 }
